@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{EC6D64E9-09EE-4658-9DB2-AF1ADA6937F1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{A10ECCDA-5DB4-43F0-A9BF-6B321EDD573B}"
+	ProjectSection(SolutionItems) = preProject
+		__about.txt = __about.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{783B1F78-F708-4BF6-B50C-F2AB3D3CCF08}"
 EndProject
@@ -35,6 +38,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Training.Kanban.UI", "src\W
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "59767"
+		SlnRelativePath = "src\Web\Training.Kanban.UI\"
 	EndProjectSection
 EndProject
 Global
