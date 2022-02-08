@@ -9,24 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{A10ECCDA-5DB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{783B1F78-F708-4BF6-B50C-F2AB3D3CCF08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Kanban.API", "Training.Kanban.API\Training.Kanban.API.csproj", "{72C3FE1F-3B3D-42C9-A6A8-2211CBB371BA}"
-EndProject
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{72C3FE1F-3B3D-42C9-A6A8-2211CBB371BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72C3FE1F-3B3D-42C9-A6A8-2211CBB371BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72C3FE1F-3B3D-42C9-A6A8-2211CBB371BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72C3FE1F-3B3D-42C9-A6A8-2211CBB371BA}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{72C3FE1F-3B3D-42C9-A6A8-2211CBB371BA} = {EC6D64E9-09EE-4658-9DB2-AF1ADA6937F1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3F42C87D-E3DE-4C11-B7F1-C70F80DF9DDA}
