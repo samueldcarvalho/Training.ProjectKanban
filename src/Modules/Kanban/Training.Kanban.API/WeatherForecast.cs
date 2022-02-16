@@ -1,6 +1,6 @@
 using System;
 
-namespace Tranining.Kanban.Quadros.API
+namespace Training.Kanban.API
 {
     public class WeatherForecast
     {

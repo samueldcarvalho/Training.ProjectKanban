@@ -4,8 +4,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:43017",
-      "sslPort": 44364
+      "applicationUrl": "http://localhost:56187",
+      "sslPort": 44384
     }
   },
   "profiles": {
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Tranining.Kanban.Quadros.API": {
+    "Training.Kanban.API": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

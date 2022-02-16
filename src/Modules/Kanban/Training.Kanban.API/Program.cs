@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Tranining.Kanban.Quadros.API
+namespace Training.Kanban.API
 {
     public class Program
     {

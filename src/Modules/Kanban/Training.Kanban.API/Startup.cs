@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Training.Kanban.Tarefas.API
+namespace Training.Kanban.API
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace Training.Kanban.Tarefas.API
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Training.Kanban.Tarefas.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Training.Kanban.API", Version = "v1" });
             });
         }
 
@@ -41,7 +41,7 @@ namespace Training.Kanban.Tarefas.API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Training.Kanban.Tarefas.API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Training.Kanban.API v1"));
             }
 
             app.UseHttpsRedirection();
