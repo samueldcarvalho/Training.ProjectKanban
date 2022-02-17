@@ -36,5 +36,10 @@ Esse projeto não visa fins lucrativos e será utilizado apenas para aprimorar m
 > - REACT.Js
 > - Styled Components
 > - Linguagem: Typescript, Javascript
+> 
+> ## **Test**
+> - TDD
+> - .NET5
+> - JestJs
 
 Para visualizar A **modelagem de domínio**, visualize o [ModelDomain](./_modeldomain.md)
