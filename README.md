@@ -2,7 +2,7 @@
 
 ## O que é **Kanban**?
 
-" **_Kanban_** é uma estrutura é usada para meios de produção e áreas cooperativas, além de ser popular na área de desenvolvimento de software ágil e de DevOps. Ele precisa de comunicação de capacidade em tempo real e transparência total de trabalho. Os itens de trabalho ganham representação visual em um quadro Kanban, permitindo que os membros da equipe vejam o estado de cada parte do trabalho a qualquer momento. "
+"**_Kanban_** é uma estrutura usada para meios de produção e áreas cooperativas, além de ser popular na área de desenvolvimento de software ágil e de DevOps. Ele precisa de comunicação de capacidade em tempo real e transparência total de trabalho. Os itens de trabalho ganham representação visual em um quadro Kanban, permitindo que os membros da equipe vejam o estado de cada parte do trabalho a qualquer momento."
 
 ## **Objetivo** do Projeto
 
