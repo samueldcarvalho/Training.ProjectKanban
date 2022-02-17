@@ -21,6 +21,7 @@ Esse projeto não visa fins lucrativos e será utilizado apenas para aprimorar m
 > ## **Infrastructure**
 > - .NET 5
 > - ASP.NET Core
+> - Container _`(Docker)`_
 > - Banco de Dados MYSQL
 > - ORM: Entity Framework Core
 > - Filas com mensageria _`(RabbitMQ)`_
