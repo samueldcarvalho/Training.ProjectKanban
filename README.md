@@ -36,4 +36,4 @@ Esse projeto não visa fins lucrativos e será utilizado apenas para aprimorar m
 > - Styled Components
 > - Linguagem: Typescript, Javascript
 
-Para visualizar A **modelagem de domínio**, visualize o arquivo [ModelDomain.md](./_modeldomain.md)
+Para visualizar A **modelagem de domínio**, visualize o [ModelDomain](./_modeldomain.md)
