@@ -40,6 +40,6 @@ Esse projeto não visa fins lucrativos e será utilizado apenas para aprimorar m
 > ## **Test**
 > - TDD
 > - .NET5
-> - JestJs
+> - Jest
 
 Para visualizar A **modelagem de domínio**, visualize o [ModelDomain](./_modeldomain.md)
