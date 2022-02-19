@@ -30,6 +30,8 @@ Esse projeto não visa fins lucrativos e será utilizado apenas para aprimorar m
 > - .NET 5
 > - ASP.NET Core
 > - Linguagem: C#
+> - CQS _`(Command Query Separation's Pattern)`_ 
+> - CQRS _`(Command Query Responsibility Segregation's Pattern)`_
 >
 > ## **User Interface**
 > - Framework NEXT.Js
