@@ -71,18 +71,13 @@ namespace Training.Kanban.Domain.Models.Entities
         public string? Descricao { get; private set; }
         public Usuario Lider { get; private set; }
         public List<Usuario> Usuarios { get; set; }
-        public List<Lista>? Listas { get; private set; }
+        //public List<Lista>? Listas { get; private set; }
 
         public Quadro(string nome, string descricao, Equipe equipe, Usuario lider)
         {
             Nome = nome;
             Descricao = descricao;
             Lider = lider;
-        }
-
-        public override bool IsValid()
-        {
-            return base.IsValid();
         }
     }
 }
