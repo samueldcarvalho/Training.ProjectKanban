@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Training.Kanban.Core\Training.Kanban.Core.csproj" />
+  </ItemGroup>
+
 </Project>
