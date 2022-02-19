@@ -35,11 +35,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Kanban.Core", "src
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{0E381D46-91A4-4BC2-8BA0-08FD5348CC4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Kanban.API", "src\Application\Training.Kanban.API\Training.Kanban.API.csproj", "{F50AED4C-19F6-41F5-AAE7-609DC07495AC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Kanban.Domain", "src\Application\Training.Kanban.Domain\Training.Kanban.Domain.csproj", "{AC41B9CE-D93A-4486-92F2-DFDA0B6919B2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Kanban.Infrastructure", "src\Application\Training.Kanban.Infrastructure\Training.Kanban.Infrastructure.csproj", "{29699515-9DC3-4506-A56A-4934877DFC60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{307024DD-7DEF-4B31-B085-4A2ACA5B8CCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,10 +55,6 @@ Global
 		{176070B5-C456-466E-B059-52F2F77968D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{176070B5-C456-466E-B059-52F2F77968D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{176070B5-C456-466E-B059-52F2F77968D6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F50AED4C-19F6-41F5-AAE7-609DC07495AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F50AED4C-19F6-41F5-AAE7-609DC07495AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F50AED4C-19F6-41F5-AAE7-609DC07495AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F50AED4C-19F6-41F5-AAE7-609DC07495AC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AC41B9CE-D93A-4486-92F2-DFDA0B6919B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC41B9CE-D93A-4486-92F2-DFDA0B6919B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC41B9CE-D93A-4486-92F2-DFDA0B6919B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -73,7 +69,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4BF1B114-34EB-4EB0-BACD-DD9EFFE29A53} = {A10ECCDA-5DB4-43F0-A9BF-6B321EDD573B}
-		{F50AED4C-19F6-41F5-AAE7-609DC07495AC} = {0E381D46-91A4-4BC2-8BA0-08FD5348CC4A}
+		{176070B5-C456-466E-B059-52F2F77968D6} = {307024DD-7DEF-4B31-B085-4A2ACA5B8CCC}
 		{AC41B9CE-D93A-4486-92F2-DFDA0B6919B2} = {0E381D46-91A4-4BC2-8BA0-08FD5348CC4A}
 		{29699515-9DC3-4506-A56A-4934877DFC60} = {0E381D46-91A4-4BC2-8BA0-08FD5348CC4A}
 	EndGlobalSection
