@@ -17,11 +17,11 @@ namespace Training.Kanban.Infrastructure.Contexts
                 .EnableSensitiveDataLogging()
                 .LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information);
         }
-
-        public DbSet<Equipe> Equipes { get; set; }
         public DbSet<Quadro> Quadros { get; set; }
+        public DbSet<Lista> Listas { get; set; }
+        public DbSet<Tarefa> Tarefas { get; set; }
 
-        public Task<bool> Commit()
+        public async Task<bool> Commit()
         {
             throw new System.NotImplementedException();
         }

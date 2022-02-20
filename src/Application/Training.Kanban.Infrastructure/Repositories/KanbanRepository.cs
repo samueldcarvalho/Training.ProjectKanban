@@ -20,9 +20,9 @@ namespace Training.Kanban.Infrastructure.Repositories
             _context = context;
         }
 
-        public void Adicionar(Equipe equipe)
+        public void Adicionar(Lista lista)
         {
-            _context.Equipes.Add(equipe);
+            _context.Listas.Add(lista);
         }
 
         public void Adicionar(Quadro quadro)
@@ -30,9 +30,9 @@ namespace Training.Kanban.Infrastructure.Repositories
             _context.Quadros.Add(quadro);
         }
 
-        public void Atualizar(Equipe equipe)
+        public void Adicionar(Tarefa tarefa)
         {
-            _context.Equipes.Update(equipe);
+            _context.Tarefas.Add(tarefa);
         }
 
         public void Atualizar(Quadro quadro)
@@ -40,32 +40,48 @@ namespace Training.Kanban.Infrastructure.Repositories
             _context.Quadros.Update(quadro);
         }
 
-        public void Dispose()
+        public void Atualizar(Tarefa tarefa)
         {
-            throw new NotImplementedException();
+            _context.Tarefas.Update(tarefa);
         }
 
-        public async Task<Equipe> ObterPorId(int equipeId)
+        public void Atualizar(Lista lista)
         {
-            return await _context.Equipes.AsNoTracking().FirstOrDefaultAsync(e =>
-                e.Id == equipeId);
+            _context.Listas.Update(lista);
         }
 
         public async Task<IEnumerable<Quadro>> ObterQuadrosPorEquipeIdUsuarioId(int equipeId, int usuarioId)
         {
             return await _context.Quadros.AsNoTracking().Where(q =>
-                q.CriadorId == usuarioId && q.EquipeId == equipeId).ToListAsync();
-        }
-
-        public async Task<IEnumerable<Equipe>> ObterTodas()
-        {
-            return await _context.Equipes.AsNoTracking().ToListAsync();
+                q.Criador.Id == usuarioId && q.Equipe.Id == equipeId).ToListAsync();
         }
 
         public async Task<IEnumerable<Quadro>> ObterQuadrosPorEquipeId(int equipeId)
         {
-            return await _context.Quadros.AsNoTracking().Where(q => 
-                q.EquipeId == equipeId).ToListAsync();
+            return await _context.Quadros.AsNoTracking().Where(q =>
+                q.Equipe.Id == equipeId).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Lista>> ObterListasPorQuadroId(int quadroId)
+        {
+            return await _context.Listas.AsNoTracking().Where(li =>
+                li.Quadro.Id == quadroId).ToListAsync();
+        }
+        public async Task<IEnumerable<Tarefa>> ObterTarefasPorListaId(int TarefaId)
+        {
+            return await _context.Tarefas.AsNoTracking().Where(t =>
+                t.Id == TarefaId).ToListAsync();
+        }
+        public async Task<IEnumerable<Tarefa>> ObterTarefasPorListaIdUsuarioId(int tarefaId, int usuarioId)
+        {
+            return await _context.Tarefas.AsNoTracking().Where(t =>
+                t.Id == tarefaId && t.Responsaveis.Any(user => 
+                    user.Id == usuarioId)).ToListAsync();
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
 }
