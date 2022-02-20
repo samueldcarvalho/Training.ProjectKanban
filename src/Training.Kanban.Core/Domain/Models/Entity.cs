@@ -1,17 +1,19 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using FluentValidation.Results;
 
 namespace Training.Kanban.Core.Models
 {
     public abstract class Entity
     {
+        [Key()]
         public int Id { get; private set; }
         public string Situacao { get; private set; }
-        public ValidationResult ValidationResult { get; protected set; }
+        public FluentValidation.Results.ValidationResult ValidationResult { get; protected set; }
 
         protected Entity()
         {
-            ValidationResult = new ValidationResult();
+            ValidationResult = new FluentValidation.Results.ValidationResult();
             Situacao = "ATIVO";
         }
 
