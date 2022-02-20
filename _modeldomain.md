@@ -1,4 +1,4 @@
-# **`Model Domain:` _Entities_**
+# **`Model [BASE] Domain:` _Entities_**
 
 ## **Entity**
 - Deve possuir um codigo
