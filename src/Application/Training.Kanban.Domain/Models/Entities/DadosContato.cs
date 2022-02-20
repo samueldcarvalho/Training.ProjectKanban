@@ -7,6 +7,7 @@ namespace Training.Kanban.Domain.Models.Entities
         public string Email { get; private set; }
         public string Telefone { get; private set; }
         public bool AceitaWhatsapp { get; private set; }
+        public Usuario Usuario { get; private set; }
 
         public DadosContato(string email, string telefone, bool aceitaWhatsapp)
         {
