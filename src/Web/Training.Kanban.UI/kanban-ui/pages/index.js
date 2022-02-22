@@ -1,3 +1,9 @@
 export default function Home() {
-    return "HELLO WORLD!";
+    return (
+        <body>
+            <header>
+                Kanban
+            </header>
+        </body>
+    );
 }
