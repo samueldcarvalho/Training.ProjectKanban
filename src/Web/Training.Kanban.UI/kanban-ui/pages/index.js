@@ -1,9 +1,13 @@
-export default function Home() {
+import Singin from "../components/singin/singin";
+
+
+
+export default function Entrar() {
     return (
-        <body>
-            <header>
-                Kanban
-            </header>
-        </body>
+        <div className="kb-sign">
+            <form className="kb-sign-form">
+                <Singin />
+            </form>
+        </div>
     );
 }
