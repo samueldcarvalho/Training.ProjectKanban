@@ -1,21 +1,23 @@
 export default function Singin() {
     return (
         <div className="kb-login-form-signup">
-            <span>
+            <p className="kb-form-title">
                 Login
-            </span>
+            </p>
             <div className="kb-login-entries">
                 <label for="kb-login-username">
+                    <p>Username</p>
                     <input type="text" className="kb-input-text-sign" id="kb-login-username" />
                 </label>
                 <label for="kb-login-password">
+                    <p>Password</p>
                     <input type="password" className="kb-input-text-sign" id="kb-login-password" />
                 </label>
             </div>
-            <span>
+            <div className="kb-remember-password">
                 <p>Lembrar a senha?</p>
                 <input type="checkbox" id="kb-input-checkbox-main" />
-            </span>
+            </div>
             <div>
                 <span>
                     <p className="kb-text-main">Esqueceu a senha? </p>
