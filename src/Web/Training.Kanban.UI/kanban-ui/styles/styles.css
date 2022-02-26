@@ -3,13 +3,56 @@
     .db-mainbar{
         background-color: var(--color-bg-secundary);
         border-bottom: 1px solid var(--color-border-primary);
+        height: 60px;
     }
 
+    .db-mainbar div{
+      height: 100%;
+    }
     .db-mainbar .db-mainbar-top{
         height: 60px;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
+    }
+
+    .db-mainbar-logo-container{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .db-navbar-options{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .db-navbar-buttons{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+
+    .db-navbar-buttons a{
+      margin-inline: 40px;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      font-weight: 500;
+    }
+
+    .db-navbar-buttons a:first-child{
+      margin-left: 0;
     }
 
   .kb-sign-body{
@@ -49,8 +92,8 @@
   }
   
   .kb-sign-change-form p{
-    font-size: 30px;
-    margin: 20px;
+    font-size: 24px;
+    margin: 10px 20px;
   }
   
   .kb-sign-form{
@@ -91,7 +134,7 @@
   }
   
   .kb-sign-form-inputs p{
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
   }
   
@@ -113,7 +156,7 @@
   }
   
   .kb-sing-form-label-remember-pass p{
-    font-size: 15px;
+    font-size: 13px;
   }
   
   
