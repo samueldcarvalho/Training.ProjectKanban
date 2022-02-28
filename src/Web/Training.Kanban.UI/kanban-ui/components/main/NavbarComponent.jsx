@@ -17,8 +17,10 @@ export default function NavbarComponent() {
                     </div>
 
                     <div className="col-2 db-navbar-end">
-                        <a className="db-navbar-button-taskpoints" href="">Look for Taskpoints!</a>
-                        <p>329</p>
+                        <div className="db-navbar-container-taskpoints">
+                            <a className="db-navbar-button-taskpoints" href="">Taskpoints</a>
+                            <p>329</p>
+                        </div>
                     </div>
                 </div>
             </header>
