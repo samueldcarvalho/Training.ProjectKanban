@@ -8,12 +8,12 @@ export default function Login() {
                     <div className="kb-sign-change-form">
                         <span>
                             <p>You don't have <br /> an account?</p>
-                            <button className="kb-secundary-button">Sing-up</button>
+                            <button className="kb-secundary-button">Sign-up</button>
                         </span>
                     </div>
                     <form className="kb-sign-form">
                         <div className="kb-sign-form-title">
-                            <p>Sign-in</p>
+                            <p>Access to Kanban</p>
                         </div>
                         <div className="kb-sign-form-inputs">
                             <label className="kb-sing-form-label" for="username">

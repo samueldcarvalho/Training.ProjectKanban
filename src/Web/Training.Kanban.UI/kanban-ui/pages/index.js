@@ -4,7 +4,9 @@ export default function Home() {
     return (
         <div>
             <NavbarComponent />
-            Teste
+            <div className="container">
+
+            </div>
         </div>
     )
 }
