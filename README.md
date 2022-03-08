@@ -24,7 +24,7 @@ Esse projeto não visa fins lucrativos e será utilizado apenas para aprimorar m
 > - Container _`(Docker)`_
 > - Banco de Dados MYSQL
 > - ORM: Entity Framework Core
-> - Filas com mensageria _`(RabbitMQ)`_
+> - Mensageria com _`Apache Kafka`_
 >
 > ## **Domain**
 > - .NET 5
