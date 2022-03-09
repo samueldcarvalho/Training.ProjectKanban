@@ -38,7 +38,7 @@ Esse projeto não visa fins lucrativos e será utilizado apenas para aprimorar m
 > - REACT.Js
 > - Styled Components
 > - Linguagem: Typescript, Javascript
-> - [Protótipo Figma](https://www.figma.com/file/hZKGbVWHvKCE1451MJd9eC/TaskProject?node-id=24%3A2)
+> - [Protótipo Figma](https://www.figma.com/file/OCCIsj1w4Kfhmn5kLe6rBA/Untitled)
 > 
 > ## **Test**
 > - TDD
