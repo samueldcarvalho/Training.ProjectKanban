@@ -173,7 +173,7 @@
   .kb-sign-form-title{
     display: inline-block;
     text-align: center;
-    font-size: 32px;
+    font-size: 26px;
     font-weight: bold;
   }
   
@@ -223,7 +223,7 @@
     background-color: var(--color-primary);
     border: none;
     padding: 10px 70px;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: bold;
     color: var(--color-font-primary-light);
     margin: 15px 0 0 0;
@@ -243,7 +243,7 @@
     background-color: transparent;
     border: 2px solid #fff;
     padding: 7px 50px;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: bold;
     color: var(--color-font-primary-light);
     margin: 15px 0 0 0;
