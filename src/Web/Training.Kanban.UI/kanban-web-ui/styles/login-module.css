@@ -154,6 +154,11 @@
   .kb-sign-form-inputs .kb-sing-form-label{
     margin: 10px 0;
   }
+
+    
+  .kb-sign-form-inputs .kb-sing-form-label:first-child{
+    margin-top: 20px;
+  }
   
   .kb-sign-form-inputs .kb-sing-form-label .kb-sign-form-input-text{
     width: 100%;
@@ -211,7 +216,7 @@
   }
   
   .kb-sign-form-footer *{
-    font-size: 14px;
+    font-size: 13px;
   }
   
   .kb-sign-form-footer a{
@@ -223,7 +228,7 @@
     background-color: var(--color-primary);
     border: none;
     padding: 10px 70px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     color: var(--color-font-primary-light);
     margin: 15px 0 0 0;
@@ -243,7 +248,7 @@
     background-color: transparent;
     border: 2px solid #fff;
     padding: 7px 50px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     color: var(--color-font-primary-light);
     margin: 15px 0 0 0;
