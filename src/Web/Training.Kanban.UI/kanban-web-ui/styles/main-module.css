@@ -50,3 +50,16 @@
   border-bottom: 1px solid var(--color-border-primary);
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
 }
+
+.kb-submenu-header div{
+  height: 100%;
+}
+
+.kb-submenu-header-buttons {
+  height: 100%;
+}
+
+.kb-submenu-header-buttons label{
+  height: 59px;
+  background-color: red;
+}
