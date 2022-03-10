@@ -167,3 +167,12 @@
 .kb-home-boards{
   margin-bottom: 30px;
 }
+
+.kb-home-boards-body{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start; 
+
+  width: 100%;
+}

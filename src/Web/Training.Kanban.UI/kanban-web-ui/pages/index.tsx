@@ -1,5 +1,6 @@
 import CardTitleComponent from "../components/main/titlecard-component";
 import Wrapper from "../components/main/wrapper-component";
+import { BsFillPeopleFill } from "react-icons/bs"
 
 type User = {
     id: number;
@@ -73,6 +74,23 @@ const Home = () => {
             <div className="kb-card kb-home-boards">
                 <div className="kb-home-boards-header">
                     <CardTitleComponent title="Your Boards" description="Below, all your boards as you are member. Select one to access." />
+                </div>
+                <div className="kb-home-boards-body">
+                    <div className="kb-board-card">
+                        <div className="kb-board-card-header">
+                            <div className="kb-board-card-header-members">
+                                <BsFillPeopleFill fill="#f5f7fb" />
+                                <p>21</p>
+                            </div>
+                            <button className="kb-board-card-button">+</button>
+                        </div>
+                        <div className="kb-board-card-center">
+
+                        </div>
+                        <div className="kb-board-card-footer">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </Wrapper >

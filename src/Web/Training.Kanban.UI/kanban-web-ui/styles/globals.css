@@ -106,3 +106,65 @@ a{
   box-shadow: 0 0px 3px rgba(0, 0, 0, 0.3);
 }
 
+.kb-board-card{
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+
+  background-color: #206bc4;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+
+  width: 150px;
+  height: 150px;
+
+  border-radius: 10px;
+
+  padding: 10px;
+}
+
+.kb-board-card-header{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kb-board-card-header p{
+  font-size: 12px;
+}
+
+.kb-board-card-button{
+  background-color: var(--color-bg-primary);
+  height: 15px;
+  width: 15px;
+  border: none;
+  border-radius: 30px;
+  font-size: 10px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+
+  transition: all 0.05s ease-in;
+}
+
+.kb-board-card-button:hover{
+  background-color: var(--color-bg-secundary);
+  font-weight: bold;
+
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+} 
+
+.kb-board-card-button:active{
+  background-color: var(--color-font-secundary);
+}
+
+.kb-board-card-header-members{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.kb-board-card-header-members p{
+  margin-left: 5px;
+  color: var(--color-font-primary-light);
+}
