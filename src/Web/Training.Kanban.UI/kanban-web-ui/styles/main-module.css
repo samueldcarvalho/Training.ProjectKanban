@@ -126,7 +126,7 @@
 
   background: linear-gradient(-270deg, var(--color-primary), var(--color-primary-disable));
   
-  border-radius: 5px;
+  border-radius: 3px;
   text-align: center;
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.15) ;
 }
