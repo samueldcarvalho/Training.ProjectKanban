@@ -72,14 +72,14 @@ const Home = () => {
                     <button className="kb-action-button">New Team</button>
                 </div>
             </div>
-            <div className="kb-card kb-home-boards">G
+            <div className="kb-card kb-home-boards">
                 <div className="kb-home-boards-header">
                     <CardTitleComponent title="Your Boards" description="Below, all your boards as you are member. Select one to access." />
                 </div>
                 <div className="kb-home-boards-body">
-                    <BoardCardComponent membersCount={8} boardName="Desenvolvimento" boardColor="#5920c4" />
-                    <BoardCardComponent membersCount={21} boardName="Suporte" boardColor="#c4209e" />
-                    <BoardCardComponent membersCount={1} boardName="Pessoal" boardColor="#c48020" />
+                    <BoardCardComponent membersCount={8} boardName="Desenvolvimento" boardColor="#23497a" />
+                    <BoardCardComponent membersCount={21} boardName="Suporte" boardColor="#23497a" />
+                    <BoardCardComponent membersCount={1} boardName="Pessoal" boardColor="#23497a" />
                 </div>
             </div>
         </Wrapper >

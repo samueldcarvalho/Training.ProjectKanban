@@ -124,11 +124,11 @@
   margin-bottom: 14px;
   padding-block: 5px;
 
-  background: linear-gradient(-270deg, var(--color-primary), var(--color-primary-disable));
+  background: var(--color-primary);
   
   border-radius: 3px;
   text-align: center;
-  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.15) ;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15) ;
 }
 .kb-table-header *{
   font-size: 16px;
@@ -175,4 +175,7 @@
   align-items: flex-start; 
 
   width: 100%;
+
+  overflow-x: auto;
+  padding-block: 20px;
 }
