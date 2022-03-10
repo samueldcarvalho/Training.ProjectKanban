@@ -1,6 +1,7 @@
 import CardTitleComponent from "../components/main/titlecard-component";
 import Wrapper from "../components/main/wrapper-component";
 import { BsFillPeopleFill } from "react-icons/bs"
+import BoardCardComponent from "../components/shared/boardcard-component";
 
 type User = {
     id: number;
@@ -71,26 +72,14 @@ const Home = () => {
                     <button className="kb-action-button">New Team</button>
                 </div>
             </div>
-            <div className="kb-card kb-home-boards">
+            <div className="kb-card kb-home-boards">G
                 <div className="kb-home-boards-header">
                     <CardTitleComponent title="Your Boards" description="Below, all your boards as you are member. Select one to access." />
                 </div>
                 <div className="kb-home-boards-body">
-                    <div className="kb-board-card">
-                        <div className="kb-board-card-header">
-                            <div className="kb-board-card-header-members">
-                                <BsFillPeopleFill fill="#f5f7fb" />
-                                <p>21</p>
-                            </div>
-                            <button className="kb-board-card-button">+</button>
-                        </div>
-                        <div className="kb-board-card-center">
-
-                        </div>
-                        <div className="kb-board-card-footer">
-
-                        </div>
-                    </div>
+                    <BoardCardComponent membersCount={8} boardName="Desenvolvimento" boardColor="#5920c4" />
+                    <BoardCardComponent membersCount={21} boardName="Suporte" boardColor="#c4209e" />
+                    <BoardCardComponent membersCount={1} boardName="Pessoal" boardColor="#c48020" />
                 </div>
             </div>
         </Wrapper >
