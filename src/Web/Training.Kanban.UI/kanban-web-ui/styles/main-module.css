@@ -100,6 +100,10 @@
   font-weight: 500;
 }
 
+.kb-home-teams{
+  margin-bottom: 30px;
+}
+
 .kb-home-teams-body{
   padding-inline: 50px;
 }
@@ -135,7 +139,7 @@
   justify-content: center;
 
   text-align: center;
-  padding-block: 7px;
+  padding-block: 12px;
   width: 100%;
 
   font-weight: 500;
@@ -148,3 +152,17 @@
   font-weight: bold;
 }
 
+
+.kb-home-teams-footer{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  margin-top: 10px;
+}
+
+.kb-home-boards{
+  margin-bottom: 30px;
+}

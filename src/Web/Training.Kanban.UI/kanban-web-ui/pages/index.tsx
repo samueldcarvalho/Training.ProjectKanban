@@ -66,8 +66,14 @@ const Home = () => {
                         })
                     }
                 </div>
+                <div className="kb-home-teams-footer">
+                    <button className="kb-action-button">New Team</button>
+                </div>
             </div>
             <div className="kb-card kb-home-boards">
+                <div className="kb-home-boards-header">
+                    <CardTitleComponent title="Your Boards" description="Below, all your boards as you are member. Select one to access." />
+                </div>
             </div>
         </Wrapper >
     )

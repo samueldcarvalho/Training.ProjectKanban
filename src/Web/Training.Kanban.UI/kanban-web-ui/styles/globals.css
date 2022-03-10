@@ -80,3 +80,29 @@ a{
   font-weight: normal;
   margin-bottom: 40px;
 }
+
+.kb-action-button{
+  background-color: var(--color-primary);
+    border: none;
+    padding: 10px 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--color-font-primary-light);
+    margin: 15px 0 0 0;
+    border-radius: 5px;
+
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+
+    transition: all 0.1s;
+}
+
+.kb-action-button:hover{
+  background-color: var(--color-primary-alert);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.kb-action-button:active{
+  background-color: var(--color-primary-disable);
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.4);
+}
+
