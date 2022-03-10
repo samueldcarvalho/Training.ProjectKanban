@@ -18,7 +18,7 @@
 
 .kb-main-header{
   background: linear-gradient(300deg, var(--color-primary) 30%, var( --color-primary-darker) 80%);
-  height: 60px;
+  height: 50px;
 }
 
 .kb-main-header div{
@@ -46,7 +46,7 @@
 
 .kb-submenu-header{
   background-color: var(--color-bg-secundary);
-  height: 60px;
+  height: 45px;
   border-bottom: 1px solid var(--color-border-primary);
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
 }
@@ -56,10 +56,95 @@
 }
 
 .kb-submenu-header-buttons {
-  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
 }
 
 .kb-submenu-header-buttons label{
-  height: 59px;
-  background-color: red;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 50px;
+  color: var(--color-font-primary);
 }
+
+.kb-submenu-header-buttons label a{
+  color: var(--color-font-primary);
+  font-weight: 500;
+}
+
+.kb-submenu-header-buttons label:hover{
+  cursor: pointer;
+}
+
+.kb-submenu-header-buttons label:hover a{
+  color: var(--color-primary);
+} 
+
+.kb-home-top{
+  margin-bottom: 30px;
+}
+
+.kb-home-header-top{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.kb-home-header-top p:first-child{
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.kb-home-teams-body{
+  padding-inline: 50px;
+}
+
+.kb-home-teams-grid{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.kb-table-header{
+  margin: 0;
+  margin-bottom: 14px;
+  padding-block: 5px;
+
+  background: linear-gradient(-270deg, var(--color-primary), var(--color-primary-disable));
+  
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) ;
+}
+.kb-table-header *{
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-font-primary-light);
+}
+
+.kb-table-row{
+  margin: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+
+  text-align: center;
+  padding-block: 7px;
+  width: 100%;
+
+  font-weight: 500;
+  font-size: 16px;
+}
+.kb-table-row:hover{
+  background-color: var(--color-bg-primary);
+  cursor: pointer;
+  
+  font-weight: bold;
+}
+

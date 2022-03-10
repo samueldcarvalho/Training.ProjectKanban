@@ -45,3 +45,38 @@ body{
 a{
   text-decoration: none;
 }
+
+.kb-card{
+  padding: 20px;
+  margin-block: 6px;
+
+  background-color: var(--color-bg-secundary);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+  border: 1px solid var(--color-border-primary);
+  border-radius: 3px;
+}
+
+.kb-page-title{
+  margin-block: 50px 15px;
+}
+
+.kb-page-title p{
+  font-size: 10px;
+}
+
+.kb-page-title h3{
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.kb-card-title p:first-child{
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.kb-card-title p:last-child{
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 40px;
+}
