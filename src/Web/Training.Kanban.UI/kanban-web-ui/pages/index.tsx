@@ -77,9 +77,9 @@ const Home = () => {
                     <CardTitleComponent title="Your Boards" description="Below, all your boards as you are member. Select one to access." />
                 </div>
                 <div className="kb-home-boards-body">
-                    <BoardCardComponent membersCount={8} boardName="Desenvolvimento" boardColor="#23497a" />
-                    <BoardCardComponent membersCount={21} boardName="Suporte" boardColor="#23497a" />
-                    <BoardCardComponent membersCount={1} boardName="Pessoal" boardColor="#23497a" />
+                    <BoardCardComponent membersCount={8} boardName="Desenvolvimento" boardColor="#206bc4" />
+                    <BoardCardComponent membersCount={21} boardName="Suporte" boardColor="#206bc4" />
+                    <BoardCardComponent membersCount={1} boardName="Pessoal" boardColor="#206bc4" />
                 </div>
             </div>
         </Wrapper >
