@@ -108,10 +108,6 @@
   margin-bottom: 30px;
 }
 
-.kb-home-teams-body{
-  padding-inline: 50px;
-}
-
 .kb-home-teams-grid{
   display: flex;
   flex-flow: row nowrap;
@@ -119,24 +115,7 @@
   align-items: flex-start;
 }
 
-.kb-table-header{
-  margin: 0;
-  margin-bottom: 14px;
-  padding-block: 5px;
-
-  background: var(--color-primary);
-  
-  border-radius: 3px;
-  text-align: center;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15) ;
-}
-.kb-table-header *{
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--color-font-primary-light);
-}
-
-.kb-table-row{
+.kb-table-row-header{
   margin: 0;
   display: flex;
   flex-flow: row nowrap;
@@ -144,15 +123,45 @@
 
   text-align: center;
   padding-block: 12px;
-  width: 100%;
+
+  font-weight: 500;
+  font-size: 14px;
+  border-bottom: var(--color-border-primary) 1px solid;
+}
+
+.kb-table-row-header *{
+  font-weight: bold;
+}
+
+.kb-table-row{
+  position: relative;
+  margin: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+
+  text-align: center;
+  padding-block: 12px;
 
   font-weight: 500;
   font-size: 14px;
 }
+
+.kb-table-row div{
+  position: absolute;
+  transform: translateX(5px);
+  left: 0;
+  margin-left: 5px;
+  transition: all 0.1s ease-in-out;
+}
+
 .kb-table-row:hover{
   background-color: var(--color-bg-primary);
 }
 
+.kb-table-row:hover div{
+  transform: translateX(15px);
+}
 
 .kb-home-teams-footer{
   display: flex;

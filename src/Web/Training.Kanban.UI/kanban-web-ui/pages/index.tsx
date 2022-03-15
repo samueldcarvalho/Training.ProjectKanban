@@ -1,39 +1,82 @@
 import CardTitleComponent from "../components/main/titlecard-component";
 import Wrapper from "../components/main/wrapper-component";
-import { BsFillPeopleFill } from "react-icons/bs"
+import { AiOutlineArrowRight } from "react-icons/ai"
 import BoardCardComponent from "../components/shared/boardcard-component";
+import TeamGridComponent from "../components/shared/teamsgrid-component";
 
-type User = {
+export type User = {
     id: number;
     name: string;
     taskpoints: number;
     teams: Team[];
 }
 
-type Team = {
+export type Team = {
     id: number;
     name: string;
+    members?: { id: number, name: string, taskpoints: number, role: string }[];
     taskpoints: number;
 }
 
-const Home = () => {
-
-    let user: User = {
+export let user: User = {
+    id: 1,
+    name: "Samuel de Carvalho",
+    taskpoints: 128,
+    teams: [{
         id: 1,
-        name: "Samuel de Carvalho",
-        taskpoints: 128,
-        teams: [{
+        name: "Automatiza Sistemas",
+        taskpoints: 102,
+        members: [{
             id: 1,
-            name: "Automatiza Sistemas",
-            taskpoints: 102,
+            name: "Samuel de Carvalho",
+            taskpoints: 64,
+            role: "Leader"
         },
         {
             id: 2,
-            name: "CodeCannon",
-            taskpoints: 26
+            name: "Diego Silveira",
+            taskpoints: 24,
+            role: "Officer"
+        },
+        {
+            id: 3,
+            name: "Jessica Penegrini Alves",
+            taskpoints: 32,
+            role: "Officer"
+        },
+        {
+            id: 4,
+            name: "Marianne Schultz",
+            taskpoints: 5,
+            role: "Officer"
+        },
+        {
+            id: 5,
+            name: "Carlos Tevez",
+            taskpoints: 4,
+            role: "Coordenator"
+        },
+        {
+            id: 6,
+            name: "Joana Pereira Gonçalves",
+            taskpoints: 7,
+            role: "Officer"
         }]
-    };
+    },
+    {
+        id: 2,
+        name: "CodeCannon",
+        taskpoints: 26,
+        members: [{
+            id: 1,
+            name: "Samuel de Carvalho",
+            taskpoints: 26,
+            role: "Leader"
+        }]
+    }]
+};;
 
+const Home = () => {
     return (
         <Wrapper titlePagePops={{ title: "Home", description: "Welcome" }}>
             <div className="kb-card kb-home-top">
@@ -49,27 +92,7 @@ const Home = () => {
                     <CardTitleComponent title="Your Teams" description="Select one to look more details:" />
                 </div>
                 <div className="kb-home-teams-body">
-                    <div>
-                        <tr className="row kb-table-header" style={{ width: "100%" }}>
-                            <td className="col">Name</td>
-                            <td className="col">Taskpoints</td>
-                        </tr>
-                    </div>
-                    {
-                        user.teams.map(team => {
-                            return (
-                                <div>
-                                    <tr className="row kb-table-row">
-                                        <td className="col">{team.name}</td>
-                                        <td className="col">{team.taskpoints}</td>
-                                    </tr>
-                                </div>
-                            )
-                        })
-                    }
-                </div>
-                <div className="kb-home-teams-footer">
-                    <button className="kb-action-button">New Team</button>
+                    <TeamGridComponent teams={user.teams} />
                 </div>
             </div>
             <div className="kb-card kb-home-boards">
@@ -77,9 +100,9 @@ const Home = () => {
                     <CardTitleComponent title="Your Boards" description="Below, all your boards as you are member. Select one to access." />
                 </div>
                 <div className="kb-home-boards-body">
-                    <BoardCardComponent membersCount={8} boardName="Desenvolvimento" boardColor="#275c9c" />
-                    <BoardCardComponent membersCount={21} boardName="Suporte" boardColor="#275c9c" />
-                    <BoardCardComponent membersCount={1} boardName="Pessoal" boardColor="#275c9c" />
+                    <BoardCardComponent membersCount={8} boardName="Desenvolvimento" boardColor="#206bc4" />
+                    <BoardCardComponent membersCount={21} boardName="Suporte" boardColor="#206bc4" />
+                    <BoardCardComponent membersCount={1} boardName="Pessoal" boardColor="#206bc4" />
                 </div>
             </div>
         </Wrapper >
