@@ -5,7 +5,7 @@ import Wrapper from "../../components/main/wrapper-component";
 
 const TeamsPage = () => {
 
-    const [selectedTeam, setSelectedTeam] = useState<Team>();
+    const [selectedTeam, setSelectedTeam] = useState<Team>(user.teams[0]!);
 
     const SelectTeamHandle = (team: Team) => setSelectedTeam(team);
 
@@ -31,7 +31,10 @@ const TeamsPage = () => {
                                     </tr>
                                 </div>
                             )
-                        }) : (<div>Sem dados</div>)}
+                        }) : (
+                            <div className="no-data-grid">
+                                <h1>Sem dados</h1>
+                            </div>)}
                     </div>
                 </div>
             </div>
@@ -49,7 +52,10 @@ const TeamsPage = () => {
                         </tr>
                     </div>
                 </div>
-                {selectedTeam == null ? <>Sem dados</> :
+                {selectedTeam == null ?
+                    <div className="no-data-grid">
+                        <h1>Sem dados</h1>
+                    </div> :
                     selectedTeam.members?.map(member => {
                         return (
                             <div>
