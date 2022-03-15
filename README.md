@@ -12,8 +12,8 @@ Esse projeto não visa fins lucrativos e será utilizado apenas para aprimorar m
 
 ## **`O Projeto:`**
 
-> ## **Structure**
-> - Projeto **WEB** 
+> ## **Back-end**
+> - C#
 > - DDD _`(Domain Driven Design)`_
 > - SOLID
 > - CleanCode
@@ -33,16 +33,10 @@ Esse projeto não visa fins lucrativos e será utilizado apenas para aprimorar m
 > - CQS _`(Command Query Separation's Pattern)`_ 
 > - CQRS _`(Command Query Responsibility Segregation's Pattern)`_
 >
-> ## **User Interface**
-> - Framework NEXT.Js
-> - REACT.Js
-> - Styled Components
-> - Linguagem: Typescript, Javascript
+> ## **Front-end**
+> - Next
+> - React
+> - Linguagem: Typescript
 > - [Protótipo Figma](https://www.figma.com/file/OCCIsj1w4Kfhmn5kLe6rBA/Untitled)
-> 
-> ## **Test**
-> - TDD
-> - .NET5
-> - Jest
 
 Para visualizar A **modelagem de domínio**, visualize o [ModelDomain](./_modeldomain.md)
