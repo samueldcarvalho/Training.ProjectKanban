@@ -1,3 +1,8 @@
 .kb-teams-top{
     margin-bottom: 30px;
 }
+
+.kb-teams-body{
+    transition: all 0.5s;
+    overflow-y: hidden;
+}
