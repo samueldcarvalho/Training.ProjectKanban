@@ -16,7 +16,7 @@ const TeamsPage = () => {
                     <CardTitleComponent title="Details" description="See more details below" />
                 </div>
                 <div className="kb-teams-top-body">
-                    <div>
+                    <div className="kb-teams-top-body-grid">
                         <tr className="row kb-table-row kb-table-row-header" style={{ width: "100%" }}>
                             <td className="col">Name</td>
                             <td className="col">Task Points</td>
@@ -35,6 +35,7 @@ const TeamsPage = () => {
                             <div className="no-data-grid">
                                 <h1>Sem dados</h1>
                             </div>)}
+                        <button className="kb-action-button">+</button>
                     </div>
                 </div>
             </div>

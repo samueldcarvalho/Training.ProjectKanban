@@ -1,3 +1,23 @@
 .kb-teams-top{
     margin-bottom: 30px;
 }
+
+.kb-teams-top-body{
+    position: relative;
+}
+
+.kb-teams-top-body button{
+    position: absolute;
+    right: 0px;
+    bottom: 0;
+
+    height: 45px;
+    width: 45px;
+    border-radius: 28px;
+
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.kb-teams-top-body button:hover{
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
