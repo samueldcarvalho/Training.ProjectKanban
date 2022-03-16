@@ -129,7 +129,7 @@ a{
 }
 
 .kb-board-card:hover{
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
   transform: translateY(-5px);
   opacity: 90%;
 }
@@ -154,9 +154,9 @@ a{
   height: 15px;
   width: 15px;
   border: none;
-  border-radius: 30px;
+  border-radius: 6px;
   font-size: 10px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 
   transition: all 0.05s ease-in;
 
@@ -167,11 +167,12 @@ a{
   background-color: var(--color-bg-secundary);
   font-weight: bold;
 
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
 } 
 
 .kb-board-card-button:active{
   background-color: var(--color-font-secundary);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .kb-board-card-header-members{

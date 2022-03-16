@@ -1,8 +1,61 @@
+
+:root{
+    --color-primary: #206bc4;
+    --color-primary-alert: #3484e3;
+    --color-primary-disable: #275c9c;
+  
+    --color-bg-primary: #f5f7fb;
+    --color-bg-secundary: #ffffff;
+  
+    --color-border-primary: #DEDEDE;
+  
+    --color-font-primary: #4A4A4A;
+    --color-font-secundary: #7a7b7c;
+    --color-font-primary-light: #fff;
+  
+    --border-soft: 1px solid var(--color-border-primary);
+  }
+
 .kb-teams-top{
     margin-bottom: 30px;
 }
 
-.kb-teams-body{
-    transition: all 0.5s;
-    overflow-y: hidden;
+.kb-table-row-selected{
+    background: linear-gradient(90deg, var(--color-primary) 20%, var(--color-primary-alert) 50%) ;
+    transition: all 0.1s ease-out;
+    border-radius: 4px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.kb-table-row-selected *{
+    color: var(--color-font-primary-light);
+}
+
+.kb-table-row-selected:hover{
+    background-color: var(--color-primary);
+    opacity: 80%;
+    border-radius: 0px;
+}
+
+.kb-teams-top-body button{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+
+    margin-right: 25px;
+    margin-bottom: 15px;
+
+    height: 45px;
+    width: 45px;
+    border-radius: 23px;
+
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+
+    z-index: 5;
+}
+
+.kb-teams-top-body button:hover{
+    box-shadow: 0px 9px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
 }
