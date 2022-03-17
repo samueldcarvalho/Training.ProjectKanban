@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Kanban.API", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Kanban.Application", "src\Modules\Kanban\Training.Kanban.Application\Training.Kanban.Application.csproj", "{0F5FD422-6549-4208-A752-7CC1FC2B65DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Core", "src\Core\Training.Core\Training.Core.csproj", "{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{0F5FD422-6549-4208-A752-7CC1FC2B65DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F5FD422-6549-4208-A752-7CC1FC2B65DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F5FD422-6549-4208-A752-7CC1FC2B65DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +88,7 @@ Global
 		{63E95C89-6E91-45A7-B806-4EF95D8A0183} = {3F1E8379-F015-4CA8-8E37-84EFED989E20}
 		{AB2B80C3-CB36-4F7E-829F-7C5824E890F0} = {3F1E8379-F015-4CA8-8E37-84EFED989E20}
 		{0F5FD422-6549-4208-A752-7CC1FC2B65DD} = {3F1E8379-F015-4CA8-8E37-84EFED989E20}
+		{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D} = {307024DD-7DEF-4B31-B085-4A2ACA5B8CCC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3F42C87D-E3DE-4C11-B7F1-C70F80DF9DDA}
