@@ -1,0 +1,23 @@
+.kb-modal{
+    
+}
+
+.kb-modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.kb-modal-shadow{
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}

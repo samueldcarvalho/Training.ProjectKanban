@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Team, user } from "..";
-import CardTitleComponent from "../../components/main/titlecard-component";
-import Wrapper from "../../components/main/wrapper-component";
+import UIModal from "../../src/components/main/Modal/modal-component";
+import CardTitleComponent from "../../src/components/main/titlecard-component";
+import Wrapper from "../../src/components/main/wrapper-component";
 
 const TeamsPage = () => {
-
     const [selectedTeam, setSelectedTeam] = useState<Team>(user.teams[0]!);
+    const [modalIsOpen, setModalIsOpen] = useState(true);
 
     const SelectTeamHandle = (team: Team) => setSelectedTeam(team);
 
@@ -69,6 +70,13 @@ const TeamsPage = () => {
                             </div>
                         )
                     })}
+                {
+                    modalIsOpen && <UIModal>
+                        <div className="row kb-card kb-modal-shadow kb-teams-new-team">
+                            <div></div>
+                        </div>
+                    </UIModal>
+                }
             </div>
         </Wrapper>
     );

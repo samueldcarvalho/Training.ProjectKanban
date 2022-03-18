@@ -1,4 +1,4 @@
-import Wrapper from "../../components/main/wrapper-component";
+import Wrapper from "../../src/components/main/wrapper-component";
 
 const BoardsPage = () => {
     return (

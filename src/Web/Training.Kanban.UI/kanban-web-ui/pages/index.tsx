@@ -1,8 +1,8 @@
-import CardTitleComponent from "../components/main/titlecard-component";
-import Wrapper from "../components/main/wrapper-component";
+import CardTitleComponent from "../src/components/main/titlecard-component";
+import Wrapper from "../src/components/main/wrapper-component";
 import { AiOutlineArrowRight } from "react-icons/ai"
-import BoardCardComponent from "../components/shared/boardcard-component";
-import TeamGridComponent from "../components/shared/teamsgrid-component";
+import BoardCardComponent from "../src/components/shared/boardcard-component";
+import TeamGridComponent from "../src/components/shared/teamsgrid-component";
 
 export type User = {
     id: number;
