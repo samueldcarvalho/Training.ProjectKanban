@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.15" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.15">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.23">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -15,11 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\Training.Kanban.Infraestructure\Training.Kanban.Infraestructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Training.Kanban.Infraestructure\Training.Kanban.Infraestructure.csproj" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

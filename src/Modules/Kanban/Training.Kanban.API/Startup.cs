@@ -1,18 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MySql.Data.EntityFrameworkCore.Infrastructure;
+using Training.Kanban.Domain.Interfaces;
 using Training.Kanban.Infraestructure.DataContexts.Authentication;
+using Training.Kanban.Infraestructure.Repositories;
 
 namespace Training.Kanban.API
 {
@@ -29,7 +25,11 @@ namespace Training.Kanban.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<UserContext>(options => 
-                options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseMySQL(Configuration.GetConnectionString("DefaultConnection"), 
+                b => 
+                    b.MigrationsAssembly("Training.Kanban.API")));
+
+            services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
