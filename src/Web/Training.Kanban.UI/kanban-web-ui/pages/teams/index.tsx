@@ -73,7 +73,14 @@ const TeamsPage = () => {
                 {
                     modalIsOpen && <UIModal>
                         <div className="row kb-card kb-modal-shadow kb-teams-new-team">
-                            <div></div>
+                            <div className="kb-card-title">
+                                <div className="kb-teams-new-team__header">
+                                    <CardTitleComponent title="New Team" description="" />
+                                </div>
+                                <div className="kb-teams-new-teams__body">
+
+                                </div>
+                            </div>
                         </div>
                     </UIModal>
                 }
