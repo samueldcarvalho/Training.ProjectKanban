@@ -89,7 +89,7 @@ const Home = () => {
             </div>
             <div className="kb-card kb-home-teams">
                 <div className="kb-home-teams-header">
-                    <CardTitleComponent title="Your Teams" description="Select one to look more details:" />
+                    <CardTitleComponent title="Your Teams" description="Select one to look more details:" align="flex-start" />
                 </div>
                 <div className="kb-home-teams-body">
                     <TeamGridComponent teams={user.teams} />
@@ -97,7 +97,7 @@ const Home = () => {
             </div>
             <div className="kb-card kb-home-boards">
                 <div className="kb-home-boards-header">
-                    <CardTitleComponent title="Your Boards" description="Below, all your boards as you are member. Select one to access." />
+                    <CardTitleComponent title="Your Boards" description="Below, all your boards as you are member. Select one to access." align="flex-start" />
                 </div>
                 <div className="kb-home-boards-body">
                     <BoardCardComponent membersCount={8} boardName="Desenvolvimento" boardColor="#206bc4" />
