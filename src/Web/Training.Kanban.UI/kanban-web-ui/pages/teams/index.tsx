@@ -14,7 +14,7 @@ const TeamsPage = () => {
         <Wrapper titlePagePops={{ title: "Teams", description: "management" }}>
             <div className="kb-card kb-teams-top">
                 <div className="kb-teams-top-header">
-                    <CardTitleComponent title="Details" description="See more details below" />
+                    <CardTitleComponent align="flex-start" title="Details" description="See more details below" />
                 </div>
                 <div className="kb-teams-top-body">
                     <div className="kb-teams-top-body-grid">
@@ -42,7 +42,7 @@ const TeamsPage = () => {
             </div>
             <div className="kb-card kb-teams-body">
                 <div className="kb-teams-body-header">
-                    <CardTitleComponent title="Members" description="Below you can see all members of the selected team " />
+                    <CardTitleComponent title="Members" description="Below you can see all members of the selected team " align="flex-start" />
                 </div>
                 <div className="kb-teams-body-body">
                     <div>
@@ -71,17 +71,15 @@ const TeamsPage = () => {
                         )
                     })}
                 {
-                    modalIsOpen && <UIModal>
-                        <div className="row kb-card kb-modal-shadow kb-teams-new-team">
-                            <div className="kb-card-title">
-                                <div className="kb-teams-new-team__header">
-                                    <CardTitleComponent title="New Team" description="" />
-                                </div>
-                                <div className="kb-teams-new-teams__body">
-
-                                </div>
-                            </div>
-                        </div>
+                    modalIsOpen &&
+                    <UIModal title="Create a new team">
+                        <>
+                            <label className="kb-input-text-label">
+                                <p>Team's Name</p>
+                                <input type="text" className="kb-input-text" />
+                            </label>
+                            <button className="kb-primary-button">Create</button>
+                        </>
                     </UIModal>
                 }
             </div>
