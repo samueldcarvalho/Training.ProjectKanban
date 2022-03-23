@@ -17,3 +17,40 @@
 .kb-modal-shadow{
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
+
+.kb-modal{
+    position: relative;
+    display: table;
+}
+
+.kb-modal-close-button{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+    outline: none;
+    border: none;
+
+    background-color: transparent;
+
+    transition: all 0.1s ease;
+}
+
+.kb-modal-close-button:hover{
+    background-color: var(--color-danger-01);
+}
+
+.kb-modal-close-button:hover *{
+    color: white;
+}
+
+.kb-modal-close-button:active{
+    background-color: var(--color-danger-02);
+}

@@ -6,7 +6,7 @@ import Wrapper from "../../src/components/main/wrapper-component";
 
 const TeamsPage = () => {
     const [selectedTeam, setSelectedTeam] = useState<Team>(user.teams[0]!);
-    const [modalIsOpen, setModalIsOpen] = useState(true);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const SelectTeamHandle = (team: Team) => setSelectedTeam(team);
 
@@ -36,8 +36,10 @@ const TeamsPage = () => {
                             <div className="no-data-grid">
                                 <h1>Sem dados</h1>
                             </div>)}
-                        <button className="kb-action-button">+</button>
                     </div>
+                </div>
+                <div className="kb-teams-top-footer">
+                    <button className="kb-action-button kb-fly-button" onClick={() => { setModalIsOpen(!modalIsOpen) }}>+</button>
                 </div>
             </div>
             <div className="kb-card kb-teams-body">
@@ -70,20 +72,43 @@ const TeamsPage = () => {
                             </div>
                         )
                     })}
-                {
-                    modalIsOpen &&
-                    <UIModal title="Create a new team">
-                        <>
-                            <label className="kb-input-text-label">
-                                <p>Team's Name</p>
-                                <input type="text" className="kb-input-text" />
-                            </label>
-                            <button className="kb-primary-button">Create</button>
-                        </>
-                    </UIModal>
-                }
+                <button className="kb-action-button kb-fly-button">+</button>
             </div>
-        </Wrapper>
+            {
+                modalIsOpen &&
+                <UIModal title="Create a new team" onCloseHandler={() => { setModalIsOpen(!modalIsOpen) }} >
+                    <>
+                        <label className="kb-input-text-label">
+                            <p>Team's Name</p>
+                            <input type="text" className="kb-input-text" />
+                        </label>
+                        <label className="kb-input-text-label">
+                            <p>Team's Name</p>
+                            <input type="text" className="kb-input-text" />
+                        </label>
+                        <label className="kb-input-text-label">
+                            <p>Team's Name</p>
+                            <input type="text" className="kb-input-text" />
+                        </label>
+                        <label className="kb-input-text-label">
+                            <p>Team's Name</p>
+                            <input type="text" className="kb-input-text" />
+                        </label>
+                        <label className="kb-input-text-label">
+                            <p>Team's Name</p>
+                            <input type="text" className="kb-input-text" />
+                        </label>
+                        <label className="kb-input-text-label">
+                            <p>Team's Name</p>
+                            <input type="text" className="kb-input-text" />
+                        </label>
+                        <div className="kb-new-team-footer">
+                            <button className="kb-primary-button">Create</button>
+                        </div>
+                    </>
+                </UIModal>
+            }
+        </Wrapper >
     );
 }
 
