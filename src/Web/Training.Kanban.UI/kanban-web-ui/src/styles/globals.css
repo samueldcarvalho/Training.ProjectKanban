@@ -21,6 +21,12 @@
   --color-grey-02 : #BBBBBB;
   --color-grey-03 : #999999;
   --color-grey-04 : #777777;
+
+  --color-danger-01: #ff365e;
+  --color-danger-02: #d42649;
+  --color-danger-02: #b3223f;
+
+  
 }
 
 html{
@@ -239,3 +245,4 @@ a{
   border: 1px solid var(--color-primary);
   outline: none;
 }
+
