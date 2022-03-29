@@ -6,7 +6,7 @@
 
 ## **Objetivo** do Projeto
 
-Esse projeto não visa fins lucrativos e será utilizado apenas para aprimorar meus conhecimentos na área de desenvolvimento de Software, além de trabalhar com tecnologias modernas que visam padrões ágeis e escaláveis. 
+Esse projeto será utilizado apenas para aprimorar meus conhecimentos na área de desenvolvimento de Software, além de trabalhar com tecnologias modernas que visam padrões ágeis e escaláveis. 
 
 ---
 
