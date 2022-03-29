@@ -12,27 +12,19 @@ Esse projeto não visa fins lucrativos e será utilizado apenas para aprimorar m
 
 ## **`O Projeto:`**
 > ## **Infrastructure**
-> - .NET 5
 > - ASP.NET Core
-> - Container _`(Docker)`_
+> - Docker
 > - Banco de Dados MYSQL
-> - ORM: Entity Framework Core
-> - Mensageria com _`Apache Kafka`_
+> - Entity Framework Core
+> - Apache Kafka
 > 
-> ## **Back-end**
-> - C#
-> - DDD _`(Domain Driven Design)`_
-> - SOLID
-> - CleanCode
->
 > ## **Domain**
 > - .NET 5
-> - ASP.NET Core
 > - Linguagem: C#
 > - CQS _`(Command Query Separation's Pattern)`_ 
 > - CQRS _`(Command Query Responsibility Segregation's Pattern)`_
 >
-> ## **Front-end**
+> ## **User Interface (UI)**
 > - Next
 > - React
 > - Linguagem: Typescript
