@@ -11,13 +11,6 @@ Esse projeto não visa fins lucrativos e será utilizado apenas para aprimorar m
 ---
 
 ## **`O Projeto:`**
-
-> ## **Back-end**
-> - C#
-> - DDD _`(Domain Driven Design)`_
-> - SOLID
-> - CleanCode
->
 > ## **Infrastructure**
 > - .NET 5
 > - ASP.NET Core
@@ -25,6 +18,12 @@ Esse projeto não visa fins lucrativos e será utilizado apenas para aprimorar m
 > - Banco de Dados MYSQL
 > - ORM: Entity Framework Core
 > - Mensageria com _`Apache Kafka`_
+> 
+> ## **Back-end**
+> - C#
+> - DDD _`(Domain Driven Design)`_
+> - SOLID
+> - CleanCode
 >
 > ## **Domain**
 > - .NET 5
