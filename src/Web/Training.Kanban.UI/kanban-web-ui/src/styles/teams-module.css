@@ -1,65 +1,47 @@
-
-:root{
-    --color-primary: #206bc4;
-    --color-primary-alert: #3484e3;
-    --color-primary-disable: #275c9c;
-  
-    --color-bg-primary: #f5f7fb;
-    --color-bg-secundary: #ffffff;
-  
-    --color-border-primary: #DEDEDE;
-  
-    --color-font-primary: #4A4A4A;
-    --color-font-secundary: #7a7b7c;
-    --color-font-primary-light: #fff;
-  
-    --border-soft: 1px solid var(--color-border-primary);
-  }
-
-.kb-teams-top{
+.kb-teams-top {
     position: relative;
     margin-bottom: 30px;
 }
 
-.kb-teams-top-footer{
+.kb-teams-top-footer {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
     margin-top: 15px;
 }
 
-.kb-teams-top-footer .kb-fly-button{
+.kb-teams-top-footer .kb-fly-button {
     position: static;
     margin: 0;
 }
 
 
 
-.kb-table-row-selected{
-    background: linear-gradient(90deg, var(--color-primary) 20%, var(--color-primary-alert) 50%) ;
+.kb-table-row-selected {
+    background: linear-gradient(90deg, var(--color-primary) 20%, var(--color-primary-alert) 50%);
     transition: all 0.1s ease-out;
     border-radius: 4px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
-.kb-table-row-selected *{
+.kb-table-row-selected * {
     color: var(--color-font-primary-light);
 }
 
-.kb-table-row-selected:hover{
+.kb-table-row-selected:hover {
     background-color: var(--color-primary);
     opacity: 80%;
     border-radius: 0px;
 }
 
 
-.kb-teams-top-body button:hover{
+.kb-teams-top-body button:hover {
     box-shadow: 0px 9px 15px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
 }
 
-.kb-new-team-footer{
+.kb-new-team-footer {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -68,11 +50,11 @@
     margin-top: 25px;
 }
 
-.kb-teams-body{
+.kb-teams-body {
     position: relative;
 }
 
-.kb-fly-button{
+.kb-fly-button {
     position: absolute;
     right: 0px;
     bottom: 0px;
