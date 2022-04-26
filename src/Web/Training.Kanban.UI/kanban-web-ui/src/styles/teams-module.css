@@ -30,8 +30,6 @@
 }
 
 .kb-table-row-selected:hover {
-    background-color: var(--color-primary);
-    opacity: 80%;
     border-radius: 0px;
 }
 
