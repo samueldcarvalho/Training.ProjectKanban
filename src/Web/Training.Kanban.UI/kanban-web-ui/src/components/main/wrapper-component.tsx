@@ -4,25 +4,13 @@ import TitlePageComponent, { TitlePageProps } from "./titlepage-component";
 const Wrapper = (props: any) => {
     return (
         <>
-            <div className="kb-main-header">
-                <div className="container">
-                    <div className="row">
-                        <div className="col">
-                            <div className="kb-main-header-options">
-                                <div className="kb-main-header-logo">
-                                    <h1>Kanban</h1>
-                                </div>
-                                <div className="kb-main-header-end">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
             <div className="kb-submenu-header">
                 <div className="container">
                     <div className="row">
+                        <div className="col">
+                            <h1>Kanban</h1>
+                        </div>
                         <div className="col">
                             <div className="kb-submenu-header-buttons">
                                 <Link href="/">

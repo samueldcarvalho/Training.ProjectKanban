@@ -2,7 +2,7 @@ import { BsFillPeopleFill } from "react-icons/bs"
 
 const BoardCardComponent = (props: any) => {
     return (
-        <div className="kb-board-card" style={{ background: `linear-gradient(180deg, ${props.boardColor} 30%, #e04424 90%)` }}>
+        <div className="kb-board-card" style={{ backgroundColor: `${props.boardColor}` }}>
             <div className="kb-board-card-header">
                 <div className="kb-board-card-header-members">
                     <BsFillPeopleFill fill="#f5f7fb" />
@@ -15,11 +15,7 @@ const BoardCardComponent = (props: any) => {
                     <p>{props.boardName}</p>
                 </div>
             </div>
-            <div className="kb-board-card-footer">
-                <div>
-                    <p>_</p>
-                </div>
-            </div>
+            <div className="kb-board-card-footer"/>
         </div>
     );
 }
