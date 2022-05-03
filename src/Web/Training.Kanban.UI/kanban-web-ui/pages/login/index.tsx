@@ -1,6 +1,25 @@
 import Link from "next/link";
+import { ChangeEvent, useState } from "react";
+import { useAuth } from "../../src/context/AuthProvider/useAuth";
 
 const Login = () => {
+    const [inputState, setInputState] = useState({username: "", password: ""});
+
+    function onChange(event: ChangeEvent<HTMLInputElement>){
+        const {value, name} = event.target;
+        setInputState({
+            ...inputState,
+            [name]: value
+        })
+    }
+
+    const auth = useAuth();
+
+    async function onFinish(values: {username: string, password: string}) {
+
+    }
+
+
     return (
         <div className="kb-login">
             <div className="kb-sign-body">
@@ -18,11 +37,11 @@ const Login = () => {
                         <div className="kb-sign-form-inputs">
                             <label className="kb-sing-form-label">
                                 <p>Username</p>
-                                <input type="text" className="kb-sign-form-input-text" id="username"></input>
+                                <input type="text" onChange={onChange} value={inputState.username} className="kb-sign-form-input-text" id="username"></input>
                             </label>
                             <label className="kb-sing-form-label">
                                 <p>Password</p>
-                                <input type="password" className="kb-sign-form-input-text" id="password"></input>
+                                <input type="password" onChange={onChange} value={inputState.password} className="kb-sign-form-input-text" id="password"></input>
                                 <label className="kb-sing-form-label-remember-pass">
                                     <p>Remember password?</p>
                                     <input type="checkbox" ></input>
@@ -34,9 +53,7 @@ const Login = () => {
                                 <p>Forgot password?&nbsp;</p>
                                 <a href="#">Recover here</a>
                             </div>
-                            <Link href="/">
-                                <input className="kb-primary-button" type="submit" value="Login"></input>
-                            </Link>
+                            <input className="kb-primary-button" type="submit" value="Login"></input>
                         </div>
                     </form>
                 </section>

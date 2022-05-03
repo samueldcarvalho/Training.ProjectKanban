@@ -1,4 +1,4 @@
-.kb-modal-overlay {
+.kb_modal_overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -14,17 +14,17 @@
     align-items: center;
 }
 
-.kb-modal-shadow {
+.kb_modal_shadow {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-.kb-modal {
+.kb_modal {
     position: relative;
     display: table;
     animation: ModalLoadUp 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.kb-modal-close-button {
+.kb_modal_close_button {
     position: absolute;
     right: 0;
     top: 0;
@@ -44,14 +44,14 @@
     transition: all 0.1s ease;
 }
 
-.kb-modal-close-button:hover {
+.kb_modal_close_button:hover {
     background-color: var(--color-danger-01);
 }
 
-.kb-modal-close-button:hover * {
+.kb_modal_close_button:hover * {
     color: white;
 }
 
-.kb-modal-close-button:active {
+.kb_modal_close_button:active {
     background-color: var(--color-danger-02);
 }

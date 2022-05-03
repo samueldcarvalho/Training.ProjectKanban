@@ -15,8 +15,6 @@
     margin: 0;
 }
 
-
-
 .kb-table-row-selected {
     background: linear-gradient(90deg, var(--color-primary) 20%, var(--color-primary-alert) 50%);
     transition: all 0.1s ease-out;

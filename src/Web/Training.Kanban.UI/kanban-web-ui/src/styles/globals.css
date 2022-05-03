@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 :root {
-  --color-primary: #65a300;
-  --color-primary-alert: #90d81d;
-  --color-primary-disable: #749b35;
+  --color-primary: #524e94;
+  --color-primary-alert: #625ccc;
+  --color-primary-disable: #302d66;
 
   --color-bg-primary: #f5f7fb;
   --color-bg-secundary: #ffffff;
@@ -150,18 +150,19 @@ a {
 }
 
 .kb-board-card {
+  background: linear-gradient(0deg, var(--color-primary-disable), var(--color-primary));
+
   position: relative;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
   width: 150px;
   height: 150px;
   min-width: 150px;
   min-height: 150px;
-
 
   border-radius: 10px;
 
@@ -172,7 +173,7 @@ a {
 }
 
 .kb-board-card:hover {
-  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
   transform: translateY(-5px);
   opacity: 90%;
 }
