@@ -1,26 +1,26 @@
-import { Api } from "../../services/Api";
+import { AuthAPI } from "../../services/Api";
 import { IUser } from "./types";
 
-export function setUserLocalStorage (user: IUser | null) {
+export function setUserLocalStorage(user: IUser | null) {
     localStorage.setItem("u", JSON.stringify(user));
 }
 
-export function getUserLocalStorage(){
+export function getUserLocalStorage() {
     const json = localStorage.getItem("u");
 
-    if(!json)
+    if (!json)
         return null;
 
-        const user = JSON.parse(json);
+    const user = JSON.parse(json);
 
-        return user ?? null;
+    return user ?? null;
 }
 
-export async function LoginRequest (username: string, password: string){
-    try{
-        const request = await Api.post("login", {username, password});
-        return request.data;
-    }catch{
+export async function LoginRequest(username: string, password: string): Promise<{ user: IUser, token: string } | null> {
+    try {
+        const request = await AuthAPI.post("login", { username, password });
+        return request?.data;
+    } catch {
         return null;
     }
 }

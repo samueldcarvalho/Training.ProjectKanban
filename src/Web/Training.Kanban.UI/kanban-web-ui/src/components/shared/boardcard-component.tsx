@@ -15,7 +15,7 @@ const BoardCardComponent = (props: any) => {
                     <p>{props.boardName}</p>
                 </div>
             </div>
-            <div className="kb-board-card-footer"/>
+            <div className="kb-board-card-footer" />
         </div>
     );
 }

@@ -1,14 +1,15 @@
 export interface IUser {
-    username? : string,
-    nome?: string,
+    email?: string,
+    username?: string,
+    name?: string,
     token?: string,
 }
 
-export interface IContext extends IUser{
-    Authenticate: (email: string, password: string) => 
-        Promise<void>;
+export interface IContext extends IUser {
+    Authenticate: (username: string, password: string) =>
+        Promise<IUser | null>;
 
-        Logout: () => void;
+    Logout: () => void;
 }
 
 export interface IAuthProvider {

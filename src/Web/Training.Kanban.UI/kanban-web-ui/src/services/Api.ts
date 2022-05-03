@@ -1,5 +1,6 @@
 import axios from "axios";
 
-export const Api = axios.create({
-    baseURL: "https://regres.in/api/"
+export const AuthAPI = axios.create({
+    baseURL: "https://localhost:44309/api/Authentication",
+    responseType: "json"
 })

@@ -1,41 +1,46 @@
-import React, {createContext, useEffect, useState} from "react"
+import React, { createContext, useEffect, useState } from "react"
 import { IAuthProvider, IContext, IUser } from "./types"
 import { getUserLocalStorage, LoginRequest, setUserLocalStorage } from "./util";
 
 export const AuthContext = createContext<IContext>({} as IContext);
 
-export const AuthProvider = ({children}: IAuthProvider) => {
+export const AuthProvider = ({ children }: IAuthProvider) => {
     const [user, setUser] = useState<IUser | null>();
 
-    useEffect(()=> {
+    useEffect(() => {
         const user = getUserLocalStorage();
 
-        if(user)
-            setUser(user); 
+        if (user)
+            setUser(user);
     }, [])
 
-    async function Authenticate(username: string, password: string){
+    async function Authenticate(username: string, password: string): Promise<IUser | null> {
         const response = await LoginRequest(username, password);
 
+        if (response == null)
+            return null;
+
         const payload = {
-            token: response.token, 
+            token: response.token,
             username
         }
 
         setUser(payload);
         setUserLocalStorage(payload);
+
+        return response;
     }
 
     function Logout() {
         setUser(null);
         setUserLocalStorage(null);
-    } 
+    }
 
     return (
         <AuthContext.Provider value={
             {
-                ...user, 
-                Authenticate: Authenticate, 
+                ...user,
+                Authenticate: Authenticate,
                 Logout: Logout
             }}>
             {children}
