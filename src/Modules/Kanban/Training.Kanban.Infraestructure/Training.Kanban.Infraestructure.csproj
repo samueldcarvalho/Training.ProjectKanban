@@ -17,4 +17,9 @@
     <ProjectReference Include="..\Training.Kanban.Domain\Training.Kanban.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DataContexts\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>

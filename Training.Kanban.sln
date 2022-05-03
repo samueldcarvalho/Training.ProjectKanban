@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{EC6D64E9-09EE-4658-9DB2-AF1ADA6937F1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{EC6D64E9-09EE-4658-9DB2-AF1ADA6937F1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{A10ECCDA-5DB4-43F0-A9BF-6B321EDD573B}"
 	ProjectSection(SolutionItems) = preProject
@@ -37,15 +37,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{307024DD-7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kanban", "Kanban", "{3F1E8379-F015-4CA8-8E37-84EFED989E20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Kanban.Infraestructure", "src\Modules\Kanban\Training.Kanban.Infraestructure\Training.Kanban.Infraestructure.csproj", "{EB0EA759-CAED-40F9-A4A8-CEAE2161414E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Kanban.Infraestructure", "src\Modules\Kanban\Training.Kanban.Infraestructure\Training.Kanban.Infraestructure.csproj", "{EB0EA759-CAED-40F9-A4A8-CEAE2161414E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Kanban.Domain", "src\Modules\Kanban\Training.Kanban.Domain\Training.Kanban.Domain.csproj", "{63E95C89-6E91-45A7-B806-4EF95D8A0183}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Kanban.Domain", "src\Modules\Kanban\Training.Kanban.Domain\Training.Kanban.Domain.csproj", "{63E95C89-6E91-45A7-B806-4EF95D8A0183}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Kanban.API", "src\Modules\Kanban\Training.Kanban.API\Training.Kanban.API.csproj", "{AB2B80C3-CB36-4F7E-829F-7C5824E890F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Kanban.API", "src\Modules\Kanban\Training.Kanban.API\Training.Kanban.API.csproj", "{AB2B80C3-CB36-4F7E-829F-7C5824E890F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Kanban.Application", "src\Modules\Kanban\Training.Kanban.Application\Training.Kanban.Application.csproj", "{0F5FD422-6549-4208-A752-7CC1FC2B65DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Kanban.Application", "src\Modules\Kanban\Training.Kanban.Application\Training.Kanban.Application.csproj", "{0F5FD422-6549-4208-A752-7CC1FC2B65DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Core", "src\Core\Training.Core\Training.Core.csproj", "{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Core", "src\Core\Training.Core\Training.Core.csproj", "{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Kanban.Authentication.API", "src\Modules\Kanban\Training.Kanban.Authentication.API\Training.Kanban.Authentication.API.csproj", "{EA65C12C-EAF8-49E2-94DC-0723B6B305C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,10 @@ Global
 		{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA65C12C-EAF8-49E2-94DC-0723B6B305C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA65C12C-EAF8-49E2-94DC-0723B6B305C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA65C12C-EAF8-49E2-94DC-0723B6B305C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA65C12C-EAF8-49E2-94DC-0723B6B305C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,6 +95,7 @@ Global
 		{AB2B80C3-CB36-4F7E-829F-7C5824E890F0} = {3F1E8379-F015-4CA8-8E37-84EFED989E20}
 		{0F5FD422-6549-4208-A752-7CC1FC2B65DD} = {3F1E8379-F015-4CA8-8E37-84EFED989E20}
 		{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D} = {307024DD-7DEF-4B31-B085-4A2ACA5B8CCC}
+		{EA65C12C-EAF8-49E2-94DC-0723B6B305C8} = {3F1E8379-F015-4CA8-8E37-84EFED989E20}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3F42C87D-E3DE-4C11-B7F1-C70F80DF9DDA}
