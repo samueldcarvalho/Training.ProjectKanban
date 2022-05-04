@@ -41,7 +41,7 @@ namespace Training.Kanban.Authentication.API.Controllers
             if ((loginData.Username != user.Username) || (loginData.Password != user.Password))
                 return NotFound(new { message = "Usuário ou senha inválidos."});
 
-            var token = "";
+            var token = GenerateAccessToken(user);
 
             return new UserToken
             {

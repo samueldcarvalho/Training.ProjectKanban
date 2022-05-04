@@ -18,7 +18,12 @@ export function getUserLocalStorage() {
 
 export async function LoginRequest(username: string, password: string): Promise<{ user: IUser, token: string } | null> {
     try {
-        const request = await AuthAPI.post("login", { username, password });
+        const request = await AuthAPI
+            .post("login", {
+                username, password
+            });
+        
+
         return request?.data;
     } catch {
         return null;

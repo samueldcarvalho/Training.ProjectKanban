@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import Router from "next/router";
 import { useState } from "react";
 import { useAuth } from "../../src/context/AuthProvider/useAuth";
 
@@ -8,13 +8,14 @@ const Login = () => {
 
     const auth = useAuth();
 
-    async function onFinish(values: { username: string, password: string }) {
+    async function onSubmitHandler(values: { username: string, password: string }) {
         const user = await auth.Authenticate(values.username, values.password);
 
         if (user)
-            NextResponse.redirect("localhost:3000");
+            Router.push({
+                pathname: "/"
+            });
     }
-
 
     return (
         <div className="kb-login">
@@ -49,7 +50,7 @@ const Login = () => {
                                 <p>Forgot password?&nbsp;</p>
                                 <a href="#">Recover here</a>
                             </div>
-                            <input className="kb-primary-button" type="button" onClick={() => onFinish({ username: username, password: password })} value="Login"></input>
+                            <input className="kb-primary-button" type="button" onClick={() => onSubmitHandler({ username: username, password: password })} value="Login"></input>
                         </div>
                     </form>
                 </section>
