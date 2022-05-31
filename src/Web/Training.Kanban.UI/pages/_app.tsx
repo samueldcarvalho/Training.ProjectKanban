@@ -5,13 +5,10 @@ import '../src/styles/main-module.css'
 import '../src/styles/teams-module.css'
 
 import type { AppProps } from 'next/app'
-import { AuthProvider } from '../src/context/AuthProvider'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <AuthProvider>
       <Component {...pageProps} />
-    </AuthProvider>
   )
 }
 

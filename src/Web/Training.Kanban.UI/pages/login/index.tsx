@@ -1,20 +1,17 @@
 import Router from "next/router";
 import { useState } from "react";
-import { useAuth } from "../../src/context/AuthProvider/useAuth";
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const auth = useAuth();
-
     async function onSubmitHandler(values: { username: string, password: string }) {
-        const user = await auth.Authenticate(values.username, values.password);
+        // const user = await auth.Authenticate(values.username, values.password);
 
-        if (user)
-            Router.push({
-                pathname: "/"
-            });
+        // if (user)
+        //     Router.push({
+        //         pathname: "/"
+        //     });
     }
 
     return (
