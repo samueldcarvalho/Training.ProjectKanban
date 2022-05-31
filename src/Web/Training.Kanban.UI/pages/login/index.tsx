@@ -6,12 +6,9 @@ const Login = () => {
     const [password, setPassword] = useState("");
 
     async function onSubmitHandler(values: { username: string, password: string }) {
-        // const user = await auth.Authenticate(values.username, values.password);
-
-        // if (user)
-        //     Router.push({
-        //         pathname: "/"
-        //     });
+            Router.push({
+                pathname: "/"
+            });
     }
 
     return (
