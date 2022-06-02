@@ -2,15 +2,17 @@
 
 import Router from "next/router";
 import { useState } from "react";
+import { AuthenticationService } from "../../src/services/Authentication/AuthenticationService";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   async function onSubmitHandler() {
-    Router.push({
-      pathname: "/",
-    });
+    const success = await AuthenticationService.Login({username, password});
+
+    if(success)
+        Router.push("/");
   }
 
   return (
@@ -64,8 +66,8 @@ const Login = () => {
                 className="kb-primary-button"
                 type="button"
                 onClick={(event) => {
-                  console.log(event);
                   event.preventDefault();
+                  onSubmitHandler();
                 }}
                 value="Login"
               ></input>
