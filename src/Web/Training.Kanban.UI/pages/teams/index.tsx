@@ -1,12 +1,24 @@
 import { useState } from "react";
-import { Team, user } from "..";
+import { Team } from "..";
 import Modal from "../../src/components/main/Modal/Modal";
 import CardTitleComponent from "../../src/components/main/titlecard-component";
 import Wrapper from "../../src/components/main/wrapper-component";
 import { ProtectedLayout } from "../../src/components/ProtectedLayout";
 
 const TeamsPage = () => {
-  const [selectedTeam, setSelectedTeam] = useState<Team>(user.teams[0]!);
+  const [selectedTeam, setSelectedTeam] = useState<Team>({
+    id: 0,
+    name: "Dev",
+    taskpoints: 123,
+    members: [
+      {
+        id: 1,
+        name: "Sam",
+        role: "Leader",
+        taskpoints: 123,
+      },
+    ],
+  });
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const SelectTeamHandle = (team: Team) => setSelectedTeam(team);
@@ -32,28 +44,12 @@ const TeamsPage = () => {
                 <td className="col">Task Points</td>
               </tr>
 
-              {user.teams.length > 0 ? (
-                user.teams.map((team) => {
-                  return (
-                    <div onClick={() => SelectTeamHandle(team)}>
-                      <tr
-                        className={
-                          team == selectedTeam
-                            ? "row row kb-table-row kb-table-row-selected"
-                            : "row kb-table-row"
-                        }
-                      >
-                        <td className="col">{team.name}</td>
-                        <td className="col">{team.taskpoints}</td>
-                      </tr>
-                    </div>
-                  );
-                })
-              ) : (
-                <div className="no-data-grid">
-                  <h1>Sem dados</h1>
-                </div>
-              )}
+              <div onClick={() => {}}>
+                <tr className={"row row kb-table-row kb-table-row-selected"}>
+                  <td className="col">{selectedTeam.name}</td>
+                  <td className="col">{selectedTeam.taskpoints}</td>
+                </tr>
+              </div>
             </div>
           </div>
           <div className="kb-teams-top-footer">

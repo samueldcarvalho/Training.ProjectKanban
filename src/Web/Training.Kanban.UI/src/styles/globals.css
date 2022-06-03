@@ -1,24 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 :root {
-  --color-primary: #524e94;
-  --color-primary-alert: #625ccc;
-  --color-primary-disable: #302d66;
+  --color-primary: #ff7562;
+  --color-primary-alert: #ff2a7c;
+  --color-primary-disable: rgb(204, 41, 79);
 
   --color-bg-primary: #f5f7fb;
   --color-bg-secundary: #ffffff;
 
   --color-border-primary: #ffffff;
 
-  --color-font-primary: #4A4A4A;
+  --color-font-primary: #4a4a4a;
   --color-font-secundary: #7a7b7c;
   --color-font-primary-light: #fff;
 
   --border-soft: 1px solid var(--color-border-primary);
 
-  --color-grey-01: #DDDDDD;
-  --color-grey-02: #BBBBBB;
+  --color-grey-01: #dddddd;
+  --color-grey-02: #bbbbbb;
   --color-grey-03: #999999;
   --color-grey-04: #777777;
 
@@ -121,7 +121,11 @@ a {
 }
 
 .kb-board-card {
-  background: linear-gradient(15deg, var(--color-primary) 25%,  var(--color-primary-alert) 115%);
+  background: linear-gradient(
+    15deg,
+    var(--color-primary) 25%,
+    var(--color-primary-alert) 115%
+  );
 
   position: relative;
   display: flex;

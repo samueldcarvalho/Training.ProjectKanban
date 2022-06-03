@@ -1,76 +1,86 @@
 .kb-teams-top {
-    position: relative;
-    margin-bottom: 30px;
+  position: relative;
+  margin-bottom: 30px;
 }
 
 .kb-teams-top-footer {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-end;
-    margin-top: 15px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  margin-top: 15px;
 }
 
 .kb-teams-top-footer .kb-fly-button {
-    position: static;
-    margin: 0;
+  position: static;
+  margin: 0;
 }
 
 .kb-table-row-selected {
-    background: linear-gradient(90deg, var(--color-primary) 20%, var(--color-primary-alert) 50%);
-    transition: all 0.1s ease-out;
-    border-radius: 4px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 70%,
+    var(--color-primary-alert) 100%
+  );
+  transition: all 0.1s ease-out;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 .kb-table-row-selected * {
-    color: var(--color-font-primary-light);
+  color: var(--color-font-primary-light);
 }
 
 .kb-table-row-selected:hover {
-    border-radius: 0px;
+  border-radius: 0px;
 }
 
-
 .kb-teams-top-body button:hover {
-    box-shadow: 0px 9px 15px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
+  box-shadow: 0px 9px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
 .kb-new-team-footer {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: flex-end;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: flex-end;
 
-    margin-top: 25px;
+  margin-top: 25px;
 }
 
 .kb-teams-body {
-    position: relative;
+  position: relative;
 }
 
 .kb-fly-button {
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
+  background: linear-gradient(var(--color-primary), var(--color-primary-alert));
 
-    margin-right: 15px;
-    margin-bottom: 15px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
 
-    height: 40px;
-    width: 40px;
-    border-radius: 20px;
+  margin-right: 15px;
+  margin-bottom: 15px;
 
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
 
-    z-index: 5;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+
+  z-index: 5;
 }
 
 .kb-fly-button:hover {
-    box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.3);
+  background: radial-gradient(var(--color-primary), var(--color-primary));
+  box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.3);
 }
 
 .kb-fly-button:active {
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  background: radial-gradient(
+    var(--color-primary-disable),
+    var(--color-primary-disable)
+  );
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }

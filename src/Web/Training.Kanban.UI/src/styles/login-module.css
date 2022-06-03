@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 .db-mainbar {
   background-color: var(--color-bg-secundary);
@@ -110,7 +110,11 @@
 }
 
 .kb-sign-change-form {
-  background: linear-gradient(240deg, var(--color-primary) 10%, var(--color-primary-disable) 80%);
+  background: linear-gradient(
+    240deg,
+    var(--color-primary) 10%,
+    var(--color-primary-alert) 80%
+  );
   border-radius: 10px 0 0px 10px;
   padding: 20px 10px;
   height: 480px;
@@ -156,7 +160,6 @@
   margin: 10px 0;
 }
 
-
 .kb-sign-form-inputs .kb-sing-form-label:first-child {
   margin-top: 20px;
 }
@@ -197,13 +200,11 @@
   font-size: 13px;
 }
 
-
 .kb-sing-form-label-remember-pass input {
   height: 20px;
   width: 20px;
   margin-left: 10px;
 }
-
 
 .kb-sign-form-footer {
   display: flex;
