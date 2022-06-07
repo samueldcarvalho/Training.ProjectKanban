@@ -9,10 +9,9 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   async function onSubmitHandler() {
-    const success = await AuthenticationService.Login({username, password});
+    const success = await AuthenticationService.Login({ username, password });
 
-    if(success)
-        Router.push("/");
+    if (success) Router.push("/");
   }
 
   return (
@@ -29,7 +28,7 @@ const Login = () => {
           </div>
           <form className="kb-sign-form">
             <div className="kb-sign-form-title">
-              <p>Access to Kanban</p>
+              <p>Login</p>
             </div>
             <div className="kb-sign-form-inputs">
               <label className="kb-sing-form-label">
