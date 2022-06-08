@@ -17,7 +17,7 @@ namespace Training.Authentication.API.Infraestructure.Repositories
                     Username = "samuel",
                 }, new()
                 {
-                    Id = 1,
+                    Id = 2,
                     Password = "qweasd",
                     Username = "debora",
                 }};
