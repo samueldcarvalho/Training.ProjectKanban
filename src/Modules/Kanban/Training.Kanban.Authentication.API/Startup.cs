@@ -14,7 +14,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Training.Kanban.Authentication.API.Models;
 
 namespace Training.Kanban.Authentication.API
 {
@@ -37,12 +36,6 @@ namespace Training.Kanban.Authentication.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Training.Kanban.Authentication.API", Version = "v1" });
             });
-
-            var jwtSection = Configuration.GetSection("JWTSettings");
-            services.Configure<JWTSettings>(jwtSection);
-            var appSettings = jwtSection.Get<JWTSettings>();
-
-            var key = Encoding.ASCII.GetBytes(appSettings.SecretKey);
 
             services.AddAuthentication(x =>
             {
@@ -81,9 +74,6 @@ namespace Training.Kanban.Authentication.API
                 .AllowAnyMethod()
                 .AllowAnyHeader()
                 );
-
-            app.UseAuthentication();
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32106.194
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{EC6D64E9-09EE-4658-9DB2-AF1ADA6937F1}"
 EndProject
@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{A10ECCDA-5DB
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Training.Kanban.UI", "src\Web\Training.Kanban.UI\", "{4BF1B114-34EB-4EB0-BACD-DD9EFFE29A53}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_59767"
 		Debug.AspNetCompiler.PhysicalPath = "src\Web\Training.Kanban.UI\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59767\"
@@ -47,7 +47,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Kanban.Application
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Core", "src\Core\Training.Core\Training.Core.csproj", "{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Kanban.Authentication.API", "src\Modules\Kanban\Training.Kanban.Authentication.API\Training.Kanban.Authentication.API.csproj", "{EA65C12C-EAF8-49E2-94DC-0723B6B305C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Kanban.Authentication.API", "src\Modules\Kanban\Training.Kanban.Authentication.API\Training.Kanban.Authentication.API.csproj", "{EA65C12C-EAF8-49E2-94DC-0723B6B305C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
