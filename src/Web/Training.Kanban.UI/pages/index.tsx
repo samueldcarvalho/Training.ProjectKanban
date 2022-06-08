@@ -58,16 +58,6 @@ const Home = () => {
               boardName="Desenvolvimento"
               boardColor="#65a300"
             />
-            <BoardCardComponent
-              membersCount={21}
-              boardName="Suporte"
-              boardColor="#65a300"
-            />
-            <BoardCardComponent
-              membersCount={1}
-              boardName="Pessoal"
-              boardColor="#65a300"
-            />
           </div>
         </div>
       </Wrapper>
