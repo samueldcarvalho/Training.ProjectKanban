@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32106.194
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{EC6D64E9-09EE-4658-9DB2-AF1ADA6937F1}"
 EndProject
@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{A10ECCDA-5DB
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Training.Kanban.UI", "src\Web\Training.Kanban.UI\", "{4BF1B114-34EB-4EB0-BACD-DD9EFFE29A53}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_59767"
 		Debug.AspNetCompiler.PhysicalPath = "src\Web\Training.Kanban.UI\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59767\"
@@ -47,7 +47,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Kanban.Application
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Core", "src\Core\Training.Core\Training.Core.csproj", "{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Kanban.Authentication.API", "src\Modules\Kanban\Training.Kanban.Authentication.API\Training.Kanban.Authentication.API.csproj", "{EA65C12C-EAF8-49E2-94DC-0723B6B305C8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{431571C5-5327-43B0-8E85-FF379ED45C15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Authentication.API", "src\Modules\Authentication\Training.Authentication.API\Training.Authentication.API.csproj", "{EC8B6853-34B8-46D1-A2EF-9DF69D2882DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,10 +81,10 @@ Global
 		{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EA65C12C-EAF8-49E2-94DC-0723B6B305C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA65C12C-EAF8-49E2-94DC-0723B6B305C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EA65C12C-EAF8-49E2-94DC-0723B6B305C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EA65C12C-EAF8-49E2-94DC-0723B6B305C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC8B6853-34B8-46D1-A2EF-9DF69D2882DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC8B6853-34B8-46D1-A2EF-9DF69D2882DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC8B6853-34B8-46D1-A2EF-9DF69D2882DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC8B6853-34B8-46D1-A2EF-9DF69D2882DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,7 +97,8 @@ Global
 		{AB2B80C3-CB36-4F7E-829F-7C5824E890F0} = {3F1E8379-F015-4CA8-8E37-84EFED989E20}
 		{0F5FD422-6549-4208-A752-7CC1FC2B65DD} = {3F1E8379-F015-4CA8-8E37-84EFED989E20}
 		{ADE3BC6A-B32F-401C-8BE2-7CC1B89F893D} = {307024DD-7DEF-4B31-B085-4A2ACA5B8CCC}
-		{EA65C12C-EAF8-49E2-94DC-0723B6B305C8} = {3F1E8379-F015-4CA8-8E37-84EFED989E20}
+		{431571C5-5327-43B0-8E85-FF379ED45C15} = {EC6D64E9-09EE-4658-9DB2-AF1ADA6937F1}
+		{EC8B6853-34B8-46D1-A2EF-9DF69D2882DE} = {431571C5-5327-43B0-8E85-FF379ED45C15}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3F42C87D-E3DE-4C11-B7F1-C70F80DF9DDA}

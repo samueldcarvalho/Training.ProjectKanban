@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataContexts\**" />
+    <Compile Remove="Repositories\**" />
+    <EmbeddedResource Remove="DataContexts\**" />
+    <EmbeddedResource Remove="Repositories\**" />
+    <None Remove="DataContexts\**" />
+    <None Remove="Repositories\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.23">
       <PrivateAssets>all</PrivateAssets>
@@ -15,11 +24,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Training.Kanban.Domain\Training.Kanban.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DataContexts\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
 </Project>

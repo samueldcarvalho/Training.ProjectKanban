@@ -14,9 +14,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Training.Kanban.Authentication.API.Models;
+using Training.Authentication.API.Configurations;
+using Training.Authentication.API.Infraestructure.Repositories;
+using Training.Authentication.API.Interfaces;
+using Training.Authentication.API.Services;
 
-namespace Training.Kanban.Authentication.API
+namespace Training.Authentication.API
 {
     public class Startup
     {
@@ -30,35 +33,35 @@ namespace Training.Kanban.Authentication.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
+
             services.AddControllers();
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Training.Kanban.Authentication.API", Version = "v1" });
-            });
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ITokenService, TokenService>();
 
-            var jwtSection = Configuration.GetSection("JWTSettings");
-            services.Configure<JWTSettings>(jwtSection);
-            var appSettings = jwtSection.Get<JWTSettings>();
-
-            var key = Encoding.ASCII.GetBytes(appSettings.SecretKey);
+            var key = Encoding.ASCII.GetBytes(JwtSettings.Key);
 
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(x =>
-            {
-                x.RequireHttpsMetadata = false;
-                x.SaveToken = true;
-                x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+            })
+                .AddJwtBearer(x =>
                 {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = false,
-                    ValidateAudience = false
-                };
+                    x.RequireHttpsMetadata = false;
+                    x.SaveToken = true;
+                    x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(key),
+                        ValidateIssuer = false,
+                        ValidateAudience = false
+                    };
+                });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Training.Authentication.API", Version = "v1" });
             });
         }
 
@@ -69,18 +72,19 @@ namespace Training.Kanban.Authentication.API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Training.Kanban.Authentication.API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Training.Authentication.API v1"));
             }
 
             app.UseHttpsRedirection();
-
+            
             app.UseRouting();
 
-            app.UseCors(option => option
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                );
+            app.UseCors(a =>
+            {
+                a.AllowAnyOrigin();
+                a.AllowAnyHeader();
+                a.AllowAnyMethod();
+            });
 
             app.UseAuthentication();
             app.UseAuthorization();
