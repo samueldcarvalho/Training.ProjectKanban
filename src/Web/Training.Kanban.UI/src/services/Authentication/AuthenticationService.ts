@@ -1,16 +1,20 @@
 /** @format */
 
-import { execFileSync } from "child_process";
-import { randomUUID } from "crypto";
-import { AuthAPI } from "../AuthApi";
+import { API } from "../Api";
 import { TokenService } from "./TokenService";
 
 const Login = async (LoginData: { username: string; password: string }) => {
   // await AuthAPI.post("", LoginData);
-  if (LoginData.password == "12345" && LoginData.username == "samuel") {
-    TokenService.Save("1234567");
-    return true;
-  } else return false;
+
+  const response = await API.post("authentication/authenticate", LoginData, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    responseType: "json",
+  });
+
+  console.log(response.data.token);
+  TokenService.Save(response.data.token);
 };
 
 export const AuthenticationService = {
