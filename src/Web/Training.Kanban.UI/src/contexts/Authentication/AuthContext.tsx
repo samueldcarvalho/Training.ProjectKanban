@@ -1,9 +1,11 @@
 import Router from "next/router";
 import { parseCookies, setCookie } from "nookies";
-import { createContext, ReactNode, useLayoutEffect, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { User } from "../../models/User";
 import { AuthenticationService } from "../../services/Authentication/AuthenticationService";
 import * as jwtDecode from "jwt-decode";
+import LoadingModal from "../../components/globals/Loading/Modal/LoadingModal";
+import { LoadingContext } from "../Loading/LoadingContext";
 
 export type LoginDataType = {
   username: string;
@@ -20,16 +22,20 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
+  const { isLoading } = useContext(LoadingContext);
   const isAuthenticated = !!user;
+  console.log(isAuthenticated);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const { "kanban.token": token } = parseCookies();
 
     if (token) {
-      AuthenticationService.GetUserById((jwtDecode.default(token) as any).Id).then((u) => {
-        setUser(u);
-        Router.push("/");
-      });
+      AuthenticationService.GetUserById((jwtDecode.default(token) as any).Id)
+        .then((u) => {
+          setUser(u);
+          Router.push("/");
+        })
+        .catch(() => Router.push("/login"));
     }
   }, []);
 

@@ -1,0 +1,57 @@
+.kb_modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.kb_modal_shadow {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.kb_modal {
+    position: relative;
+    display: table;
+    animation: ModalLoadUp 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.kb_modal_close_button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+    outline: none;
+    border: none;
+
+    background-color: transparent;
+
+    transition: all 0.1s ease;
+}
+
+.kb_modal_close_button:hover {
+    background-color: var(--color-danger-01);
+}
+
+.kb_modal_close_button:hover * {
+    color: white;
+}
+
+.kb_modal_close_button:active {
+    background-color: var(--color-danger-02);
+}

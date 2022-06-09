@@ -6,12 +6,15 @@ import "../src/styles/teams-module.css";
 
 import type { AppProps } from "next/app";
 import { AuthProvider } from "../src/contexts/Authentication/AuthContext";
+import { LoadingProvider } from "../src/contexts/Loading/LoadingContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <AuthProvider>
-      <Component {...pageProps} />;
-    </AuthProvider>
+    <LoadingProvider>
+      <AuthProvider>
+        <Component {...pageProps} />;
+      </AuthProvider>
+    </LoadingProvider>
   );
 }
 
