@@ -3,7 +3,7 @@ import { Team } from "..";
 import Modal from "../../src/components/main/Modal/Modal";
 import CardTitleComponent from "../../src/components/main/titlecard-component";
 import Wrapper from "../../src/components/main/wrapper-component";
-import { ProtectedLayout } from "../../src/components/ProtectedLayout";
+import ProtectedLayout from "../../src/components/Security/ProtectedLayout";
 
 const TeamsPage = () => {
   const [selectedTeam, setSelectedTeam] = useState<Team>({
@@ -28,18 +28,11 @@ const TeamsPage = () => {
       <Wrapper titlePagePops={{ title: "Teams", description: "management" }}>
         <div className="kb-card kb-teams-top">
           <div className="kb-teams-top-header">
-            <CardTitleComponent
-              align="flex-start"
-              title="Details"
-              description="See more details below"
-            />
+            <CardTitleComponent align="flex-start" title="Details" description="See more details below" />
           </div>
           <div className="kb-teams-top-body">
             <div className="kb-teams-top-body-grid">
-              <tr
-                className="row kb-table-row kb-table-row-header"
-                style={{ width: "100%" }}
-              >
+              <tr className="row kb-table-row kb-table-row-header" style={{ width: "100%" }}>
                 <td className="col">Name</td>
                 <td className="col">Task Points</td>
               </tr>
@@ -73,10 +66,7 @@ const TeamsPage = () => {
           </div>
           <div className="kb-teams-body-body">
             <div>
-              <tr
-                className="row kb-table-row kb-table-row-header"
-                style={{ width: "100%" }}
-              >
+              <tr className="row kb-table-row kb-table-row-header" style={{ width: "100%" }}>
                 <td className="col">Id</td>
                 <td className="col">Name</td>
                 <td className="col">Task Points</td>

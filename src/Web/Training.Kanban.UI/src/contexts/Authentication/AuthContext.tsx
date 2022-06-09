@@ -1,6 +1,6 @@
 import Router from "next/router";
 import { parseCookies, setCookie } from "nookies";
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useLayoutEffect, useState } from "react";
 import { User } from "../../models/User";
 import { AuthenticationService } from "../../services/Authentication/AuthenticationService";
 import * as jwtDecode from "jwt-decode";
@@ -22,11 +22,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const isAuthenticated = !!user;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const { "kanban.token": token } = parseCookies();
 
     if (token) {
-      AuthenticationService.GetUserById((jwtDecode.default(token) as any).Id).then((user) => setUser(user));
+      AuthenticationService.GetUserById((jwtDecode.default(token) as any).Id).then((u) => {
+        setUser(u);
+        Router.push("/");
+      });
     }
   }, []);
 

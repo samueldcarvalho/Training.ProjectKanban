@@ -1,7 +1,7 @@
 import CardTitleComponent from "../src/components/main/titlecard-component";
 import Wrapper from "../src/components/main/wrapper-component";
 import BoardCardComponent from "../src/components/Shared/boardcard-component";
-import { ProtectedLayout } from "../src/components/ProtectedLayout";
+import ProtectedLayout from "../src/components/Security/ProtectedLayout";
 import { useContext } from "react";
 import { AuthContext } from "../src/contexts/Authentication/AuthContext";
 
