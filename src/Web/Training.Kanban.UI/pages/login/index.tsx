@@ -1,9 +1,7 @@
 /** @format */
 
-import Router from "next/router";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../src/contexts/Authentication/AuthContext";
-import { AuthenticationService } from "../../src/services/Authentication/AuthenticationService";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -27,7 +25,7 @@ const Login = () => {
               <button className="kb-secundary-button">Sign-up</button>
             </span>
           </div>
-          <form className="kb-sign-form">
+          <form className="kb-sign-form" autoComplete="off">
             <div className="kb-sign-form-title">
               <p>Login</p>
             </div>
@@ -35,6 +33,7 @@ const Login = () => {
               <label className="kb-sing-form-label">
                 <p>Username</p>
                 <input
+                  autoComplete="off"
                   type="text"
                   onChange={(e) => setUsername(e.target.value)}
                   value={username}
@@ -45,6 +44,7 @@ const Login = () => {
               <label className="kb-sing-form-label">
                 <p>Password</p>
                 <input
+                  autoComplete="off"
                   type="password"
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}

@@ -1,6 +1,7 @@
 /** @format */
 
 import { LoginDataType } from "../../contexts/Authentication/AuthContext";
+import { User } from "../../models/User";
 import { UserAuthenticationViewModel } from "../../models/ViewModels/UserAuthentication";
 import { API } from "../Api";
 
@@ -12,9 +13,19 @@ const Login = async (LoginData: LoginDataType) => {
     responseType: "json",
   });
 
+  console.log(response.data);
+
   return response.data as UserAuthenticationViewModel;
+};
+
+const GetUserById = async (id: number) => {
+  const response = await API.get("authentication/authenticate/" + id, {
+    responseType: "json",
+  });
+  return response.data as User;
 };
 
 export const AuthenticationService = {
   Login,
+  GetUserById,
 };
