@@ -2,7 +2,7 @@
 {
     public class JwtViewModel
     {
-        public int Id { get; set; }
+        public UserViewModel User { get; set; }
         public string Token { get; set; }
     }
 }

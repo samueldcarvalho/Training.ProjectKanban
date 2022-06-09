@@ -15,11 +15,15 @@ namespace Training.Authentication.API.Infraestructure.Repositories
                     Id = 1,
                     Password = "12345",
                     Username = "samuel",
+                    Email = "samueldcarvalho@gmail.com",
+                    Name = "Samuel de Carvalho"
                 }, new()
                 {
                     Id = 2,
                     Password = "qweasd",
                     Username = "debora",
+                    Email = "debora_22z@hotmail.com.br",
+                    Name = "Debora D. Pianezzer"
                 }};
 
             return users
