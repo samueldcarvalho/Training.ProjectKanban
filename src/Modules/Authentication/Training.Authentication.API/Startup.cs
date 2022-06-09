@@ -76,8 +76,15 @@ namespace Training.Authentication.API
             }
 
             app.UseHttpsRedirection();
-
+            
             app.UseRouting();
+
+            app.UseCors(a =>
+            {
+                a.AllowAnyOrigin();
+                a.AllowAnyHeader();
+                a.AllowAnyMethod();
+            });
 
             app.UseAuthentication();
             app.UseAuthorization();
