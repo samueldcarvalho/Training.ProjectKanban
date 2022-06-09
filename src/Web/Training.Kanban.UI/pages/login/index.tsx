@@ -1,15 +1,18 @@
 /** @format */
 
 import Router from "next/router";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../src/contexts/Authentication/AuthContext";
 import { AuthenticationService } from "../../src/services/Authentication/AuthenticationService";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const { Authenticate } = useContext(AuthContext);
+
   async function onSubmitHandler() {
-    await AuthenticationService.Login({ username, password });
+    await Authenticate({ username, password });
   }
 
   return (
