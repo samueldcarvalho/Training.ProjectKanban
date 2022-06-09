@@ -3,8 +3,8 @@
 
 :root {
   --color-primary: #ff7562;
-  --color-primary-alert: #ff2a7c;
-  --color-primary-disable: rgb(204, 41, 79);
+  --color-primary-alert: #e3295a;
+  --color-primary-disable: #c91a43;
 
   --color-bg-primary: #fff;
   --color-bg-secundary: #ffffff;

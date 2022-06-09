@@ -9,9 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   async function onSubmitHandler() {
-    const success = await AuthenticationService.Login({ username, password });
-
-    if (success) Router.push("/");
+    await AuthenticationService.Login({ username, password });
   }
 
   return (
