@@ -4,7 +4,6 @@ import { createContext, ReactNode, useContext, useEffect, useState } from "react
 import { User } from "../../models/User";
 import { AuthenticationService } from "../../services/Authentication/AuthenticationService";
 import * as jwtDecode from "jwt-decode";
-import LoadingModal from "../../components/globals/Loading/Modal/LoadingModal";
 import { LoadingContext } from "../Loading/LoadingContext";
 
 export type LoginDataType = {
@@ -22,9 +21,8 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-  const { isLoading } = useContext(LoadingContext);
+  const { LoadingHandler } = useContext(LoadingContext);
   const isAuthenticated = !!user;
-  console.log(isAuthenticated);
 
   useEffect(() => {
     const { "kanban.token": token } = parseCookies();
@@ -33,27 +31,40 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       AuthenticationService.GetUserById((jwtDecode.default(token) as any).Id)
         .then((u) => {
           setUser(u);
-          Router.push("/");
         })
         .catch(() => Router.push("/login"));
     }
   }, []);
 
   async function Authenticate({ username, password }: LoginDataType) {
-    const { token, user } = await AuthenticationService.Login({
-      username,
-      password,
+    LoadingHandler({
+      isLoading: true,
+      loadingText: "Authenticating",
     });
 
-    if (!token || !user) return;
+    await delay(750);
 
-    setCookie(undefined, "kanban.token", token, {
-      maxAge: 60 * 60 * 1, // 1 hora
-    });
+    try {
+      const { token, user } = await AuthenticationService.Login({
+        username,
+        password,
+      });
 
-    setUser(user);
+      if (!token || !user) return;
 
-    Router.push("/");
+      setCookie(undefined, "kanban.token", token, {
+        maxAge: 60 * 60 * 1, // 1 hora
+      });
+
+      setUser(user);
+
+      Router.push("/");
+    } finally {
+      LoadingHandler({
+        isLoading: false,
+        loadingText: "",
+      });
+    }
   }
 
   return (
@@ -68,3 +79,5 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     </AuthContext.Provider>
   );
 };
+
+const delay = (amount: number = 750) => new Promise((resolve) => setTimeout(resolve, amount));

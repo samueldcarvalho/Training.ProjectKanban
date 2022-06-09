@@ -1,30 +1,31 @@
 import { createContext, ReactNode, useState } from "react";
 import LoadingModal from "../../components/globals/Loading/Modal/LoadingModal";
 
+type LoadingType = {
+  isLoading: boolean;
+  loadingText: string;
+};
+
 type LoadingContext = {
   isLoading: boolean;
-  setLoading: (load: boolean) => void;
+  loadingText: string;
+  LoadingHandler: (loadState: LoadingType) => void;
 };
 
 export const LoadingContext = createContext({} as LoadingContext);
 
 export const LoadingProvider = ({ children }: { children: ReactNode }) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const setLoadingHandler = (load: boolean) => {
-    if (isLoading == load) return;
-
-    setIsLoading(load);
-  };
+  const [loadingState, setLoadingState] = useState<LoadingType>({ isLoading: false, loadingText: "" });
 
   return (
     <LoadingContext.Provider
       value={{
-        isLoading,
-        setLoading: setLoadingHandler,
+        isLoading: loadingState.isLoading,
+        loadingText: loadingState.loadingText,
+        LoadingHandler: setLoadingState,
       }}
     >
-      <LoadingModal isLoading={isLoading} />
+      <LoadingModal isLoading={loadingState.isLoading} loadingText={loadingState.loadingText} />
       {children}
     </LoadingContext.Provider>
   );

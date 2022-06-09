@@ -1,0 +1,19 @@
+.loadingContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingTextContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingTextContainer p {
+  color: #fff;
+  font-size: 10pt;
+  margin-top: 10px;
+}

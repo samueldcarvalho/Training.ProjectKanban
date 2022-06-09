@@ -13,8 +13,6 @@ const Login = async (LoginData: LoginDataType) => {
     responseType: "json",
   });
 
-  console.log(response.data);
-
   return response.data as UserAuthenticationViewModel;
 };
 

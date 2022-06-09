@@ -1,12 +1,10 @@
 import Router from "next/router";
 import { parseCookies } from "nookies";
-import { ReactNode, useLayoutEffect } from "react";
+import { ReactNode, useEffect } from "react";
 
 const ProtectedLayout = ({ children }: { children: ReactNode }) => {
-  useLayoutEffect(() => {
+  useEffect(() => {
     const { ["kanban.token"]: token } = parseCookies();
-
-    console.log(token);
 
     if (token == undefined) {
       Router.push("/login");
