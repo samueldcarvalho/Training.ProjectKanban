@@ -1,11 +1,10 @@
 /** @format */
 
+import { LoginDataType } from "../../contexts/Authentication/AuthContext";
+import { UserAuthenticationViewModel } from "../../models/ViewModels/UserAuthentication";
 import { API } from "../Api";
-import { TokenService } from "./TokenService";
 
-const Login = async (LoginData: { username: string; password: string }) => {
-  // await AuthAPI.post("", LoginData);
-
+const Login = async (LoginData: LoginDataType) => {
   const response = await API.post("authentication/authenticate", LoginData, {
     headers: {
       "Content-Type": "application/json",
@@ -13,8 +12,7 @@ const Login = async (LoginData: { username: string; password: string }) => {
     responseType: "json",
   });
 
-  console.log(response.data.token);
-  TokenService.Save(response.data.token);
+  return response.data as UserAuthenticationViewModel;
 };
 
 export const AuthenticationService = {
