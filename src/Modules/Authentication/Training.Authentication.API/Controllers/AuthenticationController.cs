@@ -31,7 +31,12 @@ namespace Training.Authentication.API.Controllers
 
             return new JwtViewModel
             {
-                Id = user.Id,
+                User = new()
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    Name = user.Name,
+                },
                 Token = token
             };
         }
