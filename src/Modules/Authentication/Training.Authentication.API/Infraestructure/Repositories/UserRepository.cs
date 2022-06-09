@@ -7,9 +7,11 @@ namespace Training.Authentication.API.Infraestructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        public User Get(string username, string password)
+        private List<User> _users;
+
+        public UserRepository()
         {
-            var users = new List<User>
+            _users = new List<User>
                 {
                 new() {
                     Id = 1,
@@ -25,11 +27,18 @@ namespace Training.Authentication.API.Infraestructure.Repositories
                     Email = "debora_22z@hotmail.com.br",
                     Name = "Debora D. Pianezzer"
                 }};
+        }
 
-            return users
+        public User GetByLogin(string username, string password)
+        {
+
+            return _users
                 .FirstOrDefault(user => 
                     string.Equals(user.Username, username) && 
                     string.Equals(user.Password,password));
         }
+
+        public User GetById(int id) =>
+            _users.FirstOrDefault(a => a.Id == id);
     }
 }

@@ -4,6 +4,7 @@ namespace Training.Authentication.API.Interfaces
 {
     public interface IUserRepository
     {
-        User Get(string username, string password);
+        User GetByLogin(string username, string password);
+        User GetById(int id);
     }
 }
