@@ -1,5 +1,5 @@
 import Router from "next/router";
-import { parseCookies, setCookie } from "nookies";
+import { destroyCookie, parseCookies, setCookie } from "nookies";
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { User } from "../../models/User";
 import { AuthenticationService } from "../../services/Authentication/AuthenticationService";
@@ -15,6 +15,7 @@ type AuthContextType = {
   isAuthenticated: boolean;
   user: User | null;
   Authenticate: (loginData: LoginDataType) => Promise<void>;
+  Logout: () => Promise<void>;
 };
 
 export const AuthContext = createContext({} as AuthContextType);
@@ -25,14 +26,23 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const isAuthenticated = !!user;
 
   useEffect(() => {
+    LoadingHandler({
+      isLoading: true,
+      loadingText: "Getting user data",
+    });
     const { "kanban.token": token } = parseCookies();
 
-    if (token) {
-      AuthenticationService.GetUserById((jwtDecode.default(token) as any).Id)
-        .then((u) => {
+    try {
+      if (token) {
+        AuthenticationService.GetUserById((jwtDecode.default(token) as any).Id).then((u) => {
           setUser(u);
-        })
-        .catch(() => Router.push("/login"));
+        });
+      }
+    } finally {
+      LoadingHandler({
+        isLoading: false,
+        loadingText: "",
+      });
     }
   }, []);
 
@@ -67,12 +77,33 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   }
 
+  async function Logout() {
+    LoadingHandler({
+      isLoading: true,
+      loadingText: "Logging out",
+    });
+
+    await delay(1000);
+
+    try {
+      destroyCookie(undefined, "kanban.token");
+      setUser(null);
+      Router.push("/login");
+    } finally {
+      LoadingHandler({
+        isLoading: false,
+        loadingText: "",
+      });
+    }
+  }
+
   return (
     <AuthContext.Provider
       value={{
         isAuthenticated,
         user,
         Authenticate,
+        Logout,
       }}
     >
       {children}
