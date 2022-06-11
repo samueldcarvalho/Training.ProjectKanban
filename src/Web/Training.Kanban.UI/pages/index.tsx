@@ -1,9 +1,9 @@
 import CardTitleComponent from "../src/components/main/titlecard-component";
 import Wrapper from "../src/components/main/wrapper-component";
 import BoardCardComponent from "../src/components/Shared/boardcard-component";
-import ProtectedLayout from "../src/components/Security/ProtectedLayout";
 import { useContext } from "react";
 import { AuthContext } from "../src/contexts/Authentication/AuthContext";
+import { GetServerSidePropsContext } from "next";
 
 export type User = {
   id: number;
@@ -23,37 +23,52 @@ const Home = () => {
   const { user } = useContext(AuthContext);
 
   return (
-    <ProtectedLayout>
-      <Wrapper titlePagePops={{ title: "Home", description: "Welcome" }}>
-        <div className="kb-card kb-home-top">
-          <div className="kb-home-header">
-            <div className="kb-home-header-top">
-              <p>Greetings, {user?.name}!</p>
-              <p>Welcome to your favorite Kanban App</p>
-            </div>
+    <Wrapper titlePagePops={{ title: "Home", description: "Welcome" }}>
+      <div className="kb-card kb-home-top">
+        <div className="kb-home-header">
+          <div className="kb-home-header-top">
+            <p>Greetings, {user?.name}!</p>
+            <p>Welcome to your favorite Kanban App</p>
           </div>
         </div>
-        <div className="kb-card kb-home-teams">
-          <div className="kb-home-teams-header">
-            <CardTitleComponent title="Your Teams" description="Select one to look more details:" align="flex-start" />
-          </div>
-          <div className="kb-home-teams-body">{/* <TeamGridComponent teams={""} /> */}</div>
+      </div>
+      <div className="kb-card kb-home-teams">
+        <div className="kb-home-teams-header">
+          <CardTitleComponent title="Your Teams" description="Select one to look more details:" align="flex-start" />
         </div>
-        <div className="kb-card kb-home-boards">
-          <div className="kb-home-boards-header">
-            <CardTitleComponent
-              title="Your Boards"
-              description="Below, all your boards as you are member. Select one to access."
-              align="flex-start"
-            />
-          </div>
-          <div className="kb-home-boards-body">
-            <BoardCardComponent membersCount={8} boardName="Desenvolvimento" boardColor="#65a300" />
-          </div>
+        <div className="kb-home-teams-body">{/* <TeamGridComponent teams={""} /> */}</div>
+      </div>
+      <div className="kb-card kb-home-boards">
+        <div className="kb-home-boards-header">
+          <CardTitleComponent
+            title="Your Boards"
+            description="Below, all your boards as you are member. Select one to access."
+            align="flex-start"
+          />
         </div>
-      </Wrapper>
-    </ProtectedLayout>
+        <div className="kb-home-boards-body">
+          <BoardCardComponent membersCount={8} boardName="Desenvolvimento" boardColor="#65a300" />
+        </div>
+      </div>
+    </Wrapper>
   );
+};
+
+export const getServerSideProps = ({ req }: GetServerSidePropsContext) => {
+  const { ["kanban.token"]: token } = req.cookies;
+
+  if (!token)
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/login",
+      },
+      props: {},
+    };
+
+  return {
+    props: {},
+  };
 };
 
 export default Home;

@@ -1,5 +1,7 @@
 /** @format */
 
+import { GetServerSidePropsContext } from "next";
+import { parseCookies } from "nookies";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../src/contexts/Authentication/AuthContext";
 
@@ -52,7 +54,7 @@ const Login = () => {
                   id="password"
                 ></input>
                 <label className="kb-sing-form-label-remember-pass">
-                  <p>Remember password?</p>
+                  <p>Remember me?</p>
                   <input type="checkbox"></input>
                 </label>
               </label>
@@ -77,6 +79,23 @@ const Login = () => {
       </div>
     </div>
   );
+};
+
+export const getServerSideProps = ({ req }: GetServerSidePropsContext) => {
+  const { ["kanban.token"]: token } = req.cookies;
+
+  if (token)
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/",
+      },
+      props: {},
+    };
+
+  return {
+    props: {},
+  };
 };
 
 export default Login;
