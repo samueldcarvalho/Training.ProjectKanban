@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "jsonwebtoken-esm": "^1.0.3",
     "jwt-decode": "^3.1.2",
     "next": "12.1.0",
     "nookies": "^2.5.2",
