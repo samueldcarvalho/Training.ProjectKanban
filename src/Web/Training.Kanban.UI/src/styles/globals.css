@@ -55,6 +55,10 @@ a {
   text-decoration: none;
 }
 
+.formValidationSpan {
+  display: table;
+}
+
 .kb-card {
   padding: 20px;
   margin-block: 6px;
@@ -128,11 +132,7 @@ a {
 }
 
 .kb-board-card {
-  background: linear-gradient(
-    15deg,
-    var(--color-primary) 25%,
-    var(--color-primary-alert) 115%
-  );
+  background: linear-gradient(15deg, var(--color-primary) 25%, var(--color-primary-alert) 115%);
 
   position: relative;
   display: flex;

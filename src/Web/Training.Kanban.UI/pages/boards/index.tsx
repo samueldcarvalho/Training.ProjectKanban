@@ -6,7 +6,7 @@ import { LoadingContext } from "../../src/contexts/Loading/LoadingContext";
 
 const BoardsPage = () => {
   const { Logout } = useContext(AuthContext);
-  const { LoadingHandler } = useContext(LoadingContext);
+
   useEffect(() => {
     Logout();
   }, []);
