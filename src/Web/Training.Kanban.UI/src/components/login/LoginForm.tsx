@@ -52,11 +52,7 @@ const LoginForm = ({ onSubmit }: LoginFormType) => {
             className="kb-sign-form-input-text"
             autoComplete="none"
           />
-          {errors.username && (
-            <span>
-              <p>{errors.username.message}</p>
-            </span>
-          )}
+          {errors.username && <span className="formValidationSpan">{errors.username.message}</span>}
         </label>
         <label className="kb-sing-form-label">
           <p>Password</p>
@@ -74,11 +70,7 @@ const LoginForm = ({ onSubmit }: LoginFormType) => {
             className="kb-sign-form-input-text"
             autoComplete="none"
           />
-          {errors.password && (
-            <span className="formValidationSpan">
-              <p>{errors.password.message}</p>
-            </span>
-          )}
+          {errors.password && <span className="formValidationSpan">{errors.password.message}</span>}
           <label className="kb-sing-form-label-remember-pass">
             <p>Remember me?</p>
             <input type="checkbox"></input>
