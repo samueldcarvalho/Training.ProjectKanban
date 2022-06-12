@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Training.Core.Domain.Models;
 using Training.Kanban.Domain.Interfaces;
+using Training.Kanban.Domain.Users;
 using Training.Kanban.Infraestructure.Contexts;
 
 namespace Training.Kanban.Infraestructure.Repositories
 {
     public class AuthenticationRepository : IAuthenticationRepository
     {
-        private readonly AuthenticationContext _dbContext;
+        private readonly KanbanDbContext _dbContext;
 
-        public AuthenticationRepository(AuthenticationContext dbContext)
+        public AuthenticationRepository(KanbanDbContext dbContext)
         {
             _dbContext = dbContext;
         }

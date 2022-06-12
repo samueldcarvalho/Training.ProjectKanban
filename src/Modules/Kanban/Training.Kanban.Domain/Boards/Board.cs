@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Training.Core.Domain.Models;
 using Training.Kanban.Domain.Teams;
+using Training.Kanban.Domain.Users;
 
 namespace Training.Kanban.Domain.Boards
 {
@@ -18,11 +15,12 @@ namespace Training.Kanban.Domain.Boards
             Team = team;
             Users = users;
         }
+        protected Board() { }
 
         public string Name { get; private set; }
         public string Description { get; private set; }
         public User Leader { get; private set; }
         public Team Team { get; private set; }
-        public virtual ICollection<User> Users { get; private set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

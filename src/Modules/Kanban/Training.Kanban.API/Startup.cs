@@ -23,8 +23,8 @@ namespace Training.Kanban.API
         {
             services.AddControllers();
 
-            services.AddDbContext<AuthenticationContext>(options =>
-                options.UseMySQL(Configuration.GetConnectionString("DefaultConnectionString")));
+            services.AddDbContext<KanbanDbContext>(options =>
+                options.UseMySQL(Configuration.GetConnectionString("Default"), b => b.MigrationsAssembly("Training.Kanban.API")));
 
             services.AddSwaggerGen(c =>
             {

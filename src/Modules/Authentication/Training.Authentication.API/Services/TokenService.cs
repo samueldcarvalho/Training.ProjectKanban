@@ -7,6 +7,7 @@ using Training.Authentication.API.Configurations;
 using Training.Authentication.API.Interfaces;
 using Training.Authentication.API.Models;
 using Training.Core.Domain.Models;
+using Training.Kanban.Domain.Users;
 
 namespace Training.Authentication.API.Services
 {

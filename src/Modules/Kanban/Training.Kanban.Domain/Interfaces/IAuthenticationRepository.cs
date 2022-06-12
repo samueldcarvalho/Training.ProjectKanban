@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Training.Core.Domain.Models;
+using Training.Kanban.Domain.Users;
 
 namespace Training.Kanban.Domain.Interfaces
 {
