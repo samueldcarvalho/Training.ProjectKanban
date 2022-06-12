@@ -24,12 +24,7 @@ namespace Training.Kanban.Infraestructure.Mappings
                 .HasColumnType("VARCHAR(255)");
 
             builder.HasOne(x => x.Leader)
-                .WithMany();
-
-            builder.HasMany(x => x.Users)
-                .WithMany()
-                
-                
+                .WithMany();                
         }
     }
 }

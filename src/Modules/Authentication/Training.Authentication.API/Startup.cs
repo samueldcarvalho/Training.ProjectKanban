@@ -12,6 +12,7 @@ using Training.Authentication.API.Configurations;
 using Training.Authentication.API.Interfaces;
 using Training.Authentication.API.Services;
 using Training.Kanban.Domain.Interfaces;
+using Training.Kanban.Infraestructure.Contexts;
 using Training.Kanban.Infraestructure.Repositories;
 
 namespace Training.Authentication.API
@@ -30,6 +31,9 @@ namespace Training.Authentication.API
         {
 
             services.AddControllers();
+
+            services.AddDbContext<KanbanDbContext>(options =>
+                options.UseMySQL(Configuration.GetConnectionString("Default")));
 
             services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
             services.AddScoped<ITokenService, TokenService>();
