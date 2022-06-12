@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -15,6 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Training.Authentication.API.Configurations;
+using Training.Authentication.API.Infraestructure.Contexts;
 using Training.Authentication.API.Infraestructure.Repositories;
 using Training.Authentication.API.Interfaces;
 using Training.Authentication.API.Services;
@@ -38,6 +40,9 @@ namespace Training.Authentication.API
 
             services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
             services.AddScoped<ITokenService, TokenService>();
+
+            services.AddDbContext<AuthenticationContext>(options => 
+                options.UseMySQL(Configuration.GetConnectionString("DefaultConnectionString")));
 
             var key = Encoding.ASCII.GetBytes(JwtSettings.Key);
 
