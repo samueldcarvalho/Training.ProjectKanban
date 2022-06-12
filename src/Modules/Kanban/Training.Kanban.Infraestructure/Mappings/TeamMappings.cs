@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Training.Kanban.Domain.Teams;
+using Training.Kanban.Domain.Users;
 
 namespace Training.Kanban.Infraestructure.Mappings
 {
@@ -21,6 +22,14 @@ namespace Training.Kanban.Infraestructure.Mappings
 
             builder.Property(t => t.Description)
                 .HasColumnType("VARCHAR(255)");
+
+            builder.HasOne(x => x.Leader)
+                .WithMany();
+
+            builder.HasMany(x => x.Users)
+                .WithMany()
+                
+                
         }
     }
 }

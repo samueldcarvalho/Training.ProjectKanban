@@ -37,11 +37,7 @@ namespace Training.Kanban.Infraestructure.Mappings
             builder.HasIndex(x => new { x.Username, x.Password })
                 .HasName("ix_LoginData");
 
-            builder.HasMany(u => u.Boards)
-                .WithOne(b => b.Leader);
-
-            builder.HasMany(u => u.Teams)
-                .WithOne(t => t.Leader);
+            
         }
     }
 }
