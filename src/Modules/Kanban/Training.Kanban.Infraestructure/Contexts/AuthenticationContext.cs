@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Training.Authentication.API.Infraestructure.Mappings;
 using Training.Core.Domain.Models;
+using Training.Kanban.Infraestructure.Mappings;
 
-namespace Training.Authentication.API.Infraestructure.Contexts
+namespace Training.Kanban.Infraestructure.Contexts
 {
     public class AuthenticationContext : DbContext
     {

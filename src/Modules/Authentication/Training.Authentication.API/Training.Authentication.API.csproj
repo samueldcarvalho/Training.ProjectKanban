@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Training.Core\Training.Core.csproj" />
+    <ProjectReference Include="..\..\Kanban\Training.Kanban.Infraestructure\Training.Kanban.Infraestructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Training.Core.Domain.Models;
 
-namespace Training.Authentication.API.Infraestructure.Mappings
+namespace Training.Kanban.Infraestructure.Mappings
 {
     public class UserMappings : IEntityTypeConfiguration<User>
     {
@@ -32,7 +32,7 @@ namespace Training.Authentication.API.Infraestructure.Mappings
                 .IsUnique();
 
             builder.HasIndex(x => new { x.Username, x.Password })
-                .HasDatabaseName("ix_LoginData");
+                .HasName("ix_LoginData");
         }
     }
 }

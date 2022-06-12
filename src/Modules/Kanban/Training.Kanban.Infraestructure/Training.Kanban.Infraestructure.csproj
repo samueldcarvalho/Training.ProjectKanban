@@ -6,11 +6,8 @@
 
   <ItemGroup>
     <Compile Remove="DataContexts\**" />
-    <Compile Remove="Repositories\**" />
     <EmbeddedResource Remove="DataContexts\**" />
-    <EmbeddedResource Remove="Repositories\**" />
     <None Remove="DataContexts\**" />
-    <None Remove="Repositories\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +17,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.2" />
   </ItemGroup>
 
   <ItemGroup>

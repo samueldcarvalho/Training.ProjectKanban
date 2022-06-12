@@ -1,7 +1,6 @@
-﻿using Training.Authentication.API.Models;
-using Training.Core.Domain.Models;
+﻿using Training.Core.Domain.Models;
 
-namespace Training.Authentication.API.Interfaces
+namespace Training.Kanban.Domain.Interfaces
 {
     public interface IAuthenticationRepository
     {

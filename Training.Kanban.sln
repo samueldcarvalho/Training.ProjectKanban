@@ -49,7 +49,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Core", "src\Core\T
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{431571C5-5327-43B0-8E85-FF379ED45C15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Authentication.API", "src\Modules\Authentication\Training.Authentication.API\Training.Authentication.API.csproj", "{EC8B6853-34B8-46D1-A2EF-9DF69D2882DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Authentication.API", "src\Modules\Authentication\Training.Authentication.API\Training.Authentication.API.csproj", "{EC8B6853-34B8-46D1-A2EF-9DF69D2882DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

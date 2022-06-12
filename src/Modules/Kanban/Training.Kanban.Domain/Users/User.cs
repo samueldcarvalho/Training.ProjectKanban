@@ -11,11 +11,12 @@ namespace Training.Kanban.Domain.Users
 {
     public class User : Entity
     {
-        public User(string name, string email, string username, ICollection<Team> teams, ICollection<Board> boards)
+        public User(string name, string password, string email, string username, ICollection<Team> teams, ICollection<Board> boards)
         {
             Name = name;
             Email = email;
             Username = username;
+            Password = password;
             Teams = teams;
             Boards = boards;
         }
@@ -23,6 +24,7 @@ namespace Training.Kanban.Domain.Users
         public string Name { get; private set; }
         public string Email { get; private set; }
         public string Username { get; private set; }
+        public string Password { get; private set; }
         public ICollection<Team> Teams { get; private set; }
         public ICollection<Board> Boards { get; private set; }
     }

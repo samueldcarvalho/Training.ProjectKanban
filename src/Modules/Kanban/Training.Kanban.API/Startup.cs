@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Training.Kanban.Infraestructure.Contexts;
 
 namespace Training.Kanban.API
 {
@@ -20,6 +22,10 @@ namespace Training.Kanban.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddDbContext<AuthenticationContext>(options =>
+                options.UseMySQL(Configuration.GetConnectionString("DefaultConnectionString")));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Training.Kanban.API", Version = "v1" });
