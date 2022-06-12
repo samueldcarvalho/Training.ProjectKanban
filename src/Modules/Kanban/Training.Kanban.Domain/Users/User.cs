@@ -11,6 +11,15 @@ namespace Training.Kanban.Domain.Users
 {
     public class User : Entity
     {
+        public User(string name, string email, string username, ICollection<Team> teams, ICollection<Board> boards)
+        {
+            Name = name;
+            Email = email;
+            Username = username;
+            Teams = teams;
+            Boards = boards;
+        }
+
         public string Name { get; private set; }
         public string Email { get; private set; }
         public string Username { get; private set; }

@@ -10,6 +10,15 @@ namespace Training.Kanban.Domain.Boards
 {
     public class Board : Entity
     {
+        public Board(string name, string description, User leader, Team team, ICollection<User> users)
+        {
+            Name = name;
+            Description = description;
+            Leader = leader;
+            Team = team;
+            Users = users;
+        }
+
         public string Name { get; private set; }
         public string Description { get; private set; }
         public User Leader { get; private set; }
