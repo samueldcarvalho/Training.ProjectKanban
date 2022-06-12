@@ -36,7 +36,7 @@ namespace Training.Authentication.API
 
             services.AddControllers();
 
-            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
             services.AddScoped<ITokenService, TokenService>();
 
             var key = Encoding.ASCII.GetBytes(JwtSettings.Key);

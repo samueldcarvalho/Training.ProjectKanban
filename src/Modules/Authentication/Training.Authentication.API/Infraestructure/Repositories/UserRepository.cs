@@ -2,14 +2,15 @@
 using System.Linq;
 using Training.Authentication.API.Interfaces;
 using Training.Authentication.API.Models;
+using Training.Core.Domain.Models;
 
 namespace Training.Authentication.API.Infraestructure.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class AuthenticationRepository : IAuthenticationRepository
     {
         private List<User> _users;
 
-        public UserRepository()
+        public AuthenticationRepository()
         {
             _users = new List<User>
                 {

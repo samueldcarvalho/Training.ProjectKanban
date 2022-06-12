@@ -12,5 +12,8 @@ namespace Training.Core.Domain.Models
     {
         [Key]
         public int Id { get; set; }
+        public DateTime CreatedAt { get; private set; } = DateTime.Now;
+        public DateTime AlteredAt { get; private set; } = DateTime.MinValue;
+        public bool Removed { get; private set; } = false;
     }
 }

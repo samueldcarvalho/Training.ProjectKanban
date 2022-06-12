@@ -11,10 +11,10 @@ namespace Training.Authentication.API.Controllers
     [Route("api/authentication")]
     public class AuthenticationController : Controller
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IAuthenticationRepository _userRepository;
         private readonly ITokenService _tokenService;
 
-        public AuthenticationController(IUserRepository userRepository, ITokenService tokenService)
+        public AuthenticationController(IAuthenticationRepository userRepository, ITokenService tokenService)
         {
             _userRepository = userRepository;
             _tokenService = tokenService;

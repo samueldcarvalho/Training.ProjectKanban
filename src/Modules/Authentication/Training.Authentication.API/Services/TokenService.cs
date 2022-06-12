@@ -6,6 +6,7 @@ using System.Text;
 using Training.Authentication.API.Configurations;
 using Training.Authentication.API.Interfaces;
 using Training.Authentication.API.Models;
+using Training.Core.Domain.Models;
 
 namespace Training.Authentication.API.Services
 {
