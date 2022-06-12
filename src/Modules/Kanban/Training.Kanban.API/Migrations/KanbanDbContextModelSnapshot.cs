@@ -54,6 +54,36 @@ namespace Training.Kanban.API.Migrations
                     b.ToTable("board");
                 });
 
+            modelBuilder.Entity("Training.Kanban.Domain.Boards.Joins.BoardUser", b =>
+                {
+                    b.Property<int>("BoardId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BoardId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("BoardUser");
+                });
+
+            modelBuilder.Entity("Training.Kanban.Domain.Teams.Joins.TeamUser", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TeamId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "TeamId");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("TeamUser");
+                });
+
             modelBuilder.Entity("Training.Kanban.Domain.Teams.Team", b =>
                 {
                     b.Property<int>("Id")
@@ -95,9 +125,6 @@ namespace Training.Kanban.API.Migrations
                     b.Property<DateTime>("AlteredAt")
                         .HasColumnType("datetime");
 
-                    b.Property<int?>("BoardId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime");
 
@@ -116,20 +143,13 @@ namespace Training.Kanban.API.Migrations
                     b.Property<bool>("Removed")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int?>("TeamId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Username")
                         .HasColumnType("VARCHAR(26)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BoardId");
-
                     b.HasIndex("Email")
                         .IsUnique();
-
-                    b.HasIndex("TeamId");
 
                     b.HasIndex("Username")
                         .IsUnique();
@@ -143,7 +163,7 @@ namespace Training.Kanban.API.Migrations
             modelBuilder.Entity("Training.Kanban.Domain.Boards.Board", b =>
                 {
                     b.HasOne("Training.Kanban.Domain.Users.User", "Leader")
-                        .WithMany("Boards")
+                        .WithMany()
                         .HasForeignKey("LeaderId");
 
                     b.HasOne("Training.Kanban.Domain.Teams.Team", "Team")
@@ -151,22 +171,41 @@ namespace Training.Kanban.API.Migrations
                         .HasForeignKey("TeamId");
                 });
 
+            modelBuilder.Entity("Training.Kanban.Domain.Boards.Joins.BoardUser", b =>
+                {
+                    b.HasOne("Training.Kanban.Domain.Boards.Board", "Board")
+                        .WithMany("BoardUsers")
+                        .HasForeignKey("BoardId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Training.Kanban.Domain.Users.User", "User")
+                        .WithMany("BoardUsers")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Training.Kanban.Domain.Teams.Joins.TeamUser", b =>
+                {
+                    b.HasOne("Training.Kanban.Domain.Teams.Team", "Team")
+                        .WithMany("TeamUsers")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Training.Kanban.Domain.Users.User", "User")
+                        .WithMany("TeamUsers")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Training.Kanban.Domain.Teams.Team", b =>
                 {
                     b.HasOne("Training.Kanban.Domain.Users.User", "Leader")
-                        .WithMany("Teams")
+                        .WithMany()
                         .HasForeignKey("LeaderId");
-                });
-
-            modelBuilder.Entity("Training.Kanban.Domain.Users.User", b =>
-                {
-                    b.HasOne("Training.Kanban.Domain.Boards.Board", null)
-                        .WithMany("Users")
-                        .HasForeignKey("BoardId");
-
-                    b.HasOne("Training.Kanban.Domain.Teams.Team", null)
-                        .WithMany("Users")
-                        .HasForeignKey("TeamId");
                 });
 #pragma warning restore 612, 618
         }
