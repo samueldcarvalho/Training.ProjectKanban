@@ -5,18 +5,17 @@ import "../src/styles/main-module.css";
 import "../src/styles/teams-module.css";
 
 import type { AppProps } from "next/app";
-import { TokenService } from "../src/services/Authentication/TokenService";
+import { AuthProvider } from "../src/contexts/Authentication/AuthContext";
+import { LoadingProvider } from "../src/contexts/Loading/LoadingContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <LoadingProvider>
+      <AuthProvider>
+        <Component {...pageProps} />;
+      </AuthProvider>
+    </LoadingProvider>
+  );
 }
 
 export default MyApp;
-
-export async function getServerSideProps(ctx: any) {
-  console.log(ctx);
-
-  return {
-    props: {},
-  };
-}

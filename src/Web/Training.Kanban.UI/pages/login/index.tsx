@@ -1,17 +1,14 @@
 /** @format */
 
-import Router from "next/router";
-import { useContext, useState } from "react";
+import { GetServerSidePropsContext } from "next";
+import { useContext } from "react";
+import LoginForm from "../../src/components/login/LoginForm";
 import { AuthContext } from "../../src/contexts/Authentication/AuthContext";
-import { AuthenticationService } from "../../src/services/Authentication/AuthenticationService";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
   const { Authenticate } = useContext(AuthContext);
 
-  async function onSubmitHandler() {
+  async function onSubmitHandler(username: string, password: string) {
     await Authenticate({ username, password });
   }
 
@@ -27,56 +24,28 @@ const Login = () => {
               <button className="kb-secundary-button">Sign-up</button>
             </span>
           </div>
-          <form className="kb-sign-form">
-            <div className="kb-sign-form-title">
-              <p>Login</p>
-            </div>
-            <div className="kb-sign-form-inputs">
-              <label className="kb-sing-form-label">
-                <p>Username</p>
-                <input
-                  type="text"
-                  onChange={(e) => setUsername(e.target.value)}
-                  value={username}
-                  className="kb-sign-form-input-text"
-                  id="username"
-                ></input>
-              </label>
-              <label className="kb-sing-form-label">
-                <p>Password</p>
-                <input
-                  type="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                  className="kb-sign-form-input-text"
-                  id="password"
-                ></input>
-                <label className="kb-sing-form-label-remember-pass">
-                  <p>Remember password?</p>
-                  <input type="checkbox"></input>
-                </label>
-              </label>
-            </div>
-            <div className="kb-sign-form-footer">
-              <div>
-                <p>Forgot password?&nbsp;</p>
-                <a href="#">Recover here</a>
-              </div>
-              <input
-                className="kb-primary-button"
-                type="button"
-                onClick={(event) => {
-                  event.preventDefault();
-                  onSubmitHandler();
-                }}
-                value="Login"
-              ></input>
-            </div>
-          </form>
+          <LoginForm onSubmit={onSubmitHandler} />
         </section>
       </div>
     </div>
   );
+};
+
+export const getServerSideProps = ({ req }: GetServerSidePropsContext) => {
+  const { ["kanban.token"]: token } = req.cookies;
+
+  if (token)
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/",
+      },
+      props: {},
+    };
+
+  return {
+    props: {},
+  };
 };
 
 export default Login;

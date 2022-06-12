@@ -1,16 +1,38 @@
+import { GetServerSidePropsContext } from "next";
+import { useContext, useEffect } from "react";
 import Wrapper from "../../src/components/main/wrapper-component";
-import { ProtectedLayout } from "../../src/components/ProtectedLayout";
+import { AuthContext } from "../../src/contexts/Authentication/AuthContext";
+import { LoadingContext } from "../../src/contexts/Loading/LoadingContext";
 
 const BoardsPage = () => {
-    return (
-        <ProtectedLayout>
-            <Wrapper titlePagePops={{ title: "Boards", description: "Sell all" }}>
-                <div>
+  const { Logout } = useContext(AuthContext);
 
-                </div>
-            </Wrapper>
-        </ProtectedLayout>
-    );
-}
+  useEffect(() => {
+    Logout();
+  }, []);
+
+  return (
+    <Wrapper titlePagePops={{ title: "Boards", description: "Sell all" }}>
+      <div></div>
+    </Wrapper>
+  );
+};
+
+export const getServerSideProps = ({ req }: GetServerSidePropsContext) => {
+  const { ["kanban.token"]: token } = req.cookies;
+
+  if (!token)
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/login",
+      },
+      props: {},
+    };
+
+  return {
+    props: {},
+  };
+};
 
 export default BoardsPage;
