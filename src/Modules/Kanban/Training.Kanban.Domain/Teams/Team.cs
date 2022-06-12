@@ -22,7 +22,7 @@ namespace Training.Kanban.Domain.Teams
         public string Name { get; private set; }
         public string Description { get; private set; }
         public User Leader { get; private set; }
-        public ICollection<User> Users { get; private set; }
-        public ICollection<Board> Boards { get; private set; }
+        public virtual ICollection<User> Users { get; private set; }
+        public virtual ICollection<Board> Boards { get; private set; }
     }
 }

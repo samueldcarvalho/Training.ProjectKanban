@@ -1,10 +1,12 @@
-﻿using Training.Core.Domain.Models;
+﻿using System.Threading.Tasks;
+using Training.Core.Domain.Models;
 
 namespace Training.Kanban.Domain.Interfaces
 {
     public interface IAuthenticationRepository
     {
-        User GetByLogin(string username, string password);
-        User GetById(int id);
+        Task<User> GetByLogin(string username, string password);
+        Task<User> GetById(int id);
+        Task<bool> Register(User user);
     }
 }

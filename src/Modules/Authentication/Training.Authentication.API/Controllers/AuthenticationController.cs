@@ -5,6 +5,7 @@ using Training.Authentication.API.Interfaces;
 using Training.Authentication.API.Models;
 using Training.Authentication.API.Models.Inputs;
 using Training.Authentication.API.Models.Views;
+using Training.Kanban.Domain.Interfaces;
 
 namespace Training.Authentication.API.Controllers
 {
@@ -23,7 +24,7 @@ namespace Training.Authentication.API.Controllers
         [HttpPost("authenticate")]
         public async Task<ActionResult<JwtViewModel>> AuthenticateAsync([FromBody] LoginInputModel loginData)
         {
-            var user = _userRepository.GetByLogin(loginData.Username, loginData.Password);
+            var user = await _userRepository.GetByLogin(loginData.Username, loginData.Password);
 
             if (user == null)
                 return Unauthorized(new { message = "Usuário ou senha inválidos" });
@@ -46,7 +47,7 @@ namespace Training.Authentication.API.Controllers
         [Authorize]
         public async Task<ActionResult<UserViewModel>> GetUserInformationAsync(int userId)
         {
-            var user = _userRepository.GetById(userId);
+            var user = await _userRepository.GetById(userId);
 
             if (user == null)
                 return Unauthorized(new { message = "Usuário não encontrado" });

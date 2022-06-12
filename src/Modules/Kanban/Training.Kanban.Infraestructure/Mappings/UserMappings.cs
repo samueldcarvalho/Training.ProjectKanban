@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Training.Core.Domain.Models;
+using System.Collections.Generic;
+using Training.Kanban.Domain.Boards;
+using Training.Kanban.Domain.Teams;
+using Training.Kanban.Domain.Users;
 
 namespace Training.Kanban.Infraestructure.Mappings
 {
