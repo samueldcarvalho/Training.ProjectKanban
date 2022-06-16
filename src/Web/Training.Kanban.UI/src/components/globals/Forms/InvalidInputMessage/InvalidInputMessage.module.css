@@ -1,0 +1,18 @@
+.formValidationSpan {
+  display: flex;
+  flex-flow: row nowrap;
+
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.formValidationSpan * {
+  font-size: 12px;
+}
+
+.formValidationSpan p {
+  font-size: 12px;
+  color: var(--color-danger-01);
+  font-weight: 500;
+  margin-left: 3px;
+}

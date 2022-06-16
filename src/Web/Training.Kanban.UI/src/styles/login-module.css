@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
+@keyframes LoadModalForm {
+  from {
+    transform: translateY(15px);
+    opacity: 0%;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 100%;
+  }
+}
+
 .db-mainbar {
   background-color: var(--color-bg-secundary);
   border-bottom: 1px solid var(--color-border-primary);
@@ -102,18 +113,23 @@
   flex: column nowrap;
 
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
 
   border-radius: 50px;
 
   box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.1), 0px 50px 50px rgba(0, 0, 0, 0.005);
+
+  animation: LoadModalForm 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+#kbSignCreateAccountButtonContainer {
+  margin-top: 30px;
 }
 
 .kb-sign-change-form {
   background: linear-gradient(240deg, var(--color-primary) 10%, var(--color-primary-alert) 80%);
   border-radius: 10px 0 0px 10px;
   padding: 20px 10px;
-  height: 480px;
   display: flex;
   flex: row nowrap;
   justify-content: center;
@@ -132,7 +148,7 @@
 
 .kb-sign-form {
   width: 400px;
-  height: 480px;
+  height: auto;
   padding: 45px 35px;
   background-color: var(--color-bg-secundary);
 
@@ -250,7 +266,6 @@
   font-size: 18px;
   font-weight: bold;
   color: var(--color-font-primary-light);
-  margin: 15px 0 0 0;
   border-radius: 5px;
   transition: background-color 0.1s;
 }
@@ -261,4 +276,15 @@
 
 .kb-secundary-button:active {
   background-color: var(--color-primary-disable);
+}
+
+#KbSignFormFooterLoginRout {
+  margin-top: 10px;
+}
+
+#KbSignFormFooterLoginRout a {
+  transition: color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+#KbSignFormFooterLoginRout a:hover {
+  color: var(--color-primary-alert);
 }
