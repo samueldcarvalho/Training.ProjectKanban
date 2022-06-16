@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { AiFillWarning } from "react-icons/ai";
-import { MdWarning } from "react-icons/md";
 import InvalidInputMessage from "../globals/Forms/InvalidInputMessage/InvalidInputMessage";
 
 type LoginFormType = {
@@ -18,7 +16,7 @@ const LoginForm = ({ onSubmit }: LoginFormType) => {
     formState: { errors },
   } = useForm<{ username: string; password: string }>();
 
-  const onSubmitValidate = handleSubmit((data) => {
+  const onSubmitValidate = handleSubmit(() => {
     onSubmit(username, password);
   });
 

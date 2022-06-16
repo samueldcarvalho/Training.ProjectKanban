@@ -6,7 +6,7 @@ import { UserAuthenticationViewModel } from "../../models/ViewModels/UserAuthent
 import { API } from "../Api";
 
 const Login = async (LoginData: LoginDataType) => {
-  const response = await API.post("authentication/authenticate", LoginData, {
+  const response = await API.post("/authentication/authenticate", LoginData, {
     headers: {
       "Content-Type": "application/json",
     },
@@ -17,7 +17,7 @@ const Login = async (LoginData: LoginDataType) => {
 };
 
 const GetUserById = async (id: number) => {
-  const response = await API.get("authentication/authenticate/" + id, {
+  const response = await API.get("/authentication/authenticate/" + id, {
     responseType: "json",
   });
   return response.data as User;
