@@ -18,14 +18,16 @@ const Login = () => {
       <div className="kb-sign-body">
         <section className="kb-sign">
           <div className="kb-sign-change-form">
-            <span>
+            <div>
               <p>
                 You don't have <br /> an account?
               </p>
-              <Link href="/register">
-                <a className="kb-secundary-button">Create!</a>
-              </Link>
-            </span>
+              <div id="kbSignCreateAccountButtonContainer">
+                <Link href="/register">
+                  <a className="kb-secundary-button">Create!</a>
+                </Link>
+              </div>
+            </div>
           </div>
           <LoginForm onSubmit={onSubmitHandler} />
         </section>

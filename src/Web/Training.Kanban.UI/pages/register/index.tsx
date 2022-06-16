@@ -1,7 +1,6 @@
 /** @format */
 
 import { GetServerSidePropsContext } from "next";
-import Link from "next/link";
 import RegisterForm from "../../src/components/login/RegisterForm";
 
 const Register = () => {
