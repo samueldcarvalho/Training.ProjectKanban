@@ -52,13 +52,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       loadingText: "Authenticating",
     });
 
-    await delay(750);
-
     try {
       const { token, user } = await AuthenticationService.Login({
         username,
         password,
       });
+
+      console.log(token, user);
 
       if (!token || !user) return;
 
