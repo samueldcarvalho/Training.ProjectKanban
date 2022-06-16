@@ -24,7 +24,7 @@ Esse projeto será utilizado apenas para aprimorar meus conhecimentos na área d
 > ## **Front-End**
 > - Next.Js w/ React
 > - Linguagem: Typescript
-> - SPA (Single Page Application)
+> - SPA _`(Single Page Application)`_
 > - [Protótipo Figma](https://www.figma.com/file/OCCIsj1w4Kfhmn5kLe6rBA/Untitled)
 
 Para visualizar A **modelagem de domínio**, visualize o [ModelDomain](./_modeldomain.md)
