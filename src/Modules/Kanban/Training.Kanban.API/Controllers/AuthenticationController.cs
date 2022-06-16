@@ -21,7 +21,7 @@ namespace Training.Kanban.API.Controllers
             _tokenService = tokenService;
         }
 
-        [HttpPost("authenticate")]
+        [HttpPost("auth")]
         public async Task<ActionResult<JwtViewModel>> AuthenticateAsync([FromBody] LoginInputModel loginData)
         {
             var user = await _authenticationRepository.GetByLogin(loginData.Username, loginData.Password);
@@ -43,7 +43,7 @@ namespace Training.Kanban.API.Controllers
             });
         }
 
-        [HttpGet("authenticate/{userId}")]
+        [HttpGet("auth/{userId}")]
         [Authorize]
         public async Task<ActionResult<UserViewModel>> GetUserInformationAsync(int userId)
         {
@@ -55,13 +55,25 @@ namespace Training.Kanban.API.Controllers
             return Json(user);
         }
 
-        [HttpPost("authenticate/register")]
+        [HttpPost("register")]
         public async Task<ActionResult<bool>> RegisterUser(User user)
         {
             var registered = await _authenticationRepository.Register(user);
 
             if (!registered)
                 return BadRequest(new { message = "Não foi possível cadastrar o usuário" });
+
+            return Ok();
+        }
+
+
+        [HttpGet("verify/email")]
+        public async Task<IActionResult> VerifyEmailExists(string email)
+        {
+            var inUse = await _authenticationRepository.VerifyEmailExistsAsync(email);
+
+            if (inUse)
+                return BadRequest(new { message = "Email address already in use" });
 
             return Ok();
         }
