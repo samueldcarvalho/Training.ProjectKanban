@@ -9,7 +9,10 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using Training.Kanban.API.Configurations;
+using Training.Kanban.API.Interfaces;
+using Training.Kanban.Domain.Interfaces;
 using Training.Kanban.Infraestructure.Contexts;
+using Training.Kanban.Infraestructure.Repositories;
 
 namespace Training.Kanban.API
 {
@@ -26,6 +29,9 @@ namespace Training.Kanban.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddScoped<ITokenService, Services.TokenService>();
+            services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
 
             services.AddDbContext<KanbanDbContext>(options =>
                 options.UseMySQL(Configuration.GetConnectionString("Default"), b => b.MigrationsAssembly("Training.Kanban.API")));
