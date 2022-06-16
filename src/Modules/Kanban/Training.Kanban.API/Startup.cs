@@ -77,6 +77,13 @@ namespace Training.Kanban.API
 
             app.UseRouting();
 
+            app.UseCors(options =>
+            {
+                options.AllowAnyOrigin();
+                options.AllowAnyHeader();
+                options.AllowAnyMethod();
+            });
+
             app.UseAuthentication();
             app.UseAuthorization();
 
