@@ -1,4 +1,4 @@
-﻿namespace Training.Authentication.API.Configurations
+﻿namespace Training.Kanban.API.Configurations
 {
     public static class JwtSettings
     {

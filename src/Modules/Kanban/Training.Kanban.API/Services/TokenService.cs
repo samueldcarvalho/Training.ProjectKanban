@@ -3,13 +3,13 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Training.Authentication.API.Configurations;
-using Training.Authentication.API.Interfaces;
 using Training.Authentication.API.Models;
 using Training.Core.Domain.Models;
+using Training.Kanban.API.Configurations;
+using Training.Kanban.API.Interfaces;
 using Training.Kanban.Domain.Users;
 
-namespace Training.Authentication.API.Services
+namespace Training.Kanban.API.Services
 {
     public class TokenService : ITokenService
     {

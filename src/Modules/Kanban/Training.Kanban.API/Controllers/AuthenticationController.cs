@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Training.Authentication.API.Interfaces;
-using Training.Authentication.API.Models;
-using Training.Authentication.API.Models.Inputs;
-using Training.Authentication.API.Models.Views;
+using Training.Kanban.API.Interfaces;
+using Training.Kanban.API.Models.Inputs;
+using Training.Kanban.API.Models.Views;
 using Training.Kanban.Domain.Interfaces;
 using Training.Kanban.Domain.Users;
 
-namespace Training.Authentication.API.Controllers
+namespace Training.Kanban.API.Controllers
 {
     [Route("api/authentication")]
     public class AuthenticationController : Controller

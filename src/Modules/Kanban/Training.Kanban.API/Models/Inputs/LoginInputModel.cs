@@ -1,4 +1,4 @@
-﻿namespace Training.Authentication.API.Models.Inputs
+﻿namespace Training.Kanban.API.Models.Inputs
 {
     public class LoginInputModel
     {

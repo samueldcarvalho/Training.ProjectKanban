@@ -1,4 +1,4 @@
-﻿namespace Training.Authentication.API.Models.Views
+﻿namespace Training.Kanban.API.Models.Views
 {
     public class JwtViewModel
     {
