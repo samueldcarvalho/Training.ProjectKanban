@@ -21,8 +21,8 @@ Esse projeto será utilizado apenas para aprimorar meus conhecimentos na área d
 > ## **Domain**
 > - .NET 5
 > - Linguagem: C#
-> - CQS _`(Command Query Separation's Pattern)`_ 
 > - CQRS _`(Command Query Responsibility Segregation's Pattern)`_
+> - DDD _`(Domain Driven Design)`_
 >
 > ## **User Interface (UI)**
 > - Next
