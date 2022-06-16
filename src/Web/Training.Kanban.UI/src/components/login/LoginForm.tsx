@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { AiFillWarning } from "react-icons/ai";
+import { MdWarning } from "react-icons/md";
+import InvalidInputMessage from "../globals/Forms/InvalidInputMessage/InvalidInputMessage";
 
 type LoginFormType = {
   onSubmit: (username: string, password: string) => void;
@@ -52,7 +55,7 @@ const LoginForm = ({ onSubmit }: LoginFormType) => {
             className="kb-sign-form-input-text"
             autoComplete="none"
           />
-          {errors.username && <span className="formValidationSpan">{errors.username.message}</span>}
+          {errors.username && <InvalidInputMessage message={errors.username.message!} />}
         </label>
         <label className="kb-sing-form-label">
           <p>Password</p>
@@ -70,7 +73,7 @@ const LoginForm = ({ onSubmit }: LoginFormType) => {
             className="kb-sign-form-input-text"
             autoComplete="none"
           />
-          {errors.password && <span className="formValidationSpan">{errors.password.message}</span>}
+          {errors.password && <InvalidInputMessage message={errors.password.message!} />}
           <label className="kb-sing-form-label-remember-pass">
             <p>Remember me?</p>
             <input type="checkbox"></input>

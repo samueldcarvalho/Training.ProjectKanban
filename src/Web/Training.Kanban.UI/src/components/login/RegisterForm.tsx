@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import InvalidInputMessage from "../globals/Forms/InvalidInputMessage/InvalidInputMessage";
 
 type RegisterFormType = {
   onSubmit: (name: string, email: string, username: string, password: string) => void;
@@ -63,7 +64,7 @@ const RegisterForm = ({ onSubmit }: RegisterFormType) => {
             className="kb-sign-form-input-text"
             autoComplete="none"
           />
-          {errors.name && <span className="formValidationSpan">{errors.name.message}</span>}
+          {errors.name && <InvalidInputMessage message={errors.name.message!} />}
         </label>
         <label className="kb-sing-form-label">
           <p>E-mail</p>
@@ -83,7 +84,7 @@ const RegisterForm = ({ onSubmit }: RegisterFormType) => {
             className="kb-sign-form-input-text"
             autoComplete="none"
           />
-          {errors.email && <span className="formValidationSpan">{errors.email.message}</span>}
+          {errors.email && <InvalidInputMessage message={errors.email.message!} />}
         </label>
         <label className="kb-sing-form-label">
           <p>Username</p>
@@ -94,7 +95,7 @@ const RegisterForm = ({ onSubmit }: RegisterFormType) => {
               maxLength: { value: 26, message: "Maximum length is 26" },
               pattern: {
                 value: RegExp("^[a-zA-Z0-9]{3,27}$"),
-                message: "Invalid character",
+                message: "Username must contain only letters and numbers",
               },
             })}
             type="text"
@@ -105,7 +106,7 @@ const RegisterForm = ({ onSubmit }: RegisterFormType) => {
             className="kb-sign-form-input-text"
             autoComplete="none"
           />
-          {errors.username && <span className="formValidationSpan">{errors.username.message}</span>}
+          {errors.username && <InvalidInputMessage message={errors.username.message!} />}
         </label>
         <label className="kb-sing-form-label">
           <p>Password</p>
@@ -123,7 +124,7 @@ const RegisterForm = ({ onSubmit }: RegisterFormType) => {
             className="kb-sign-form-input-text"
             autoComplete="none"
           />
-          {errors.password && <span className="formValidationSpan">{errors.password.message}</span>}
+          {errors.password && <InvalidInputMessage message={errors.password.message!} />}
         </label>
         <label className="kb-sing-form-label">
           <p>Repeat Password</p>
@@ -142,7 +143,7 @@ const RegisterForm = ({ onSubmit }: RegisterFormType) => {
             value={passwordRepeat}
             className="kb-sign-form-input-text"
           />
-          {errors.passwordRepeat && <span className="formValidationSpan">{errors.passwordRepeat.message}</span>}
+          {errors.passwordRepeat && <InvalidInputMessage message={errors.passwordRepeat.message!} />}
         </label>
       </div>
       <div className="kb-sign-form-footer">
