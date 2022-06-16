@@ -11,23 +11,20 @@ Esse projeto será utilizado apenas para aprimorar meus conhecimentos na área d
 ---
 
 ## **`O Projeto:`**
-> ## **Infrastructure**
-> - ASP.NET Core
-> - Docker
-> - Banco de Dados MYSQL
-> - Entity Framework Core
-> - Apache Kafka
-> 
-> ## **Domain**
-> - .NET 5
+> ## **Back-End**
 > - Linguagem: C#
+> - .NET 5
+> - ASP.NET Core
+> - Entity Framework Core
 > - CQRS _`(Command Query Responsibility Segregation's Pattern)`_
 > - DDD _`(Domain Driven Design)`_
+> - Banco de Dados MYSQL
+> - Docker
 >
-> ## **User Interface (UI)**
-> - Next
-> - React
+> ## **Front-End**
+> - Next.Js w/ React
 > - Linguagem: Typescript
+> - SPA (Single Page Application)
 > - [Protótipo Figma](https://www.figma.com/file/OCCIsj1w4Kfhmn5kLe6rBA/Untitled)
 
 Para visualizar A **modelagem de domínio**, visualize o [ModelDomain](./_modeldomain.md)
