@@ -1,6 +1,7 @@
 /** @format */
 
 import { GetServerSidePropsContext } from "next";
+import Link from "next/link";
 import { useContext } from "react";
 import LoginForm from "../../src/components/login/LoginForm";
 import { AuthContext } from "../../src/contexts/Authentication/AuthContext";
@@ -21,7 +22,9 @@ const Login = () => {
               <p>
                 You don't have <br /> an account?
               </p>
-              <button className="kb-secundary-button">Sign-up</button>
+              <Link href="/register">
+                <a className="kb-secundary-button">Create!</a>
+              </Link>
             </span>
           </div>
           <LoginForm onSubmit={onSubmitHandler} />
