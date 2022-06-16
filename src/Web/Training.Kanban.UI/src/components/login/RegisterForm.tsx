@@ -94,7 +94,7 @@ const RegisterForm = ({ onSubmit }: RegisterFormType) => {
               minLength: { value: 3, message: "Minimum length is 3" },
               maxLength: { value: 26, message: "Maximum length is 26" },
               pattern: {
-                value: RegExp("^[a-zA-Z0-9]{3,27}$"),
+                value: RegExp(/^[a-zA-Z0-9]{3,27}$/),
                 message: "Username must contain only letters and numbers",
               },
             })}
@@ -113,7 +113,7 @@ const RegisterForm = ({ onSubmit }: RegisterFormType) => {
           <input
             {...register("password", {
               required: { value: true, message: "Password is required" },
-              minLength: { value: 4, message: "Minimum length is 4" },
+              minLength: { value: 6, message: "Minimum length is 6" },
               maxLength: { value: 26, message: "Maximum length is 26" },
             })}
             type="password"

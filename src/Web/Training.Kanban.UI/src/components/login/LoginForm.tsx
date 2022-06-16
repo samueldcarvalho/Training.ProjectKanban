@@ -81,7 +81,7 @@ const LoginForm = ({ onSubmit }: LoginFormType) => {
         </label>
       </div>
       <div className="kb-sign-form-footer">
-        <div>
+        <div id="KbSignFormFooterLoginRout">
           <p>Forgot password?&nbsp;</p>
           <a href="#">Recover here</a>
         </div>
