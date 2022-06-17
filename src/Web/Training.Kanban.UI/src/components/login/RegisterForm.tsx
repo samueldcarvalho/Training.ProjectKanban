@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { API } from "../../services/Api";
 import InvalidInputMessage from "../globals/Forms/InvalidInputMessage/InvalidInputMessage";
 
 type RegisterFormType = {
@@ -75,6 +76,14 @@ const RegisterForm = ({ onSubmit }: RegisterFormType) => {
                 value: RegExp(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/),
                 message: "Invalid email",
               },
+              validate: async () =>
+                (await API.get("/authentication/verify/email", {
+                  params: {
+                    email: email,
+                  },
+                })
+                  .then(() => true)
+                  .catch(() => false)) || "E-mail address already in use",
             })}
             type="text"
             name="email"
@@ -97,6 +106,14 @@ const RegisterForm = ({ onSubmit }: RegisterFormType) => {
                 value: RegExp(/^[a-zA-Z0-9]{3,27}$/),
                 message: "Username must contain only letters and numbers",
               },
+              validate: async () =>
+                (await API.get("/authentication/verify/username", {
+                  params: {
+                    username: username,
+                  },
+                })
+                  .then(() => true)
+                  .catch(() => false)) || "Username already in use",
             })}
             type="text"
             name="username"
