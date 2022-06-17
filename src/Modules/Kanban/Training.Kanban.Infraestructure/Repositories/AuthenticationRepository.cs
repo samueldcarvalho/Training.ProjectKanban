@@ -51,5 +51,14 @@ namespace Training.Kanban.Infraestructure.Repositories
 
             return user != null;
         }
+
+        public async Task<bool> VerifyUsernameExistsAsync(string username)
+        {
+            var user = await _dbContext.Users
+                .FirstOrDefaultAsync(u =>
+                    u.Username == username);
+
+            return user != null;
+        }
     }
 }

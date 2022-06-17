@@ -68,12 +68,24 @@ namespace Training.Kanban.API.Controllers
 
 
         [HttpGet("verify/email")]
-        public async Task<IActionResult> VerifyEmailExists(string email)
+        public async Task<IActionResult> VerifyEmailExists([FromQuery] string email)
         {
             var inUse = await _authenticationRepository.VerifyEmailExistsAsync(email);
 
             if (inUse)
                 return BadRequest(new { message = "Email address already in use" });
+
+            return Ok();
+        }
+
+
+        [HttpGet("verify/username")]
+        public async Task<IActionResult> VerifyUsernameExists([FromQuery] string username)
+        {
+            var inUse = await _authenticationRepository.VerifyUsernameExistsAsync(username);
+
+            if (inUse)
+                return BadRequest(new { message = "Username already in use" });
 
             return Ok();
         }
