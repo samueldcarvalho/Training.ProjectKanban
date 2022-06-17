@@ -8,5 +8,6 @@ namespace Training.Kanban.Domain.Interfaces
         Task<User> GetByLogin(string username, string password);
         Task<User> GetById(int id);
         Task<bool> Register(User user);
+        Task<bool> VerifyEmailExistsAsync(string email);
     }
 }

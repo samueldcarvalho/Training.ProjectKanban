@@ -42,5 +42,14 @@ namespace Training.Kanban.Infraestructure.Repositories
                 return Task.FromResult(false);
             }
         }
+
+        public async Task<bool> VerifyEmailExistsAsync(string email)
+        {
+            var user = await _dbContext.Users
+                .FirstOrDefaultAsync(u => 
+                    u.Email == email);
+
+            return user != null;
+        }
     }
 }
