@@ -2,7 +2,6 @@ import { GetServerSidePropsContext } from "next";
 import { useContext, useEffect } from "react";
 import Wrapper from "../../src/components/main/wrapper-component";
 import { AuthContext } from "../../src/contexts/Authentication/AuthContext";
-import { LoadingContext } from "../../src/contexts/Loading/LoadingContext";
 
 const BoardsPage = () => {
   const { Logout } = useContext(AuthContext);
