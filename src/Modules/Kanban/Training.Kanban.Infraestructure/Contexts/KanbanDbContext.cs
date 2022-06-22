@@ -17,10 +17,6 @@ namespace Training.Kanban.Infraestructure.Contexts
             modelBuilder.ApplyConfiguration(new TeamMappings());
             modelBuilder.ApplyConfiguration(new BoardMappings());
 
-            //Joins
-            modelBuilder.ApplyConfiguration(new TeamUserMappings());
-            modelBuilder.ApplyConfiguration(new BoardUserMappings());
-
             base.OnModelCreating(modelBuilder);
         }
 
