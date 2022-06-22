@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Training.Kanban.API.Interfaces;
-using Training.Kanban.API.Models.Inputs;
-using Training.Kanban.API.Models.Views;
+using Training.Kanban.Application.Models.Inputs;
+using Training.Kanban.Application.Models.Views;
 using Training.Kanban.Domain.Interfaces;
 using Training.Kanban.Domain.Users;
 

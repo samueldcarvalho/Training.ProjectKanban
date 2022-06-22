@@ -3,7 +3,6 @@ using Training.Kanban.Domain.Boards;
 using Training.Kanban.Domain.Teams;
 using Training.Kanban.Domain.Users;
 using Training.Kanban.Infraestructure.Mappings;
-using Training.Kanban.Infraestructure.Mappings.Joins;
 
 namespace Training.Kanban.Infraestructure.Contexts
 {

@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Training.Kanban.Application\Training.Kanban.Application.csproj" />
     <ProjectReference Include="..\Training.Kanban.Infraestructure\Training.Kanban.Infraestructure.csproj" />
   </ItemGroup>
 
