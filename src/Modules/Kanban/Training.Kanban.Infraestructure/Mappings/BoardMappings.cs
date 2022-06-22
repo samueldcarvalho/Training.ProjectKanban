@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Training.Kanban.Domain.Boards;
+using Training.Kanban.Domain.Users;
 
 namespace Training.Kanban.Infraestructure.Mappings
 {
@@ -23,9 +24,15 @@ namespace Training.Kanban.Infraestructure.Mappings
                 .HasColumnType("VARCHAR(255)");
 
             builder.HasOne(b => b.Leader)
-                .WithMany(u => u.Boards)
+                .WithMany()
                 .HasForeignKey(b => b.LeaderId)
                 .HasConstraintName("Fk_Board_User");
+
+            builder.HasMany(b => b.Users)
+                .WithMany(u => u.Boards)
+                .UsingEntity<Dictionary<string, object>>("m2m_board_users",
+                    b => b.HasOne<User>().WithMany().HasForeignKey("UserId"),
+                    b => b.HasOne<Board>().WithMany().HasForeignKey("BoardId"));
         }
     }
 }

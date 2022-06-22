@@ -24,9 +24,15 @@ namespace Training.Kanban.Infraestructure.Mappings
                 .HasColumnType("VARCHAR(255)");
 
             builder.HasOne(t => t.Leader)
-                .WithMany(u => u.Teams)
+                .WithMany()
                 .HasForeignKey(t => t.LeaderId)
                 .HasConstraintName("Fk_Team_User");
+
+            builder.HasMany(b => b.Users)
+                .WithMany(u => u.Teams)
+                .UsingEntity<Dictionary<string, object>>("m2m_team_users",
+                    b => b.HasOne<User>().WithMany().HasForeignKey("UserId"),
+                    b => b.HasOne<Team>().WithMany().HasForeignKey("TeamId"));
         }
     }
 }
