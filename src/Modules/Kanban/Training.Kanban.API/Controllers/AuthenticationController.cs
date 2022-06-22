@@ -21,6 +21,11 @@ namespace Training.Kanban.API.Controllers
             _tokenService = tokenService;
         }
 
+        /// <summary>
+        /// Autentica a sessão, com dados de login e retorna JWT
+        /// </summary>
+        /// <param name="loginData"></param>
+        /// <returns></returns>
         [HttpPost("auth")]
         public async Task<ActionResult<JwtViewModel>> AuthenticateAsync([FromBody] LoginInputModel loginData)
         {
@@ -43,6 +48,11 @@ namespace Training.Kanban.API.Controllers
             });
         }
 
+        /// <summary>
+        /// Autentica a sessão pelo id do usuário e retorna o usuário
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         [HttpGet("auth/{userId}")]
         [Authorize]
         public async Task<ActionResult<UserViewModel>> GetUserInformationAsync(int userId)
@@ -55,6 +65,11 @@ namespace Training.Kanban.API.Controllers
             return Json(user);
         }
 
+        /// <summary>
+        /// Registra um usuário
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [HttpPost("register")]
         public async Task<ActionResult<bool>> RegisterUser(User user)
         {
