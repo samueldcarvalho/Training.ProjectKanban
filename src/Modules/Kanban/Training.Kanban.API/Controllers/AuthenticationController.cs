@@ -81,7 +81,11 @@ namespace Training.Kanban.API.Controllers
             return Ok();
         }
 
-
+        /// <summary>
+        /// Verifica se o e-mail está sendo utilizado
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         [HttpGet("verify/email")]
         public async Task<IActionResult> VerifyEmailExists([FromQuery] string email)
         {
@@ -93,7 +97,11 @@ namespace Training.Kanban.API.Controllers
             return Ok();
         }
 
-
+        /// <summary>
+        /// Verifica se o username está sendo utilizado
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         [HttpGet("verify/username")]
         public async Task<IActionResult> VerifyUsernameExists([FromQuery] string username)
         {

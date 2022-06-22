@@ -35,9 +35,7 @@ namespace Training.Kanban.Infraestructure.Mappings
                 .IsUnique();
 
             builder.HasIndex(x => new { x.Username, x.Password })
-                .HasName("ix_LoginData");
-
-            
+                .HasDatabaseName("ix_LoginData");
         }
     }
 }

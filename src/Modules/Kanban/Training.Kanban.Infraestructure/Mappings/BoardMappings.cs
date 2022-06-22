@@ -21,6 +21,11 @@ namespace Training.Kanban.Infraestructure.Mappings
 
             builder.Property(b => b.Description)
                 .HasColumnType("VARCHAR(255)");
+
+            builder.HasOne(b => b.Leader)
+                .WithMany(u => u.Boards)
+                .HasForeignKey(b => b.LeaderId)
+                .HasConstraintName("Fk_Board_User");
         }
     }
 }

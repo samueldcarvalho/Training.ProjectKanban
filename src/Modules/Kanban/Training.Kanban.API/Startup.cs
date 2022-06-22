@@ -33,9 +33,15 @@ namespace Training.Kanban.API
             services.AddScoped<ITokenService, Services.TokenService>();
             services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
 
-            services.AddDbContext<KanbanDbContext>(options =>
-                options.UseMySQL(Configuration.GetConnectionString("Default"), b => b.MigrationsAssembly("Training.Kanban.API")));
+            var connectionString = Configuration.GetConnectionString("Default");
 
+            services.AddDbContextPool<KanbanDbContext>(options =>
+            {
+                options.UseMySql(
+                    connectionString, 
+                    ServerVersion.AutoDetect(connectionString), 
+                    a => a.MigrationsAssembly("Training.Kanban.API"));
+            });
 
             var key = Encoding.ASCII.GetBytes(JwtSettings.Key);
 
