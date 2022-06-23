@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 using Training.Kanban.API.Interfaces;
 using Training.Kanban.Application.Models.Inputs;
@@ -68,12 +69,15 @@ namespace Training.Kanban.API.Controllers
         /// <summary>
         /// Registra um novo usuário
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="userInput"></param>
         /// <returns></returns>
         [HttpPost("register")]
-        public async Task<ActionResult<bool>> RegisterUser(User user)
+        public async Task<ActionResult<bool>> RegisterUser(RegisterUserInputModel userInput)
         {
+            var user = new User(userInput.Name, userInput.Email, userInput.Username, userInput.Password);
+            
             await _authenticationRepository.Add(user);
+            await _authenticationRepository.UnitOfWork.Commit();
 
             return Ok();
         }

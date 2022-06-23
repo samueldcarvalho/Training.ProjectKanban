@@ -34,8 +34,7 @@ namespace Training.Kanban.API
             {
                 options.UseMySql(
                     connectionString, 
-                    ServerVersion.AutoDetect(connectionString), 
-                    a => a.MigrationsAssembly("Training.Kanban.API"));
+                    ServerVersion.AutoDetect(connectionString));
             });
         }
 
