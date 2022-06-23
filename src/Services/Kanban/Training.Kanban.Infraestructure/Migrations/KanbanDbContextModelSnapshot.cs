@@ -7,7 +7,7 @@ using Training.Kanban.Infraestructure.Contexts;
 
 namespace Training.Kanban.Infraestructure.Migrations
 {
-    [DbContext(typeof(KanbanDbContext))]
+    [DbContext(typeof(KanbanContext))]
     partial class KanbanDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

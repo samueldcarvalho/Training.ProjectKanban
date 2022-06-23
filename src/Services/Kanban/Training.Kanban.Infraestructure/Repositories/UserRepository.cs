@@ -12,9 +12,9 @@ namespace Training.Kanban.Infraestructure.Repositories
     public class UserRepository : IUserRepository
     {
         public IUnitOfWork UnitOfWork => _context;
-        private readonly KanbanDbContext _context;
+        private readonly KanbanContext _context;
 
-        public UserRepository(KanbanDbContext dbContext)
+        public UserRepository(KanbanContext dbContext)
         {
             _context = dbContext;
         }

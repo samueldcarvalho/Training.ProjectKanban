@@ -30,7 +30,7 @@ namespace Training.Kanban.API
 
             var connectionString = Configuration.GetConnectionString("Default");
 
-            services.AddDbContextPool<KanbanDbContext>(options =>
+            services.AddDbContextPool<KanbanContext>(options =>
             {
                 options.UseMySql(
                     connectionString, 

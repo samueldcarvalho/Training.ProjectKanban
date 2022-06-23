@@ -8,20 +8,17 @@ using Training.Kanban.Infraestructure.Mappings;
 
 namespace Training.Kanban.Infraestructure.Contexts
 {
-    public class KanbanDbContext : DbContext, IUnitOfWork
+    public class KanbanContext : DbContext, IUnitOfWork
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Board> Boards { get; set; }
 
-        public KanbanDbContext(DbContextOptions options) : base(options) { }
+        public KanbanContext(DbContextOptions options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new UserMappings());
-            modelBuilder.ApplyConfiguration(new TeamMappings());
-            modelBuilder.ApplyConfiguration(new BoardMappings());
-
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(KanbanContext).Assembly);
             base.OnModelCreating(modelBuilder);
         }
 

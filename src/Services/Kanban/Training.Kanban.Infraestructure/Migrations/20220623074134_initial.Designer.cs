@@ -8,7 +8,7 @@ using Training.Kanban.Infraestructure.Contexts;
 
 namespace Training.Kanban.Infraestructure.Migrations
 {
-    [DbContext(typeof(KanbanDbContext))]
+    [DbContext(typeof(KanbanContext))]
     [Migration("20220623074134_initial")]
     partial class initial
     {
