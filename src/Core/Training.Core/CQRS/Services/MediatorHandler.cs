@@ -4,7 +4,7 @@ using Training.Core.CQRS.Models;
 
 namespace Training.Core.CQRS.Services
 {
-    class MediatorHandler : IMediatorHandler
+    public class MediatorHandler : IMediatorHandler
     {
         private readonly IMediator _mediator;
 

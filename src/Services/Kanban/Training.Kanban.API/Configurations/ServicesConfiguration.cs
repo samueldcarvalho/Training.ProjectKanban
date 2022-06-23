@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Reflection;
+using Training.Core.CQRS.Services;
 using Training.Kanban.API.Interfaces;
 using Training.Kanban.API.Services;
 using Training.Kanban.Domain.Interfaces;
@@ -14,6 +18,9 @@ namespace Training.Kanban.API.Configurations
 
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUserRepository, UserRepository>();
+
+            services.AddMediatR(AppDomain.CurrentDomain.Load("Training.Kanban.Application"));
+            services.AddScoped<IMediatorHandler, MediatorHandler>();
 
             return services;
         }
