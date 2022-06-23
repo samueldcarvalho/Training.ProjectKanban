@@ -1,9 +1,10 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Threading.Tasks;
 
 namespace Training.Core.CQRS.Models
 {
-    public abstract class Command<T>
+    public abstract class Command<T> : IRequest<CommandResponse<T>>
     {
         protected Task<bool> IsValid()
         {

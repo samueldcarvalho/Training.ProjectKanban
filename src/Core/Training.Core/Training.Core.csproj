@@ -6,11 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="10.4.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="CQRS\Interfaces\" />
-    <Folder Include="CQRS\Services\" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
   </ItemGroup>
 
 </Project>
