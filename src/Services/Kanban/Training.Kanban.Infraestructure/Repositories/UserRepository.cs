@@ -2,50 +2,44 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Training.Core.Data.Repositories;
 using Training.Kanban.Domain.Interfaces;
 using Training.Kanban.Domain.Users;
 using Training.Kanban.Infraestructure.Contexts;
 
 namespace Training.Kanban.Infraestructure.Repositories
 {
-    public class AuthenticationRepository : IAuthenticationRepository
+    public class UserRepository : IUserRepository
     {
-        private readonly KanbanDbContext _dbContext;
+        public IUnitOfWork UnitOfWork => _context;
+        private readonly KanbanDbContext _context;
 
-        public AuthenticationRepository(KanbanDbContext dbContext)
+        public UserRepository(KanbanDbContext dbContext)
         {
-            _dbContext = dbContext;
+            _context = dbContext;
         }
 
-        async Task<User> IAuthenticationRepository.GetByLogin(string username, string password) =>
-            await _dbContext.Users
+        public async Task<User> GetByLogin(string username, string password) =>
+            await _context.Users
                 .AsNoTracking()
                 .FirstOrDefaultAsync(u =>
                     string.Equals(u.Username, username) && 
                     string.Equals(u.Password, password));
 
-        async Task<User> IAuthenticationRepository.GetById(int id) =>
-            await _dbContext.Users
+        public async Task<User> GetById(int id) =>
+            await _context.Users
                 .AsNoTracking()
                 .FirstOrDefaultAsync(u =>
                     u.Id == id);
        
-        public Task<bool> Register(User user)
-        {
-            try
-            {
-                _dbContext.Users.AddAsync(user);
-                return Task.FromResult(true);
-            }
-            catch
-            {
-                return Task.FromResult(false);
-            }
-        }
-
+        public async void Add(User user) =>   
+            await _context.Users.AddAsync(user);
+        public void Update(User entity) =>
+            _context.Users.Update(entity);
+        
         public async Task<bool> VerifyEmailExistsAsync(string email)
         {
-            var user = await _dbContext.Users
+            var user = await _context.Users
                 .FirstOrDefaultAsync(u => 
                     u.Email == email);
 
@@ -54,11 +48,13 @@ namespace Training.Kanban.Infraestructure.Repositories
 
         public async Task<bool> VerifyUsernameExistsAsync(string username)
         {
-            var user = await _dbContext.Users
+            var user = await _context.Users
                 .FirstOrDefaultAsync(u =>
                     u.Username == username);
 
             return user != null;
         }
+
+        public void Dispose() { }
     }
 }

@@ -12,10 +12,10 @@ namespace Training.Kanban.API.Controllers
     [Route("api/authentication")]
     public class AuthenticationController : Controller
     {
-        private readonly IAuthenticationRepository _authenticationRepository;
+        private readonly IUserRepository _authenticationRepository;
         private readonly ITokenService _tokenService;
 
-        public AuthenticationController(IAuthenticationRepository authenticationRepository, ITokenService tokenService)
+        public AuthenticationController(IUserRepository authenticationRepository, ITokenService tokenService)
         {
             _authenticationRepository = authenticationRepository;
             _tokenService = tokenService;

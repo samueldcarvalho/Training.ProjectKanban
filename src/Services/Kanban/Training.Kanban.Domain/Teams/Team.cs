@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Training.Core.Data.Repositories;
 using Training.Core.Domain.Models;
 using Training.Kanban.Domain.Boards;
 using Training.Kanban.Domain.Users;
 
 namespace Training.Kanban.Domain.Teams
 {
-    public class Team : Entity
+    public class Team : Entity, IAggregateRoot
     {
         public string Name { get; private set; }
         public string Description { get; private set; }

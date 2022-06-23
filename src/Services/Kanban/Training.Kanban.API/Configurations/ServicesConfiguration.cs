@@ -13,7 +13,7 @@ namespace Training.Kanban.API.Configurations
             services.AddControllers();
 
             services.AddScoped<ITokenService, TokenService>();
-            services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             return services;
         }

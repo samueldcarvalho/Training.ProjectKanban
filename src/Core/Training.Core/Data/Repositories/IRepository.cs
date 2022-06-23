@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Training.Core.Data.Repositories
 {
@@ -8,6 +9,6 @@ namespace Training.Core.Data.Repositories
         IUnitOfWork UnitOfWork { get; }
         void Add(T entity);
         void Update(T entity);
-        T GetById(int id);
+        Task<T> GetById(int id);
     }
 }
