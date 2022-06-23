@@ -28,7 +28,7 @@ namespace Training.Kanban.Infraestructure.Mappings
                 .HasForeignKey(b => b.LeaderId)
                 .HasConstraintName("Fk_Board_User");
 
-            builder.HasMany(b => b.Users)
+            builder.HasMany(b => b.Members)
                 .WithMany(u => u.Boards)
                 .UsingEntity<Dictionary<string, object>>("m2m_board_users",
                     b => b.HasOne<User>().WithMany().HasForeignKey("UserId"),
