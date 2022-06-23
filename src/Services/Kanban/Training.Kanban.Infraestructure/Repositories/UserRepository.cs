@@ -32,10 +32,10 @@ namespace Training.Kanban.Infraestructure.Repositories
                 .FirstOrDefaultAsync(u =>
                     u.Id == id);
        
-        public async void Add(User user) =>   
+        public async Task Add(User user) =>   
             await _context.Users.AddAsync(user);
-        public void Update(User entity) =>
-            _context.Users.Update(entity);
+        public Task Update(User entity) =>
+            Task.FromResult(_context.Users.Update(entity));
         
         public async Task<bool> VerifyEmailExistsAsync(string email)
         {

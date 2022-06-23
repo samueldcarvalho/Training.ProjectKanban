@@ -73,10 +73,7 @@ namespace Training.Kanban.API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<bool>> RegisterUser(User user)
         {
-            var registered = await _authenticationRepository.Register(user);
-
-            if (!registered)
-                return BadRequest(new { message = "Não foi possível cadastrar o usuário" });
+            await _authenticationRepository.Add(user);
 
             return Ok();
         }
