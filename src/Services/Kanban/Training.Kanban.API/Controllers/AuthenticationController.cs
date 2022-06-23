@@ -49,7 +49,7 @@ namespace Training.Kanban.API.Controllers
         }
 
         /// <summary>
-        /// Autentica a sessão pelo id do usuário e retorna o usuário
+        /// Obtém o usuário a partir do ID, que se encontra ao decodificar o JWT.
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
@@ -66,7 +66,7 @@ namespace Training.Kanban.API.Controllers
         }
 
         /// <summary>
-        /// Registra um usuário
+        /// Registra um novo usuário
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>

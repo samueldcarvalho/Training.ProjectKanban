@@ -14,7 +14,7 @@ namespace Training.Kanban.API.Services
         public string GenerateToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(JwtSettings.Key);
+            var key = Encoding.ASCII.GetBytes(JwtConfiguration.Key);
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {

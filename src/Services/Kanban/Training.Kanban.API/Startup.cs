@@ -18,20 +18,15 @@ namespace Training.Kanban.API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
         public IConfiguration Configuration { get; }
+        public Startup(IConfiguration configuration) =>
+            Configuration = configuration;
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllers();
-
-            services.AddScoped<ITokenService, Services.TokenService>();
-            services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
+        {  
+            services.AddServicesConfiguration();
+            services.AddJwtConfiguration();
+            services.AddSwaggerConfiguration();
 
             var connectionString = Configuration.GetConnectionString("Default");
 
@@ -42,34 +37,8 @@ namespace Training.Kanban.API
                     ServerVersion.AutoDetect(connectionString), 
                     a => a.MigrationsAssembly("Training.Kanban.API"));
             });
-
-            var key = Encoding.ASCII.GetBytes(JwtSettings.Key);
-
-            services.AddAuthentication(x =>
-            {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-                .AddJwtBearer(x =>
-                {
-                    x.RequireHttpsMetadata = false;
-                    x.SaveToken = true;
-                    x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(key),
-                        ValidateIssuer = false,
-                        ValidateAudience = false
-                    };
-                });
-
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Training.Kanban.API", Version = "v1" });
-            });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
