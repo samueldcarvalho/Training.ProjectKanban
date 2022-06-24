@@ -51,8 +51,8 @@ namespace Training.Kanban.API.Controllers
         /// </summary>
         /// <param name="loginData"></param>
         /// <returns></returns>
-        [HttpGet("auth")]
-        public async Task<ActionResult<JwtViewModel>> AuthenticateByLoginAsync([FromQuery] LoginInputModel loginData)
+        [HttpPost("auth")]
+        public async Task<ActionResult<JwtViewModel>> AuthenticateByLoginAsync([FromBody]LoginInputModel loginData)
         {
             JwtViewModel jwt = await _userQueries
                 .AuthenticateUserByLogin(
