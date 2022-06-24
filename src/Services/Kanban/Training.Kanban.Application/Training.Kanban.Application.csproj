@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Training.Core\Training.Core.csproj" />
     <ProjectReference Include="..\Training.Kanban.Domain\Training.Kanban.Domain.csproj" />
   </ItemGroup>

@@ -1,74 +1,27 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 using Training.Core.CQRS.Models;
 using Training.Core.CQRS.Services;
-using Training.Kanban.API.Interfaces;
 using Training.Kanban.Application.Commands.Users;
+using Training.Kanban.Application.Interfaces;
 using Training.Kanban.Application.Models.Inputs;
 using Training.Kanban.Application.Models.Views;
-using Training.Kanban.Domain.Interfaces;
-using Training.Kanban.Domain.Users;
 
 namespace Training.Kanban.API.Controllers
 {
     [Route("api/authentication")]
     public class AuthenticationController : Controller
     {
-        private readonly IUserRepository _userRepository;
         private readonly IMediatorHandler _mediator;
-        private readonly ITokenService _tokenService;
+        private readonly IUserQueries _userQueries;
 
-        public AuthenticationController(IUserRepository authenticationRepository, ITokenService tokenService, IMediatorHandler mediator)
+        public AuthenticationController(IMediatorHandler mediator, IUserQueries userQueries)
         {
-            _userRepository = authenticationRepository;
-            _tokenService = tokenService;
             _mediator = mediator;
-        }
-
-        /// <summary>
-        /// Autentica a sessão, com dados de login e retorna JWT
-        /// </summary>
-        /// <param name="loginData"></param>
-        /// <returns></returns>
-        [HttpPost("auth")]
-        public async Task<ActionResult<JwtViewModel>> AuthenticateAsync([FromBody] LoginInputModel loginData)
-        {
-            var user = await _userRepository.GetByLogin(loginData.Username, loginData.Password);
-
-            if (user == null)
-                return Unauthorized(new { message = "Usuário ou senha inválidos" });
-
-            var token = _tokenService.GenerateToken(user);
-
-            return Json(new JwtViewModel
-            {
-                User = new()
-                {
-                    Id = user.Id,
-                    Email = user.Email,
-                    Name = user.Name,
-                },
-                Token = token
-            });
-        }
-
-        /// <summary>
-        /// Obtém o usuário a partir do ID, que se encontra ao decodificar o JWT.
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <returns></returns>
-        [HttpGet("auth/{userId}")]
-        [Authorize]
-        public async Task<ActionResult<UserViewModel>> GetUserInformationAsync(int userId)
-        {
-            var user = await _userRepository.GetById(userId);
-
-            if (user == null)
-                return Unauthorized(new { message = "Usuário não encontrado" });
-
-            return Json(user);
+            _userQueries = userQueries;
         }
 
         /// <summary>
@@ -77,7 +30,7 @@ namespace Training.Kanban.API.Controllers
         /// <param name="userInput"></param>
         /// <returns></returns>
         [HttpPost("register")]
-        public async Task<ActionResult<bool>> RegisterUser(RegisterUserInputModel userInput)
+        public async Task<ActionResult<bool>> RegisterUserAsyc(RegisterUserInputModel userInput)
         {
             CommandResponse<bool> commandResponse = await _mediator
                 .SendCommand(new RegisterUserCommand(
@@ -94,6 +47,44 @@ namespace Training.Kanban.API.Controllers
         }
 
         /// <summary>
+        /// Autentica a sessão, com dados de login e retorna JWT
+        /// </summary>
+        /// <param name="loginData"></param>
+        /// <returns></returns>
+        [HttpGet("auth")]
+        public async Task<ActionResult<JwtViewModel>> AuthenticateByLoginAsync([FromQuery] LoginInputModel loginData)
+        {
+            JwtViewModel jwt = await _userQueries
+                .AuthenticateUserByLogin(
+                    loginData.Username, 
+                    loginData.Password
+                    );
+
+            if (jwt == null)
+                return Unauthorized();
+
+            return Ok(jwt);
+        }
+
+        /// <summary>
+        /// Obtém o usuário a partir do ID, que se encontra ao decodificar o JWT.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpGet("auth/{userId}")]
+        [Authorize]
+        public async Task<ActionResult<UserViewModel>> GetUserInformationAsync(int userId)
+        {
+            UserViewModel user = await _userQueries.GetUserById(userId);
+
+            if (user == null)
+                return Unauthorized(new { message = "Usuário não encontrado" });
+
+            return Json(user);
+        }
+
+
+        /// <summary>
         /// Verifica se o e-mail está sendo utilizado
         /// </summary>
         /// <param name="email"></param>
@@ -101,12 +92,19 @@ namespace Training.Kanban.API.Controllers
         [HttpGet("verify/email")]
         public async Task<IActionResult> VerifyEmailExists([FromQuery] string email)
         {
-            var inUse = await _userRepository.VerifyEmailExistsAsync(email);
+            try
+            {
+                bool inUse = await _userQueries.VerifyEmailExists(email);
 
-            if (inUse)
-                return BadRequest(new { message = "Email address already in use" });
+                if (inUse)
+                    return BadRequest(new { message = "Email address already in use" });
 
-            return Ok();
+                return Ok();
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = ex.Message });
+            }
         }
 
         /// <summary>
@@ -117,12 +115,19 @@ namespace Training.Kanban.API.Controllers
         [HttpGet("verify/username")]
         public async Task<IActionResult> VerifyUsernameExists([FromQuery] string username)
         {
-            var inUse = await _userRepository.VerifyUsernameExistsAsync(username);
+            try
+            {
+                bool inUse = await _userQueries.VerifyUsernameExists(username);
 
-            if (inUse)
-                return BadRequest(new { message = "Username already in use" });
+                if (inUse)
+                    return BadRequest(new { message = "Username already in use" });
 
-            return Ok();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = ex.Message });
+            }
         }
     }
 }

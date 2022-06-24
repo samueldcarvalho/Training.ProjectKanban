@@ -1,18 +1,9 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using System.Text;
 using Training.Kanban.API.Configurations;
-using Training.Kanban.API.Interfaces;
-using Training.Kanban.Domain.Interfaces;
-using Training.Kanban.Infraestructure.Contexts;
-using Training.Kanban.Infraestructure.Repositories;
 
 namespace Training.Kanban.API
 {
@@ -24,18 +15,9 @@ namespace Training.Kanban.API
 
         public void ConfigureServices(IServiceCollection services)
         {  
-            services.AddServicesConfiguration();
+            services.AddServicesConfiguration(Configuration);
             services.AddJwtConfiguration();
             services.AddSwaggerConfiguration();
-
-            var connectionString = Configuration.GetConnectionString("Default");
-
-            services.AddDbContextPool<KanbanContext>(options =>
-            {
-                options.UseMySql(
-                    connectionString, 
-                    ServerVersion.AutoDetect(connectionString));
-            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

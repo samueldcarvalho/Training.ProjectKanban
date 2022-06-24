@@ -4,7 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Training.Kanban.API.Configurations;
-using Training.Kanban.API.Interfaces;
+using Training.Kanban.Application.Interfaces;
 using Training.Kanban.Domain.Users;
 
 namespace Training.Kanban.API.Services
