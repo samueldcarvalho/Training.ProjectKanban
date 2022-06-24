@@ -12,6 +12,10 @@ namespace Training.Core.CQRS.Models
         public ValidationResult ValidationResult { get; private set; }
         public T Result { get; private set; }
 
+        public CommandResponse(T result)
+        {
+            Result = result;
+        }
         public CommandResponse(ValidationResult validationResult, T result)
         {
             ValidationResult = validationResult;

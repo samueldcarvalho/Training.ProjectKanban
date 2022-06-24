@@ -5,11 +5,8 @@ using System.Threading.Tasks;
 
 namespace Training.Core.CQRS.Models
 {
-    public abstract class CommandHandler<T> : IRequestHandler<Command<T>, CommandResponse<T>>
+    public abstract class CommandHandler<TCommand, TResponse> : IRequestHandler<TCommand, CommandResponse<TResponse>> where TCommand : Command<TResponse>
     {
-        public Task<CommandResponse<T>> Handle(Command<T> request, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract Task<CommandResponse<TResponse>> Handle(TCommand request, CancellationToken cancellationToken);
     }
 }

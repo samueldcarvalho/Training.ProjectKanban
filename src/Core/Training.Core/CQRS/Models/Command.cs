@@ -6,9 +6,6 @@ namespace Training.Core.CQRS.Models
 {
     public abstract class Command<T> : IRequest<CommandResponse<T>>
     {
-        protected Task<bool> IsValid()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract bool IsValid();
     }
 }
