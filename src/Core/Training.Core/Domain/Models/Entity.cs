@@ -20,5 +20,8 @@ namespace Training.Core.Domain.Models
         public DateTime AlteredAt { get; private set; } = DateTime.MinValue;
         [Column(Order = 102)]
         public bool Removed { get; private set; } = false;
+
+        public void ChangeRemoved(bool isRemoved) =>
+            Removed = isRemoved;
     }
 }
