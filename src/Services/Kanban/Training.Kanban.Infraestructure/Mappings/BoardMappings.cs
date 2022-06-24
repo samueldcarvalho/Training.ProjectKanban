@@ -30,7 +30,7 @@ namespace Training.Kanban.Infraestructure.Mappings
 
             builder.HasMany(b => b.Members)
                 .WithMany(u => u.Boards)
-                .UsingEntity<Dictionary<string, object>>("m2m_board_users",
+                .UsingEntity<Dictionary<string, object>>("_board_users_m2m",
                     b => b.HasOne<User>().WithMany().HasForeignKey("UserId"),
                     b => b.HasOne<Board>().WithMany().HasForeignKey("BoardId"));
         }

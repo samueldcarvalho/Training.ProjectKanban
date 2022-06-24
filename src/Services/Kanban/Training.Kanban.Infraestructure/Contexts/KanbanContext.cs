@@ -4,6 +4,7 @@ using Training.Core.Data.Repositories;
 using Training.Kanban.Domain.Boards;
 using Training.Kanban.Domain.Teams;
 using Training.Kanban.Domain.Users;
+using Training.Kanban.Infraestructure.Extensions;
 using Training.Kanban.Infraestructure.Mappings;
 
 namespace Training.Kanban.Infraestructure.Contexts
@@ -19,6 +20,7 @@ namespace Training.Kanban.Infraestructure.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(KanbanContext).Assembly);
+            modelBuilder.SetDatabaseDefaultTypes();
             base.OnModelCreating(modelBuilder);
         }
 

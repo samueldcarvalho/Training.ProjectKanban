@@ -8,7 +8,7 @@ using Training.Kanban.Infraestructure.Contexts;
 namespace Training.Kanban.Infraestructure.Migrations
 {
     [DbContext(typeof(KanbanContext))]
-    partial class KanbanDbContextModelSnapshot : ModelSnapshot
+    partial class KanbanContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -130,7 +130,7 @@ namespace Training.Kanban.Infraestructure.Migrations
                     b.ToTable("user");
                 });
 
-            modelBuilder.Entity("m2m_board_users", b =>
+            modelBuilder.Entity("_board_users_m2m", b =>
                 {
                     b.Property<int>("BoardId")
                         .HasColumnType("int");
@@ -142,10 +142,10 @@ namespace Training.Kanban.Infraestructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("m2m_board_users");
+                    b.ToTable("_board_users_m2m");
                 });
 
-            modelBuilder.Entity("m2m_team_users", b =>
+            modelBuilder.Entity("_team_users_m2m", b =>
                 {
                     b.Property<int>("TeamId")
                         .HasColumnType("int");
@@ -157,7 +157,7 @@ namespace Training.Kanban.Infraestructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("m2m_team_users");
+                    b.ToTable("_team_users_m2m");
                 });
 
             modelBuilder.Entity("Training.Kanban.Domain.Boards.Board", b =>
@@ -192,7 +192,7 @@ namespace Training.Kanban.Infraestructure.Migrations
                     b.Navigation("Leader");
                 });
 
-            modelBuilder.Entity("m2m_board_users", b =>
+            modelBuilder.Entity("_board_users_m2m", b =>
                 {
                     b.HasOne("Training.Kanban.Domain.Boards.Board", null)
                         .WithMany()
@@ -207,7 +207,7 @@ namespace Training.Kanban.Infraestructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("m2m_team_users", b =>
+            modelBuilder.Entity("_team_users_m2m", b =>
                 {
                     b.HasOne("Training.Kanban.Domain.Teams.Team", null)
                         .WithMany()

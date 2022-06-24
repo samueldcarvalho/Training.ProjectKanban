@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Training.Kanban.Infraestructure.Migrations
 {
-    public partial class initial : Migration
+    public partial class InitialDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -63,6 +63,31 @@ namespace Training.Kanban.Infraestructure.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "_team_users_m2m",
+                columns: table => new
+                {
+                    TeamId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__team_users_m2m", x => new { x.TeamId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK__team_users_m2m_team_TeamId",
+                        column: x => x.TeamId,
+                        principalTable: "team",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK__team_users_m2m_user_UserId",
+                        column: x => x.UserId,
+                        principalTable: "user",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "board",
                 columns: table => new
                 {
@@ -97,32 +122,7 @@ namespace Training.Kanban.Infraestructure.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "m2m_team_users",
-                columns: table => new
-                {
-                    TeamId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_m2m_team_users", x => new { x.TeamId, x.UserId });
-                    table.ForeignKey(
-                        name: "FK_m2m_team_users_team_TeamId",
-                        column: x => x.TeamId,
-                        principalTable: "team",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_m2m_team_users_user_UserId",
-                        column: x => x.UserId,
-                        principalTable: "user",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "m2m_board_users",
+                name: "_board_users_m2m",
                 columns: table => new
                 {
                     BoardId = table.Column<int>(type: "int", nullable: false),
@@ -130,21 +130,31 @@ namespace Training.Kanban.Infraestructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_m2m_board_users", x => new { x.BoardId, x.UserId });
+                    table.PrimaryKey("PK__board_users_m2m", x => new { x.BoardId, x.UserId });
                     table.ForeignKey(
-                        name: "FK_m2m_board_users_board_BoardId",
+                        name: "FK__board_users_m2m_board_BoardId",
                         column: x => x.BoardId,
                         principalTable: "board",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_m2m_board_users_user_UserId",
+                        name: "FK__board_users_m2m_user_UserId",
                         column: x => x.UserId,
                         principalTable: "user",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateIndex(
+                name: "IX__board_users_m2m_UserId",
+                table: "_board_users_m2m",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX__team_users_m2m_UserId",
+                table: "_team_users_m2m",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_board_LeaderId",
@@ -155,16 +165,6 @@ namespace Training.Kanban.Infraestructure.Migrations
                 name: "IX_board_TeamId",
                 table: "board",
                 column: "TeamId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_m2m_board_users_UserId",
-                table: "m2m_board_users",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_m2m_team_users_UserId",
-                table: "m2m_team_users",
-                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_team_LeaderId",
@@ -192,10 +192,10 @@ namespace Training.Kanban.Infraestructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "m2m_board_users");
+                name: "_board_users_m2m");
 
             migrationBuilder.DropTable(
-                name: "m2m_team_users");
+                name: "_team_users_m2m");
 
             migrationBuilder.DropTable(
                 name: "board");
