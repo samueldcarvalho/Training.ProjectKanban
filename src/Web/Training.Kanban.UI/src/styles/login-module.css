@@ -127,7 +127,7 @@
 }
 
 .kb-sign-change-form {
-  background: linear-gradient(240deg, var(--color-primary) 10%, var(--color-primary-alert) 80%);
+  background: linear-gradient(90deg, var(--color-primary) 30%, var(--color-primary-alert) 100%);
   border-radius: 10px 0 0px 10px;
   padding: 20px 10px;
   display: flex;

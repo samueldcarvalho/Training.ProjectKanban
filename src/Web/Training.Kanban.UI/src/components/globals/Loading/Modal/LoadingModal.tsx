@@ -11,7 +11,7 @@ const LoadingModal = ({ isLoading, loadingText }: LoadingModalProps) => {
   return isLoading == true ? (
     <ModalGeneric>
       <div>
-        <div className={styles.loadingContainer}>
+        <div className={styles.loadingContainer + " kb-card"}>
           <LoaderSpinning />
           <div className={styles.loadingTextContainer}>
             <p>{loadingText}</p>
