@@ -2,7 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using Training.Core.CQRS.Models;
+using Training.Core.CQRS.Services;
 using Training.Kanban.API.Interfaces;
+using Training.Kanban.Application.Commands.Users;
 using Training.Kanban.Application.Models.Inputs;
 using Training.Kanban.Application.Models.Views;
 using Training.Kanban.Domain.Interfaces;
@@ -13,13 +16,15 @@ namespace Training.Kanban.API.Controllers
     [Route("api/authentication")]
     public class AuthenticationController : Controller
     {
-        private readonly IUserRepository _authenticationRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly IMediatorHandler _mediator;
         private readonly ITokenService _tokenService;
 
-        public AuthenticationController(IUserRepository authenticationRepository, ITokenService tokenService)
+        public AuthenticationController(IUserRepository authenticationRepository, ITokenService tokenService, IMediatorHandler mediator)
         {
-            _authenticationRepository = authenticationRepository;
+            _userRepository = authenticationRepository;
             _tokenService = tokenService;
+            _mediator = mediator;
         }
 
         /// <summary>
@@ -30,7 +35,7 @@ namespace Training.Kanban.API.Controllers
         [HttpPost("auth")]
         public async Task<ActionResult<JwtViewModel>> AuthenticateAsync([FromBody] LoginInputModel loginData)
         {
-            var user = await _authenticationRepository.GetByLogin(loginData.Username, loginData.Password);
+            var user = await _userRepository.GetByLogin(loginData.Username, loginData.Password);
 
             if (user == null)
                 return Unauthorized(new { message = "Usuário ou senha inválidos" });
@@ -58,7 +63,7 @@ namespace Training.Kanban.API.Controllers
         [Authorize]
         public async Task<ActionResult<UserViewModel>> GetUserInformationAsync(int userId)
         {
-            var user = await _authenticationRepository.GetById(userId);
+            var user = await _userRepository.GetById(userId);
 
             if (user == null)
                 return Unauthorized(new { message = "Usuário não encontrado" });
@@ -74,10 +79,16 @@ namespace Training.Kanban.API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<bool>> RegisterUser(RegisterUserInputModel userInput)
         {
-            var user = new User(userInput.Name, userInput.Email, userInput.Username, userInput.Password);
-            
-            await _authenticationRepository.Add(user);
-            await _authenticationRepository.UnitOfWork.Commit();
+            CommandResponse<bool> commandResponse = await _mediator
+                .SendCommand(new RegisterUserCommand(
+                        userInput.Name,
+                        userInput.Email,
+                        userInput.Username,
+                        userInput.Password
+                    ));
+
+            if (commandResponse.Result == false)
+                return BadRequest();
 
             return Ok();
         }
@@ -90,7 +101,7 @@ namespace Training.Kanban.API.Controllers
         [HttpGet("verify/email")]
         public async Task<IActionResult> VerifyEmailExists([FromQuery] string email)
         {
-            var inUse = await _authenticationRepository.VerifyEmailExistsAsync(email);
+            var inUse = await _userRepository.VerifyEmailExistsAsync(email);
 
             if (inUse)
                 return BadRequest(new { message = "Email address already in use" });
@@ -106,7 +117,7 @@ namespace Training.Kanban.API.Controllers
         [HttpGet("verify/username")]
         public async Task<IActionResult> VerifyUsernameExists([FromQuery] string username)
         {
-            var inUse = await _authenticationRepository.VerifyUsernameExistsAsync(username);
+            var inUse = await _userRepository.VerifyUsernameExistsAsync(username);
 
             if (inUse)
                 return BadRequest(new { message = "Username already in use" });

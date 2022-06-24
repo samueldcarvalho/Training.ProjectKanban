@@ -18,7 +18,7 @@ namespace Training.Kanban.Domain.Users
         public ICollection<Board> Boards { get; private set; }
         
         protected User() { }
-        public User(string name, string email, string username, string password = null)
+        public User(string name, string email, string username, string password)
         {
             Name = name;
             Email = email;
