@@ -52,6 +52,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       loadingText: "Authenticating",
     });
 
+    await delay(1000);
+
     try {
       const { token, user } = await AuthenticationService.Login({
         username,

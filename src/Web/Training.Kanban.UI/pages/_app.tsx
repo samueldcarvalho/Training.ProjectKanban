@@ -7,14 +7,17 @@ import "../src/styles/teams-module.css";
 import type { AppProps } from "next/app";
 import { AuthProvider } from "../src/contexts/Authentication/AuthContext";
 import { LoadingProvider } from "../src/contexts/Loading/LoadingContext";
+import { ToastProvider } from "../src/contexts/Toast/ToastContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <LoadingProvider>
-      <AuthProvider>
-        <Component {...pageProps} />;
-      </AuthProvider>
-    </LoadingProvider>
+    <ToastProvider>
+      <LoadingProvider>
+        <AuthProvider>
+          <Component {...pageProps} />;
+        </AuthProvider>
+      </LoadingProvider>
+    </ToastProvider>
   );
 }
 

@@ -1,0 +1,99 @@
+@keyframes ToastLoad {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 100%;
+  }
+}
+
+.toastMainContainer {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.toast {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 250px;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 10px 25px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 5px;
+
+  animation: ToastLoad 0.4s forwards cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.toast:last-child {
+  margin-bottom: 0;
+}
+
+.toast * {
+  color: #fff;
+}
+
+.toastBody {
+  display: flex;
+  width: 100%;
+  padding: 5px 25px;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.toastTitle {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.toastMessage {
+  font-size: 12px;
+}
+
+.toastEnd {
+  width: 25px;
+  align-self: flex-start;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+
+.toastEnd button {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  transform: rotateZ(45deg);
+  padding: 0;
+  margin: 0;
+}
+
+.toastEnd button:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.info {
+  background-color: var(--color-primary-alert);
+}
+
+.danger {
+  background-color: var(--color-danger-01);
+}
+
+.warning {
+  background-color: var(--warning-01);
+}
+
+.success {
+  background-color: var(--success-01);
+}
