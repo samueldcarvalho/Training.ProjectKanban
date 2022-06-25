@@ -24,17 +24,10 @@ namespace Training.Kanban.Application.Commands.Users
             if (!request.IsValid())
                 return new CommandResponse<bool>(false);
 
-            try
-            {
-                await _userRepository.Add(new User(request.Name, request.Email, request.Username, request.Password));
-                await _userRepository.UnitOfWork.Commit();
+            await _userRepository.Add(new User(request.Name, request.Email, request.Username, request.Password));
+            await _userRepository.UnitOfWork.Commit();
 
-                return new CommandResponse<bool>(true);
-            }
-            catch
-            {
-                return new CommandResponse<bool>(false);
-            }
+            return new CommandResponse<bool>(true);
         }
     }
 }

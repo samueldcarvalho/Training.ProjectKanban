@@ -19,8 +19,9 @@ namespace Training.Kanban.Infraestructure.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(KanbanContext).Assembly);
             modelBuilder.SetDatabaseDefaultTypes();
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(KanbanContext).Assembly);
+
             base.OnModelCreating(modelBuilder);
         }
 

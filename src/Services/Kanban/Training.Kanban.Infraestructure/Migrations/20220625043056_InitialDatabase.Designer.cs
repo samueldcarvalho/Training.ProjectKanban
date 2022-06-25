@@ -9,7 +9,7 @@ using Training.Kanban.Infraestructure.Contexts;
 namespace Training.Kanban.Infraestructure.Migrations
 {
     [DbContext(typeof(KanbanContext))]
-    [Migration("20220624003920_InitialDatabase")]
+    [Migration("20220625043056_InitialDatabase")]
     partial class InitialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,10 +26,12 @@ namespace Training.Kanban.Infraestructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("AlteredAt")
-                        .HasColumnType("datetime(6)");
+                        .HasPrecision(0)
+                        .HasColumnType("datetime(0)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
+                        .HasPrecision(0)
+                        .HasColumnType("datetime(0)");
 
                     b.Property<string>("Description")
                         .HasColumnType("VARCHAR(255)");
@@ -63,10 +65,12 @@ namespace Training.Kanban.Infraestructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("AlteredAt")
-                        .HasColumnType("datetime(6)");
+                        .HasPrecision(0)
+                        .HasColumnType("datetime(0)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
+                        .HasPrecision(0)
+                        .HasColumnType("datetime(0)");
 
                     b.Property<string>("Description")
                         .HasColumnType("VARCHAR(255)");
@@ -95,10 +99,12 @@ namespace Training.Kanban.Infraestructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("AlteredAt")
-                        .HasColumnType("datetime(6)");
+                        .HasPrecision(0)
+                        .HasColumnType("datetime(0)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
+                        .HasPrecision(0)
+                        .HasColumnType("datetime(0)");
 
                     b.Property<string>("Email")
                         .IsRequired()

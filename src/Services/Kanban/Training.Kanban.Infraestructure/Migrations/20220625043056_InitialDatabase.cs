@@ -25,8 +25,8 @@ namespace Training.Kanban.Infraestructure.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Password = table.Column<string>(type: "VARCHAR(26)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    AlteredAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(0)", precision: 0, nullable: false),
+                    AlteredAt = table.Column<DateTime>(type: "datetime(0)", precision: 0, nullable: false),
                     Removed = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
@@ -46,8 +46,8 @@ namespace Training.Kanban.Infraestructure.Migrations
                     Description = table.Column<string>(type: "VARCHAR(255)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     LeaderId = table.Column<int>(type: "int", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    AlteredAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(0)", precision: 0, nullable: false),
+                    AlteredAt = table.Column<DateTime>(type: "datetime(0)", precision: 0, nullable: false),
                     Removed = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
@@ -99,8 +99,8 @@ namespace Training.Kanban.Infraestructure.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     LeaderId = table.Column<int>(type: "int", nullable: false),
                     TeamId = table.Column<int>(type: "int", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    AlteredAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(0)", precision: 0, nullable: false),
+                    AlteredAt = table.Column<DateTime>(type: "datetime(0)", precision: 0, nullable: false),
                     Removed = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>

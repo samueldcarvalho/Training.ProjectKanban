@@ -30,20 +30,27 @@ namespace Training.Kanban.API.Controllers
         /// <param name="userInput"></param>
         /// <returns></returns>
         [HttpPost("register")]
-        public async Task<ActionResult<bool>> RegisterUserAsyc(RegisterUserInputModel userInput)
+        public async Task<ActionResult<bool>> RegisterUserAsyc([FromBody] RegisterUserInputModel userInput)
         {
-            CommandResponse<bool> commandResponse = await _mediator
-                .SendCommand(new RegisterUserCommand(
-                        userInput.Name,
-                        userInput.Email,
-                        userInput.Username,
-                        userInput.Password
-                    ));
+            try
+            {
+                CommandResponse<bool> commandResponse = await _mediator
+                    .SendCommand(new RegisterUserCommand(
+                            userInput.Name,
+                            userInput.Email,
+                            userInput.Username,
+                            userInput.Password
+                        ));
 
-            if (commandResponse.Result == false)
-                return BadRequest();
+                if (commandResponse.Result == false)
+                    return BadRequest();
 
-            return Ok();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = ex.Message });
+            }
         }
 
         /// <summary>
@@ -51,19 +58,26 @@ namespace Training.Kanban.API.Controllers
         /// </summary>
         /// <param name="loginData"></param>
         /// <returns></returns>
-        [HttpGet("auth")]
-        public async Task<ActionResult<JwtViewModel>> AuthenticateByLoginAsync([FromQuery] LoginInputModel loginData)
+        [HttpPost("auth")]
+        public async Task<ActionResult<JwtViewModel>> AuthenticateByLoginAsync([FromBody] LoginInputModel loginData)
         {
-            JwtViewModel jwt = await _userQueries
-                .AuthenticateUserByLogin(
-                    loginData.Username, 
-                    loginData.Password
-                    );
+            try
+            {
+                JwtViewModel jwt = await _userQueries
+                    .AuthenticateUserByLogin(
+                        loginData.Username,
+                        loginData.Password
+                        );
 
-            if (jwt == null)
-                return Unauthorized();
+                if (jwt == null)
+                    return Unauthorized();
 
-            return Ok(jwt);
+                return Ok(jwt);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
         }
 
         /// <summary>
@@ -75,12 +89,19 @@ namespace Training.Kanban.API.Controllers
         [Authorize]
         public async Task<ActionResult<UserViewModel>> GetUserInformationAsync(int userId)
         {
-            UserViewModel user = await _userQueries.GetUserById(userId);
+            try
+            {
+                UserViewModel user = await _userQueries.GetUserById(userId);
 
-            if (user == null)
-                return Unauthorized(new { message = "Usuário não encontrado" });
+                if (user == null)
+                    return Unauthorized(new { message = "Usuário não encontrado" });
 
-            return Json(user);
+                return Json(user);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
         }
 
 
@@ -101,7 +122,7 @@ namespace Training.Kanban.API.Controllers
 
                 return Ok();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new { message = ex.Message });
             }
