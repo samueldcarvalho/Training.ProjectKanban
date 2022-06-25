@@ -2,16 +2,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 :root {
-  --color-primary: #19518c;
-  --color-primary-alert: #2a6aad;
-  --color-primary-disable: #0f3c6b;
+  --color-primary: #0080f9;
+  --color-primary-alert: #2192ff;
+  --color-primary-disable: #0063e1;
 
-  --color-primary-light-01: #2a6aad;
-  --color-primary-light-02: #3d7fc4;
-  --color-primary-light-03: #4e92d9;
+  --color-primary-light-01: #6f80fc;
+  --color-primary-light-02: #8795fa;
+  --color-primary-light-03: #a2adfc;
 
-  --color-bg-primary: #fff;
+  --color-bg-primary: #ffffff;
   --color-bg-secundary: #ffffff;
+  --color-bg-03: #ebedfc;
 
   --color-border-primary: #ffffff;
 
@@ -26,7 +27,7 @@
   --color-grey-03: #999999;
   --color-grey-04: #777777;
 
-  --color-danger-01: #ff365e;
+  --color-danger-01: #ff5471;
   --color-danger-02: #d42649;
   --color-danger-02: #b3223f;
 }
@@ -71,7 +72,7 @@ a {
   margin-block: 6px;
 
   background-color: var(--color-bg-secundary);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 20px 0 rgb(69 90 100 / 8%);
 
   border: 1px solid var(--color-border-primary);
   border-radius: 3px;

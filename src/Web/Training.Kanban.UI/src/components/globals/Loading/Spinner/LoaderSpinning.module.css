@@ -2,12 +2,12 @@
   display: table;
 }
 .LoaderSpinner {
-  height: 35px;
-  width: 35px;
+  height: 25px;
+  width: 25px;
   border: 3px solid var(--color-primary);
   border-top-color: transparent;
   border-radius: 60%;
-  animation: LoaderSpinning 0.5s cubic-bezier(0.71, 0.52, 0.55, 0.63) infinite;
+  animation: 0.5s LoaderSpinning linear infinite;
 }
 
 @keyframes LoaderSpinning {
@@ -15,6 +15,6 @@
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(359deg);
   }
 }
