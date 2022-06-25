@@ -31,19 +31,11 @@ namespace Training.Kanban.Application.Queries
 
                 return new JwtViewModel
                 {
-                    User = new UserViewModel
+                    User = new UserInfoViewModel
                     {
                         Id = user.Id,
                         Email = user.Email,
                         Name = user.Name,
-                        Teams = user.Teams,
-                        Boards = user.Boards,
-                        TeamLeaderIds = user.Teams
-                            .Where(t => t.LeaderId == user.Id)
-                            .Select(t => t.Id) ?? Enumerable.Empty<int>(),
-                        BoardLeaderIds = user.Boards
-                            .Where(b => b.LeaderId == user.Id)
-                            .Select(b => b.Id) ?? Enumerable.Empty<int>(),
                     },
                     Token = _tokenService.GenerateToken(user)
                 };

@@ -24,10 +24,12 @@ namespace Training.Kanban.Infraestructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("AlteredAt")
-                        .HasColumnType("datetime(6)");
+                        .HasPrecision(0)
+                        .HasColumnType("datetime(0)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
+                        .HasPrecision(0)
+                        .HasColumnType("datetime(0)");
 
                     b.Property<string>("Description")
                         .HasColumnType("VARCHAR(255)");
@@ -61,10 +63,12 @@ namespace Training.Kanban.Infraestructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("AlteredAt")
-                        .HasColumnType("datetime(6)");
+                        .HasPrecision(0)
+                        .HasColumnType("datetime(0)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
+                        .HasPrecision(0)
+                        .HasColumnType("datetime(0)");
 
                     b.Property<string>("Description")
                         .HasColumnType("VARCHAR(255)");
@@ -93,10 +97,12 @@ namespace Training.Kanban.Infraestructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("AlteredAt")
-                        .HasColumnType("datetime(6)");
+                        .HasPrecision(0)
+                        .HasColumnType("datetime(0)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
+                        .HasPrecision(0)
+                        .HasColumnType("datetime(0)");
 
                     b.Property<string>("Email")
                         .IsRequired()
