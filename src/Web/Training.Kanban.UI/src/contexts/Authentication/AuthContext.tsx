@@ -5,6 +5,8 @@ import { User } from "../../models/User";
 import { AuthenticationService } from "../../services/Authentication/AuthenticationService";
 import * as jwtDecode from "jwt-decode";
 import { LoadingContext } from "../Loading/LoadingContext";
+import { ToastContext, ToastType } from "../Toast/ToastContext";
+import { AxiosError } from "axios";
 
 export type LoginDataType = {
   username: string;
@@ -22,6 +24,7 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
+  const { useToast } = useContext(ToastContext);
   const { LoadingHandler } = useContext(LoadingContext);
   const isAuthenticated = !!user;
 
@@ -34,9 +37,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     try {
       if (token) {
-        AuthenticationService.GetUserById((jwtDecode.default(token) as any).Id).then((u) => {
-          setUser(u);
-        });
+        AuthenticationService.GetUserById((jwtDecode.default(token) as any).Id)
+          .then((u) => {
+            setUser(u);
+          })
+          .catch((er) => useToast({ type: ToastType.Danger, title: "Error", message: er.text }));
       }
     } finally {
       LoadingHandler({
@@ -55,22 +60,34 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     await delay(1000);
 
     try {
-      const { token, user } = await AuthenticationService.Login({
-        username,
-        password,
-      });
+      try {
+        const { token, user } = await AuthenticationService.Login({
+          username,
+          password,
+        });
 
-      console.log(token, user);
+        if (!token || !user) return;
 
-      if (!token || !user) return;
+        setCookie(undefined, "kanban.token", token, {
+          maxAge: 60 * 60 * 1, // 1 hora
+        });
 
-      setCookie(undefined, "kanban.token", token, {
-        maxAge: 60 * 60 * 1, // 1 hora
-      });
+        setUser(user);
+        Router.push("/");
+      } catch (err) {
+        const er = err as AxiosError;
 
-      setUser(user);
+        let message = "";
 
-      Router.push("/");
+        if (er.response?.status == 401) message = "Invalid password or username";
+        else message = er.message;
+
+        useToast({
+          type: ToastType.Danger,
+          title: "Error",
+          message: message,
+        });
+      }
     } finally {
       LoadingHandler({
         isLoading: false,

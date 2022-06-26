@@ -41,7 +41,7 @@
 .toastBody {
   display: flex;
   width: 100%;
-  padding: 5px 25px;
+  padding: 5px 15px;
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
@@ -51,9 +51,11 @@
   margin-bottom: 5px;
   font-weight: bold;
   font-size: 16px;
+  text-align: center;
 }
 
 .toastMessage {
+  text-align: center;
   font-size: 12px;
 }
 
