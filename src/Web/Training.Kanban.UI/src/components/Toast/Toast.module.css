@@ -1,6 +1,6 @@
 @keyframes ToastLoad {
   from {
-    transform: translateX(30px);
+    transform: translateX(70px);
     opacity: 0;
   }
   to {
@@ -27,7 +27,7 @@
   box-shadow: 0 10px 25px 0px rgba(0, 0, 0, 0.2);
   margin-bottom: 5px;
 
-  animation: ToastLoad 0.4s forwards cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation: ToastLoad 0.2s forwards cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .toast:last-child {

@@ -1,6 +1,7 @@
+import { Button, ButtonBase } from "@material-ui/core";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import InvalidInputMessage from "../globals/Forms/InvalidInputMessage/InvalidInputMessage";
+import InvalidInputMessage from "../InvalidInputMessage/InvalidInputMessage";
 
 type LoginFormType = {
   onSubmit: (username: string, password: string) => void;
@@ -83,9 +84,9 @@ const LoginForm = ({ onSubmit }: LoginFormType) => {
           <p>Forgot password?&nbsp;</p>
           <a href="#">Recover here</a>
         </div>
-        <button className="kb-primary-button" type="submit">
+        <Button color="primary" variant="contained" type="submit">
           Login
-        </button>
+        </Button>
       </div>
     </form>
   );

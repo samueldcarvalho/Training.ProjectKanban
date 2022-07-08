@@ -1,5 +1,5 @@
-import ModalGeneric from "../../../main/ModalGeneric/ModalGeneric";
-import LoaderSpinning from "../Spinner/LoaderSpinning";
+import ModalGeneric from "../ModalGeneric/ModalGeneric";
+import LoaderSpinning from "../LoadingSpinner/LoaderSpinning";
 import styles from "./LoadingModal.module.css";
 
 type LoadingModalProps = {
