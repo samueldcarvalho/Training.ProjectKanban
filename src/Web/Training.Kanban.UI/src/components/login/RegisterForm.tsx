@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { API } from "../../services/Api";
-import InvalidInputMessage from "../InvalidInputMessage/InvalidInputMessage";
+import InvalidInputMessage from "../globals/Forms/InvalidInputMessage/InvalidInputMessage";
 
 type RegisterFormType = {
   onSubmit: (name: string, email: string, username: string, password: string) => void;

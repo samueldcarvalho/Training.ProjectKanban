@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useCallback, useState } from "react";
-import Toast from "../../components/Toast/ToastContainer";
+import Toast from "../../components/globals/Toast/ToastContainer";
 
 export enum ToastType {
   Success,
@@ -30,29 +30,22 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
     if (!toast.title) toast.title = "";
     if (!toast.id) toast.id = 0;
 
-    if (toastList.length <= 0) {
-      toast.id = 1;
-    } else {
-      const ids = toastList.map((t) => t.id!);
-      toast.id = Math.max(...ids) + 1;
-    }
+    toast.id = toastList.length + 1;
 
-    toastList.push(toast);
-
-    setToastList(toastList);
+    setToastList([...toastList, toast]);
   }
 
   function clearToast() {
-    setToastList(toastList.splice(0, toastList.length));
+    setToastList([]);
   }
 
   const deleteToast = useCallback(
-    (id: number) => {
+    (id) => {
+      console.log(id);
       const toastListRemovedItem = toastList.filter((t) => t.id !== id);
-
       setToastList(toastListRemovedItem);
     },
-    [toastList]
+    [toastList, setToastList]
   );
 
   return (

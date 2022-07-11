@@ -9,12 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "@fontsource/roboto": "^4.5.7",
-    "@material-ui/core": "^4.12.4",
-    "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.8.7",
     "axios": "^0.27.2",
     "jsonwebtoken-esm": "^1.0.3",
     "jwt-decode": "^3.1.2",

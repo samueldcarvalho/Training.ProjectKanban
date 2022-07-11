@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState } from "react";
-import LoadingModal from "../../components/LoadingModal/LoadingModal";
+import LoadingModal from "../../components/globals/Loading/Modal/LoadingModal";
 
 type LoadingType = {
   isLoading: boolean;

@@ -24,7 +24,7 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-  const { useToast, clearToast } = useContext(ToastContext);
+  const { useToast } = useContext(ToastContext);
   const { LoadingHandler } = useContext(LoadingContext);
   const isAuthenticated = !!user;
 
@@ -57,8 +57,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       loadingText: "Authenticating",
     });
 
-    // await delay(1000);
-    clearToast();
+    await delay(1000);
 
     try {
       try {

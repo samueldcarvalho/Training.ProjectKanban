@@ -1,4 +1,4 @@
-import { ToastContext, ToastProps, ToastType } from "../../contexts/Toast/ToastContext";
+import { ToastContext, ToastProps, ToastType } from "../../../contexts/Toast/ToastContext";
 import { MdError, MdInfo, MdWarning, MdCheckCircle } from "react-icons/md";
 import styles from "./Toast.module.css";
 import { useContext, useState } from "react";

@@ -1,7 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
 :root {
-  --color-primary: hsl(276, 91%, 43%);
+  --color-primary: #820ad1;
   --color-primary-alert: #a437ed;
   --color-primary-disable: #6e07b3;
+
+  /* --color-primary: #5ea345;
+  --color-primary-alert: #6cba4e;
+  --color-primary-disable: #4d8538; */
 
   --color-primary-light-01: #6f80fc;
   --color-primary-light-02: #8795fa;
@@ -40,6 +47,8 @@ html {
 * {
   padding: 0;
   margin: 0;
+  font-family: Roboto, sans-serif;
+  color: var(--color-font-primary);
   box-sizing: border-box;
 
   -moz-user-select: none;
@@ -133,6 +142,11 @@ a {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
+.kb-action-button:active {
+  background-color: var(--color-primary-disable);
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.3);
+}
+
 .kb-board-card {
   background: linear-gradient(0deg, var(--color-primary-disable) 0%, var(--color-primary) 35%);
 
@@ -184,7 +198,7 @@ a {
   border: none;
   border-radius: 6px;
   font-size: 10px;
-  box-shadow: 0 2px 6px #0000004d;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 
   transition: all 0.05s ease-in;
 

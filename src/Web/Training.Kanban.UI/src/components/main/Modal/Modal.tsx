@@ -1,4 +1,4 @@
-import CardTitleComponent from "../main/titlecard-component";
+import CardTitleComponent from "../titlecard-component";
 import { MdOutlineClose } from "react-icons/md"
 import styles from "./modal.module.css"
 

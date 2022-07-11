@@ -1,4 +1,4 @@
-import { ToastProps } from "../../contexts/Toast/ToastContext";
+import { ToastProps } from "../../../contexts/Toast/ToastContext";
 import styles from "./Toast.module.css";
 import Toast from "./Toast";
 
